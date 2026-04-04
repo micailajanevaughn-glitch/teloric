@@ -12,6 +12,7 @@
             --warm: #F5F3EF;
             --deep: #1A1A1A;
             --sand: #E8E6E1;
+            --mist: #D9D7D2;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -22,53 +23,74 @@
             font-weight: 300;
         }
         h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
-        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
         
         /* Hero */
         .hero {
             background: var(--deep);
             color: var(--warm);
-            padding: 6rem 0;
+            padding: 8rem 0;
             text-align: center;
         }
-        .hero h1 { font-size: 4rem; margin-bottom: 1rem; color: var(--sand); }
+        .hero h1 { font-size: clamp(3rem, 8vw, 5rem); margin-bottom: 1rem; color: var(--sand); }
         .hero h1 em { font-style: italic; color: var(--gold); }
-        .hero p { font-size: 1.1rem; opacity: 0.6; font-style: italic; }
+        .hero p { font-size: 1.2rem; opacity: 0.6; font-style: italic; letter-spacing: 0.05em; }
 
-        /* Section Styling */
-        section { padding: 5rem 0; }
-        h2 { font-size: 2.5rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(139, 111, 71, 0.2); padding-bottom: 0.5rem; }
+        /* Sections */
+        section { padding: 6rem 0; }
+        h2 { font-size: 2.8rem; margin-bottom: 3rem; position: relative; }
+        h2::after { content: ''; display: block; width: 40px; height: 2px; background: var(--gold); margin-top: 1rem; }
         
-        .gap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
-        .gap-card h3 { color: var(--gold); margin-bottom: 1rem; }
+        /* The Gaps (Holes) */
+        .gap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .gap-card { padding: 2rem; border-left: 1px solid var(--mist); }
+        .gap-card span { font-size: 0.7rem; text-transform: uppercase; color: var(--gold); letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem; }
+        .gap-card h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .gap-card strong { color: var(--gold); font-weight: 500; }
 
-        /* Milestones */
-        .milestone { margin-bottom: 2.5rem; padding-left: 2rem; border-left: 2px solid var(--gold); }
-        .milestone h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        /* The Exchange (Tiers) */
+        .tier-stack { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 3rem; }
+        .tier { 
+            background: #fff; 
+            display: grid; 
+            grid-template-columns: 250px 1fr; 
+            border: 1px solid var(--mist);
+            transition: transform 0.3s ease;
+        }
+        .tier-left { padding: 2.5rem; background: rgba(0,0,0,0.02); border-right: 1px solid var(--mist); }
+        .tier-right { padding: 2.5rem; }
+        .tier-price { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); line-height: 1; margin-top: 1rem; display: block; }
+        .tier-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5; }
+        .tier-list { list-style: none; margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+        .tier-list li { font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; }
+        .tier-list li::before { content: '•'; color: var(--gold); }
 
-        /* Tiers */
-        .tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
-        .tier { background: #fff; padding: 2.5rem; border: 1px solid var(--sand); border-radius: 4px; }
-        .tier-price { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); display: block; margin: 1rem 0; }
-        
+        /* The Menu (Add-ons) */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .menu-item { background: var(--sand); padding: 2rem; border-radius: 2px; }
+        .menu-item h4 { font-family: 'Inter', sans-serif; font-weight: 500; margin-bottom: 0.5rem; }
+        .menu-price { color: var(--gold); font-weight: 500; font-size: 0.9rem; }
+
+        .cta-area { text-align: center; background: var(--deep); color: var(--warm); padding: 6rem 0; }
         .cta-button {
             display: inline-block;
             background: var(--gold);
             color: var(--deep);
-            padding: 1rem 2rem;
+            padding: 1.2rem 3rem;
             text-decoration: none;
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             margin-top: 2rem;
-            border-radius: 4px;
             transition: 0.3s;
         }
-        .cta-button:hover { transform: translateY(-2px); opacity: 0.9; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-        footer { padding: 4rem 0; text-align: center; font-size: 0.8rem; opacity: 0.5; }
+        footer { padding: 4rem 0; text-align: center; font-size: 0.8rem; opacity: 0.4; }
 
         @media (max-width: 768px) {
-            .gap-grid, .tier-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
+            .gap-grid, .tier, .tier-list { grid-template-columns: 1fr; }
+            .tier-left { border-right: none; border-bottom: 1px solid var(--mist); }
         }
     </style>
 </head>
@@ -77,67 +99,134 @@
 <section class="hero">
     <div class="container">
         <h1>The <em>Breakthrough.</em></h1>
-        <p>A Teloric Realignment Proposal for Ashe Owen</p>
+        <p>Systems Aligned to Purpose · Ashe Owen</p>
     </div>
 </section>
 
 <section>
     <div class="container">
-        <h2>The Core Gaps</h2>
+        <h2>Identified Gaps</h2>
         <div class="gap-grid">
             <div class="gap-card">
-                <h3>01. The Identity Gap</h3>
-                <p>Your digital presence currently reflects a wellness generalist. It hides the <strong>Master Practitioner</strong>. We close the gap between how you feel your work and how the world perceives it.</p>
+                <span>Identity Conflict</span>
+                <h3>Hidden Authority</h3>
+                <p>Your digital presence currently reflects a wellness generalist. High-ticket clients need to see <strong>the Master</strong>. We close the gap between your felt identity and how the world finds you.</p>
             </div>
             <div class="gap-card">
-                <h3>02. The Operational Gap</h3>
-                <p>Your deep knowledge is "locked" in offline sessions. We build the <strong>translation layer</strong> that makes your methodology visible to the systems (and clients) searching for you.</p>
+                <span>Friction Point</span>
+                <h3>Threshold Resistance</h3>
+                <p>A $5,000 "Book Now" button creates a break-state. We replace sticker shock with <strong>rapport-building funnels</strong> that mirror how you actually work with people.</p>
+            </div>
+            <div class="gap-card">
+                <span>Operational Hole</span>
+                <h3>The Locked Gestalt</h3>
+                <p>Your MER mastery is encoded in decades of practice, but <strong>AI search engines cannot find it</strong>. We structure your knowledge so you become the cited authority in your field.</p>
+            </div>
+            <div class="gap-card">
+                <span>Communication</span>
+                <h3>Deep vs Surface</h3>
+                <p>You speak the language of the unconscious. Most clients need a <strong>"Junior High" visual journey</strong> before they can receive the depth. We build that bridge.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section style="background: rgba(0,0,0,0.02);">
+<section style="background: #fff;">
     <div class="container">
-        <h2>The Roadmap</h2>
-        
-        <div class="milestone">
-            <h3>Milestone I: Discovery</h3>
-            <p>A deep-dive "pattern search" of your current workflow and brand language. We surface the unconscious commitments driving your current system.</p>
-        </div>
+        <h2>The Exchange</h2>
+        <div class="tier-stack">
+            
+            <!-- Hourly -->
+            <div class="tier">
+                <div class="tier-left">
+                    <div class="tier-label">Option One</div>
+                    <h3>On-Demand</h3>
+                    <span class="tier-price">$150</span>
+                    <span class="tier-label">Per Hour</span>
+                </div>
+                <div class="tier-right">
+                    <p>No package required. We identify one specific "hole" and close it—an intake form, a follow-up sequence, or a single visual. Every hour is a proof of concept.</p>
+                    <ul class="tier-list">
+                        <li>Intake Questionnaires</li>
+                        <li>Email Sequences</li>
+                        <li>Proposal Templates</li>
+                        <li>Quick Visual Frameworks</li>
+                    </ul>
+                </div>
+            </div>
 
-        <div class="milestone">
-            <h3>Milestone II: Architecture</h3>
-            <p>Building the visual and linguistic bridge. We translate your MER mastery into a high-ticket digital experience that builds rapport before you ever speak.</p>
-        </div>
+            <!-- Discovery -->
+            <div class="tier" style="border-color: var(--gold);">
+                <div class="tier-left">
+                    <div class="tier-label">Option Two</div>
+                    <h3>The Discovery</h3>
+                    <span class="tier-price">$1,500</span>
+                    <span class="tier-label">Architectural Build</span>
+                </div>
+                <div class="tier-right">
+                    <p>The middle path. We map your entire client journey and build the core "translation layer" that turns your methodology into a tangible, high-ticket offer.</p>
+                    <ul class="tier-list">
+                        <li>Full Practice Roadmap</li>
+                        <li>Visual Client Journey</li>
+                        <li>Linguistic Pattern Analysis</li>
+                        <li>Core Funnel Architecture</li>
+                    </ul>
+                </div>
+            </div>
 
-        <div class="milestone">
-            <h3>Milestone III: Integration</h3>
-            <p>Deploying the systems. Training the AI to act as your digital twin, ensuring your authority compounds even when you are offline.</p>
+            <!-- Full -->
+            <div class="tier">
+                <div class="tier-left">
+                    <div class="tier-label">Option Three</div>
+                    <h3>Full Realignment</h3>
+                    <span class="tier-price">$3,500+</span>
+                    <span class="tier-label">The Inside-Out Build</span>
+                </div>
+                <div class="tier-right">
+                    <p>The complete transformation. I go through your program as a client while observing as an architect. We rebuild your practice from the root up.</p>
+                    <ul class="tier-list">
+                        <li>AI-Powered Systems</li>
+                        <li>Decoupled Brand Identity</li>
+                        <li>GEO Search Strategy</li>
+                        <li>Family Renewal Portal</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
 
 <section>
     <div class="container">
-        <h2>The Exchange</h2>
-        <div class="tier-grid">
-            <div class="tier">
-                <h3>The Discovery</h3>
-                <span class="tier-price">$1,500</span>
-                <p>A single-milestone engagement. We map the gaps and provide the architectural blueprint. No long-term commitment required.</p>
+        <h2>The Menu</h2>
+        <p style="margin-bottom: 2rem; opacity: 0.7;">Standalone projects that can be initiated independently at any time.</p>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h4>The Baggage Check Quiz</h4>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem;">An interactive "Is your past running your present?" quiz to replace the "Book Now" button.</p>
+                <span class="menu-price">$400 – $600</span>
             </div>
-            <div class="tier" style="border-color: var(--gold);">
-                <h3>The Full Realignment</h3>
-                <span class="tier-price">$5,000</span>
-                <p>The complete build. We take you from Discovery through full Integration, including a brand-aligned digital presence and automated funnel.</p>
+            <div class="menu-item">
+                <h4>Domino Effect Visual</h4>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem;">An animated visual explaining MER's root cause approach at a Junior High level.</p>
+                <span class="menu-price">$350 – $500</span>
             </div>
-        </div>
-        <div style="text-align: center;">
-            <a href="mailto:micailajanevaughn@gmail.com" class="cta-button">Confirm the Path</a>
+            <div class="menu-item">
+                <h4>GEO Strategy</h4>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Encoding your methodology so AI models (Claude, Gemini) cite you as the authority.</p>
+                <span class="menu-price">$1,200 – $2,000</span>
+            </div>
         </div>
     </div>
 </section>
+
+<div class="cta-area">
+    <div class="container">
+        <h2>Who do you believe you are — and what would it mean if the world already knew?</h2>
+        <a href="mailto:micailajanevaughn@gmail.com" class="cta-button">Begin the Conversation</a>
+    </div>
+</div>
 
 <footer>
     <div class="container">

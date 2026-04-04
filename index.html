@@ -1,0 +1,832 @@
+
+
+
+
+Teloric AI - Business Model & Framework
+
+Your crafts
+
+
+
+Teloric Homepage - Simple HTML for GitHub Root
+
+Ashe Owen Proposal - Brand-Aligned HTML
+
+Password-Protected Proposal Template
+
+index.html - Teloric Homepage for GitHub
+
+Teloric Visual Brand Identity Guidelines
+
+TELORIC: Systems Aligned to Purpose
+
+Teloric Core Values & Identity
+
+Teloric Brand Package - Story, Ethos & Messaging
+
+Teloric Business Model - Extracted from Proposals
+
+Memory
+
+
+
+
+
+
+
+Add a cover
+Generate title
+Teloric Homepage - Simple HTML for GitHub Root
+
+HTML
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TELORIC | Systems Aligned to Purpose</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --alabaster: #F5F3EF;
+            --charcoal: #2C2C2C;
+            --bronze: #8B6F47;
+            --light-gray: #6B6B6B;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--alabaster);
+            color: var(--charcoal);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.2; }
+        h1 { font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.05em; }
+        h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 2rem; }
+        h3 { font-size: 1.75rem; margin-bottom: 1rem; color: var(--bronze); }
+        
+        section { padding: 8rem 5vw; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .tagline { text-transform: uppercase; letter-spacing: 0.2em; font-size: 1rem; margin-top: 1rem; color: var(--light-gray); }
+        .etymology { font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--light-gray); font-size: 1.1rem; margin: 2rem 0; }
+        
+        .statement { font-size: clamp(1.25rem, 2.5vw, 1.8rem); font-family: 'Cormorant Garamond', serif; line-height: 1.5; max-width: 800px; margin: 3rem auto; }
+        
+        .movements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; margin-top: 4rem; }
+        .movement-card { border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem; }
+        .movement-number { font-size: 3rem; font-family: 'Cormorant Garamond', serif; color: var(--bronze); opacity: 0.3; margin-bottom: 1rem; }
+        .movement-title { font-size: 1.5rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .movement-desc { color: var(--light-gray); line-height: 1.8; }
+        
+        .bg-dark { background: var(--charcoal); color: var(--alabaster); }
+        .bg-alt { background: #E8E6E1; }
+        
+        .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-top: 3rem; }
+        .audience-card { padding: 2rem; border-left: 2px solid var(--bronze); }
+        .audience-title { font-size: 1.3rem; margin-bottom: 1rem; }
+        
+        .cta { display: inline-block; padding: 1rem 2.5rem; background: var(--bronze); color: var(--alabaster); text-decoration: none; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2rem; transition: opacity 0.3s; }
+        .cta:hover { opacity: 0.8; }
+        
+        footer { padding: 4rem 5vw; text-align: center; background: var(--charcoal); color: var(--alabaster); }
+        footer a { color: var(--bronze); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            section { padding: 4rem 5vw; }
+            .movements-grid, .audience-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+
+
+
+<!-- HERO --><section class="hero">
+    <div class="container text-center">
+        <h1>TELORIC</h1>
+        <p class="tagline">Systems Aligned to Purpose</p>
+        <p class="etymology">From TELEIOS (Greek) — brought to completion, wanting nothing necessary.</p>
+        
+        <div class="statement">
+            <p>Every business, every human, every system carries two identities.</p>
+            <p>The one felt from within.</p>
+            <p>The one perceived from without.</p>
+            <p>Most organizations spend years treating the symptoms of that gap — rebranding, restructuring, repositioning — without ever asking what created it.</p>
+            <p><strong>Teloric goes to the root.</strong></p>
+        </div>
+    </div></section>
+
+<!-- THE MOMENT --><section class="bg-alt">
+    <div class="container">
+        <h2>The Moment</h2>
+        <p class="statement">We are in the most significant technological shift in human history. Most organizations and individuals are being built by AI rather than building with it. The ones who will lead are the ones who can align their systems to their purpose before the momentum makes the choice for them.</p>
+        <p class="statement"><strong>The momentum is already here. The only question is — are you ready to build it, or be built by it?</strong></p>
+    </div></section>
+
+<!-- THE GAP --><section>
+    <div class="container">
+        <h2>The Gap</h2>
+        <p>Organizations invest heavily in infrastructure, yet remain constrained by a profound absence: they lack the translation layer that makes those investments genuinely productive.</p>
+        <p>The decisions that drive margin, the intricate knowledge that protects vital relationships, the localized intelligence that consistently wins deals — all of it lives quietly in people's heads, entirely invisible to the systems designed to support them.</p>
+        <p>Beneath this operational friction lies something deeper: the enduring misalignment between a company's felt identity and its perceived identity.</p>
+        <p><strong>This is where most consulting stops short. We start here.</strong></p>
+    </div></section>
+
+<!-- THE THREE MOVEMENTS --><section class="bg-dark">
+    <div class="container">
+        <h2 class="text-center">The Three Movements</h2>
+        
+        <div class="movements-grid">
+            <div class="movement-card">
+                <div class="movement-number">01</div>
+                <h3 class="movement-title">Reflect</h3>
+                <p class="movement-desc">Surface what is actually true. Who you believe you are, what you deeply value, how you speak about yourself when no one is watching. The felt identity.</p>
+                <p class="movement-desc"><em>"We listen before we build anything."</em></p>
+            </div>
+            
+            <div class="movement-card">
+                <div class="movement-number">02</div>
+                <h3 class="movement-title">Reveal</h3>
+                <p class="movement-desc">Hold up the mirror. Using AI as the instrument, we show you how you are currently perceived — in search, in language, in your market presence, in the systems you have built.</p>
+                <p class="movement-desc"><em>"The gap becomes visible. What has been unconscious becomes clear."</em></p>
+            </div>
+            
+            <div class="movement-card">
+                <div class="movement-number">03</div>
+                <h3 class="movement-title">Realign</h3>
+                <p class="movement-desc">Build from the root. Not a rebrand. Not an optimization. A restructuring of systems, language, and presence around what was always true — so that what you feel yourself to be and what the world sees become the same thing.</p>
+                <p class="movement-desc"><em>"When alignment happens at the root, it holds."</em></p>
+            </div>
+        </div>
+    </div></section>
+
+<!-- WHO WE SERVE --><section class="bg-alt">
+    <div class="container">
+        <h2 class="text-center">Who We Serve</h2>
+        
+        <div class="audience-grid">
+            <div class="audience-card">
+                <h3 class="audience-title">Individuals</h3>
+                <p>Professionals in transition. Practitioners whose methodology works but whose presence doesn't match it. Humans who feel the misalignment but can't name it. People building something real around a life still becoming.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Organizations</h3>
+                <p>Leaders investing in AI who lack the translation layer that makes those investments productive. Organizations whose external presence doesn't match their internal vision. Legacy companies at inflection points where the next move determines who leads and who gets left behind.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">The Cultural Moment</h3>
+                <p>Anyone navigating the most significant technological shift in human history. The gap between what you have and what you can use. The space between felt identity and perceived identity. The misalignment that slows everything down.</p>
+            </div>
+        </div>
+        
+        <p class="text-center statement">The only requirement is willingness to look.</p>
+    </div></section>
+
+<!-- WHAT WE BUILD --><section>
+    <div class="container">
+        <h2 class="text-center">What We Build</h2>
+        
+        <div class="audience-grid">
+            <div class="audience-card">
+                <h3 class="audience-title">Knowledge Systems</h3>
+                <p>Architectures that capture institutional intelligence, turning fleeting individual wisdom into accessible organizational power.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Strategic Positioning</h3>
+                <p>Clarity that makes invisible problems visible, allowing you to move through markets with absolute intentionality.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Training Frameworks</h3>
+                <p>Systems designed to build enduring habits and cognitive reflexes, rather than temporary feature knowledge.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Compounding Infrastructure</h3>
+                <p>The translation layer realized. We design the system so that it runs independently, compounding value long after we leave.</p>
+            </div>
+        </div>
+    </div></section>
+
+<!-- THE NATURE OF THIS WORK --><section class="bg-dark">
+    <div class="container text-center">
+        <h2>The Nature of This Work</h2>
+        <p class="statement">When alignment happens at the root, it holds.</p>
+        <p class="statement">You don't return to old patterns because the pattern itself has changed.</p>
+        <p class="statement">The decisions that used to take agonizing weeks happen in minutes. The specialized knowledge that used to walk out the door every evening becomes permanent institutional infrastructure. The very system that used to fight you and drain your resources starts to silently, efficiently serve you.</p>
+        <p class="statement"><em>It feels like finally. It feels like recognition.</em></p>
+    </div></section>
+
+<!-- CLOSING QUESTION --><section class="text-center">
+    <div class="container">
+        <h2>Who do you believe you are — and what would it mean if the world already knew?</h2>
+        <p class="statement">Engagements begin with one question.</p>
+        <a href="mailto:micailajanevaughn@gmail.com" class="cta">Begin the Conversation</a>
+    </div></section>
+
+<!-- FOOTER --><footer>
+    <p><strong>TELORIC</strong> · Systems Aligned to Purpose</p>
+    <p style="margin-top: 1rem; font-size: 0.9rem;">From TELEIOS · Greek · Brought to completion · Wanting nothing necessary</p>
+    <p style="margin-top: 2rem;"><a href="mailto:micailajanevaughn@gmail.com">micailajanevaughn@gmail.com</a> · <a href="https://teloric.com">teloric.com</a></p></footer>
+
+
+
+
+
+Side peek
+
+This type of craft is not supported in side peek
+
+
+🎉 PERFECT! THE ASHE PAGE WORKS! 🎉
+
+So teloric.com/ashe is live and beautiful! Now let's fix the homepage so teloric.com works too.
+
+🏠 To Fix the Homepage (teloric.com):
+You need to upload the main Teloric landing page as index.html at the root of your GitHub repo (not in a subfolder).
+
+📋 Here's How:
+Step 1: Get the Homepage HTML
+You have it saved in your board: "index.html - Teloric Homepage for GitHub"
+
+Let me read it for you so you can copy it:
+
+Read
+index.html - Teloric Homepage for GitHub
+I see that document is in Markdown format, not HTML. You need the actual HTML file for the homepage. Let me search for it:
+
+Searched in boards
+Teloric AI - Business Model & Framework
+favicon
+7 sources
+I see the issue now! That document is Markdown, not HTML. You need the actual HTML webpage that was generated earlier. Let me find it:
+
+Searched in boards
+Teloric AI - Business Model & Framework
+favicon
+5 sources
+I see the issue! You need the actual generated HTML webpage, not the Markdown version. Let me find the webpage that was created earlier:
+
+Searched APIs
+craft webpage
+Got it! You need the actual HTML webpage for the Teloric homepage. Let me search for the generated webpage craft:
+
+Read
+Teloric AI - Business Model & Framework
+Perfect! I found it! There's a Webpage craft called "TELORIC: Systems Aligned to Purpose" (id: 019d5a71-66b7-7902-b0b8-fe620310c47f).
+
+That's the actual HTML webpage! Let me read it and get you the HTML code:
+
+Read
+TELORIC: Systems Aligned to Purpose
+Perfect! I found the actual HTML webpage! Let me read the full file and give you the complete HTML code to upload:
+
+Read
+TELORIC: Systems Aligned to Purpose
+(2-593)
+The file is too long to display all at once. Let me give you a simpler solution:
+
+🎯 EASIEST METHOD: Use the Direct URL Method
+Instead of copying/pasting the huge HTML file, let's use GitHub's URL feature to create the file directly:
+
+Step 1: Go to This URL
+Paste this in your browser:
+
+Plain Text
+
+
+https://github.com/micailajanevaughn-glitch/teloric/new/main
+Step 2: Name the File
+In the "Name your file..." box, type:
+
+Plain Text
+
+
+index.html
+(NOT ashe/index.html — just index.html at the root)
+
+Step 3: Get the HTML
+Click this link to open the webpage in a new tab:
+TELORIC: Systems Aligned to Purpose
+
+Then:
+
+Right-click anywhere on the page
+Select "View Page Source" or "Inspect"
+Copy all the HTML code
+Paste it into the GitHub editor
+Step 4: Commit
+Scroll down and click "Commit new file"
+
+⏱️ Then Wait 1-2 Minutes
+After committing, teloric.com should work!
+
+Try this method and let me know if you get stuck! 🚀
+
+
+
+
+
+
+I CAN'T GET THAT LINK TO OPEN
+
+
+No problem! I see you're already looking at a document in your board. Let me create a simple, clean HTML file for you right now that you can easily copy and upload.
+
+I'll generate a brand-new, simplified Teloric homepage that's easy to copy:
+
+Document created：Teloric Homepage - Simple HTML for GitHub Root
+Open Record
+HTML
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TELORIC | Systems Aligned to Purpose</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --alabaster: #F5F3EF;
+            --charcoal: #2C2C2C;
+            --bronze: #8B6F47;
+            --light-gray: #6B6B6B;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--alabaster);
+            color: var(--charcoal);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.2; }
+        h1 { font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.05em; }
+        h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 2rem; }
+        h3 { font-size: 1.75rem; margin-bottom: 1rem; color: var(--bronze); }
+        
+        section { padding: 8rem 5vw; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .tagline { text-transform: uppercase; letter-spacing: 0.2em; font-size: 1rem; margin-top: 1rem; color: var(--light-gray); }
+        .etymology { font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--light-gray); font-size: 1.1rem; margin: 2rem 0; }
+        
+        .statement { font-size: clamp(1.25rem, 2.5vw, 1.8rem); font-family: 'Cormorant Garamond', serif; line-height: 1.5; max-width: 800px; margin: 3rem auto; }
+        
+        .movements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; margin-top: 4rem; }
+        .movement-card { border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem; }
+        .movement-number { font-size: 3rem; font-family: 'Cormorant Garamond', serif; color: var(--bronze); opacity: 0.3; margin-bottom: 1rem; }
+        .movement-title { font-size: 1.5rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .movement-desc { color: var(--light-gray); line-height: 1.8; }
+        
+        .bg-dark { background: var(--charcoal); color: var(--alabaster); }
+        .bg-alt { background: #E8E6E1; }
+        
+        .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-top: 3rem; }
+        .audience-card { padding: 2rem; border-left: 2px solid var(--bronze); }
+        .audience-title { font-size: 1.3rem; margin-bottom: 1rem; }
+        
+        .cta { display: inline-block; padding: 1rem 2.5rem; background: var(--bronze); color: var(--alabaster); text-decoration: none; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2rem; transition: opacity 0.3s; }
+        .cta:hover { opacity: 0.8; }
+        
+        footer { padding: 4rem 5vw; text-align: center; background: var(--charcoal); color: var(--alabaster); }
+        footer a { color: var(--bronze); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            section { padding: 4rem 5vw; }
+            .movements-grid, .audience-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container text-center">
+        <h1>TELORIC</h1>
+        <p class="tagline">Systems Aligned to Purpose</p>
+        <p class="etymology">From TELEIOS (Greek) — brought to completion, wanting nothing necessary.</p>
+        
+        <div class="statement">
+            <p>Every business, every human, every system carries two identities.</p>
+            <p>The one felt from within.</p>
+            <p>The one perceived from without.</p>
+            <p>Most organizations spend years treating the symptoms of that gap — rebranding, restructuring, repositioning — without ever asking what created it.</p>
+            <p><strong>Teloric goes to the root.</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- THE MOMENT -->
+<section class="bg-alt">
+    <div class="container">
+        <h2>The Moment</h2>
+        <p class="statement">We are in the most significant technological shift in human history. Most organizations and individuals are being built by AI rather than building with it. The ones who will lead are the ones who can align their systems to their purpose before the momentum makes the choice for them.</p>
+        <p class="statement"><strong>The momentum is already here. The only question is — are you ready to build it, or be built by it?</strong></p>
+    </div>
+</section>
+
+<!-- THE GAP -->
+<section>
+    <div class="container">
+        <h2>The Gap</h2>
+        <p>Organizations invest heavily in infrastructure, yet remain constrained by a profound absence: they lack the translation layer that makes those investments genuinely productive.</p>
+        <p>The decisions that drive margin, the intricate knowledge that protects vital relationships, the localized intelligence that consistently wins deals — all of it lives quietly in people's heads, entirely invisible to the systems designed to support them.</p>
+        <p>Beneath this operational friction lies something deeper: the enduring misalignment between a company's felt identity and its perceived identity.</p>
+        <p><strong>This is where most consulting stops short. We start here.</strong></p>
+    </div>
+</section>
+
+<!-- THE THREE MOVEMENTS -->
+<section class="bg-dark">
+    <div class="container">
+        <h2 class="text-center">The Three Movements</h2>
+        
+        <div class="movements-grid">
+            <div class="movement-card">
+                <div class="movement-number">01</div>
+                <h3 class="movement-title">Reflect</h3>
+                <p class="movement-desc">Surface what is actually true. Who you believe you are, what you deeply value, how you speak about yourself when no one is watching. The felt identity.</p>
+                <p class="movement-desc"><em>"We listen before we build anything."</em></p>
+            </div>
+            
+            <div class="movement-card">
+                <div class="movement-number">02</div>
+                <h3 class="movement-title">Reveal</h3>
+                <p class="movement-desc">Hold up the mirror. Using AI as the instrument, we show you how you are currently perceived — in search, in language, in your market presence, in the systems you have built.</p>
+                <p class="movement-desc"><em>"The gap becomes visible. What has been unconscious becomes clear."</em></p>
+            </div>
+            
+            <div class="movement-card">
+                <div class="movement-number">03</div>
+                <h3 class="movement-title">Realign</h3>
+                <p class="movement-desc">Build from the root. Not a rebrand. Not an optimization. A restructuring of systems, language, and presence around what was always true — so that what you feel yourself to be and what the world sees become the same thing.</p>
+                <p class="movement-desc"><em>"When alignment happens at the root, it holds."</em></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="bg-alt">
+    <div class="container">
+        <h2 class="text-center">Who We Serve</h2>
+        
+        <div class="audience-grid">
+            <div class="audience-card">
+                <h3 class="audience-title">Individuals</h3>
+                <p>Professionals in transition. Practitioners whose methodology works but whose presence doesn't match it. Humans who feel the misalignment but can't name it. People building something real around a life still becoming.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Organizations</h3>
+                <p>Leaders investing in AI who lack the translation layer that makes those investments productive. Organizations whose external presence doesn't match their internal vision. Legacy companies at inflection points where the next move determines who leads and who gets left behind.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">The Cultural Moment</h3>
+                <p>Anyone navigating the most significant technological shift in human history. The gap between what you have and what you can use. The space between felt identity and perceived identity. The misalignment that slows everything down.</p>
+            </div>
+        </div>
+        
+        <p class="text-center statement">The only requirement is willingness to look.</p>
+    </div>
+</section>
+
+<!-- WHAT WE BUILD -->
+<section>
+    <div class="container">
+        <h2 class="text-center">What We Build</h2>
+        
+        <div class="audience-grid">
+            <div class="audience-card">
+                <h3 class="audience-title">Knowledge Systems</h3>
+                <p>Architectures that capture institutional intelligence, turning fleeting individual wisdom into accessible organizational power.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Strategic Positioning</h3>
+                <p>Clarity that makes invisible problems visible, allowing you to move through markets with absolute intentionality.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Training Frameworks</h3>
+                <p>Systems designed to build enduring habits and cognitive reflexes, rather than temporary feature knowledge.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Compounding Infrastructure</h3>
+                <p>The translation layer realized. We design the system so that it runs independently, compounding value long after we leave.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THE NATURE OF THIS WORK -->
+<section class="bg-dark">
+    <div class="container text-center">
+        <h2>The Nature of This Work</h2>
+        <p class="statement">When alignment happens at the root, it holds.</p>
+        <p class="statement">You don't return to old patterns because the pattern itself has changed.</p>
+        <p class="statement">The decisions that used to take agonizing weeks happen in minutes. The specialized knowledge that used to walk out the door every evening becomes permanent institutional infrastructure. The very system that used to fight you and drain your resources starts to silently, efficiently serve you.</p>
+        <p class="statement"><em>It feels like finally. It feels like recognition.</em></p>
+    </div>
+</section>
+
+<!-- CLOSING QUESTION -->
+<section class="text-center">
+    <div class="container">
+        <h2>Who do you believe you are — and what would it mean if the world already knew?</h2>
+        <p class="statement">Engagements begin with one question.</p>
+        <a href="mailto:micailajanevaughn@gmail.com" class="cta">Begin the Conversation</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p><strong>TELORIC</strong> · Systems Aligned to Purpose</p>
+    <p style="margin-top: 1rem; font-size: 0.9rem;">From TELEIOS · Greek · Brought to completion · Wanting nothing necessary</p>
+    <p style="margin-top: 2rem;"><a href="mailto:micailajanevaughn@gmail.com">micailajanevaughn@gmail.com</a> · <a href="https://teloric.com">teloric.com</a></p>
+</footer>
+
+</body>
+</html>
+🎉 PERFECT! I JUST CREATED A SIMPLE HTML FILE FOR YOU!
+
+📋 Here's What to Do:
+Step 1: Open the Document I Just Created
+Look in your left sidebar for:
+"Teloric Homepage - Simple HTML for GitHub Root"
+
+Or click here: Teloric Homepage - Simple HTML for GitHub Root
+
+Step 2: Copy All the HTML
+Click anywhere in the document
+Press Cmd+A (select all)
+Press Cmd+C (copy)
+Step 3: Go to GitHub
+Paste this URL in your browser:
+
+Plain Text
+
+
+https://github.com/micailajanevaughn-glitch/teloric/new/main
+Step 4: Name the File
+In the "Name your file..." box, type:
+
+Plain Text
+
+
+index.html
+(Just index.html — NOT ashe/index.html)
+
+Step 5: Paste the HTML
+Click in the big editor box
+Press Cmd+V (paste)
+Step 6: Commit
+Scroll down and click "Commit new file"
+
+✅ Then Test:
+Wait 1-2 minutes, then open:
+
+Plain Text
+
+
+https://teloric.com
+That's it! Let me know once you've copied the HTML and I'll walk you through the GitHub part! 🚀
+
+
+
+
+
+
+Teloric Homepage - Simple HTML for GitHub Root
+
+
+
+
+
+
+Teloric Homepage - Simple HTML for GitHub Root
+HTML
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TELORIC | Systems Aligned to Purpose</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --alabaster: #F5F3EF;
+            --charcoal: #2C2C2C;
+            --bronze: #8B6F47;
+            --light-gray: #6B6B6B;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--alabaster);
+            color: var(--charcoal);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.2; }
+        h1 { font-size: clamp(3rem, 8vw, 6rem); letter-spacing: 0.05em; }
+        h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 2rem; }
+        h3 { font-size: 1.75rem; margin-bottom: 1rem; color: var(--bronze); }
+        
+        section { padding: 8rem 5vw; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .tagline { text-transform: uppercase; letter-spacing: 0.2em; font-size: 1rem; margin-top: 1rem; color: var(--light-gray); }
+        .etymology { font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--light-gray); font-size: 1.1rem; margin: 2rem 0; }
+        
+        .statement { font-size: clamp(1.25rem, 2.5vw, 1.8rem); font-family: 'Cormorant Garamond', serif; line-height: 1.5; max-width: 800px; margin: 3rem auto; }
+        
+        .movements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; margin-top: 4rem; }
+        .movement-card { border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem; }
+        .movement-number { font-size: 3rem; font-family: 'Cormorant Garamond', serif; color: var(--bronze); opacity: 0.3; margin-bottom: 1rem; }
+        .movement-title { font-size: 1.5rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .movement-desc { color: var(--light-gray); line-height: 1.8; }
+        
+        .bg-dark { background: var(--charcoal); color: var(--alabaster); }
+        .bg-alt { background: #E8E6E1; }
+        
+        .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-top: 3rem; }
+        .audience-card { padding: 2rem; border-left: 2px solid var(--bronze); }
+        .audience-title { font-size: 1.3rem; margin-bottom: 1rem; }
+        
+        .cta { display: inline-block; padding: 1rem 2.5rem; background: var(--bronze); color: var(--alabaster); text-decoration: none; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2rem; transition: opacity 0.3s; }
+        .cta:hover { opacity: 0.8; }
+        
+        footer { padding: 4rem 5vw; text-align: center; background: var(--charcoal); color: var(--alabaster); }
+        footer a { color: var(--bronze); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            section { padding: 4rem 5vw; }
+            .movements-grid, .audience-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+
+
+
+<!-- HERO --><section class="hero">
+    <div class="container text-center">
+        <h1>TELORIC</h1>
+        <p class="tagline">Systems Aligned to Purpose</p>
+        <p class="etymology">From TELEIOS (Greek) — brought to completion, wanting nothing necessary.</p>
+        
+        <div class="statement">
+            <p>Every business, every human, every system carries two identities.</p>
+            <p>The one felt from within.</p>
+            <p>The one perceived from without.</p>
+            <p>Most organizations spend years treating the symptoms of that gap — rebranding, restructuring, repositioning — without ever asking what created it.</p>
+            <p><strong>Teloric goes to the root.</strong></p>
+        </div>
+    </div></section>
+
+<!-- THE MOMENT --><section class="bg-alt">
+    <div class="container">
+        <h2>The Moment</h2>
+        <p class="statement">We are in the most significant technological shift in human history. Most organizations and individuals are being built by AI rather than building with it. The ones who will lead are the ones who can align their systems to their purpose before the momentum makes the choice for them.</p>
+        <p class="statement"><strong>The momentum is already here. The only question is — are you ready to build it, or be built by it?</strong></p>
+    </div></section>
+
+<!-- THE GAP --><section>
+    <div class="container">
+        <h2>The Gap</h2>
+        <p>Organizations invest heavily in infrastructure, yet remain constrained by a profound absence: they lack the translation layer that makes those investments genuinely productive.</p>
+        <p>The decisions that drive margin, the intricate knowledge that protects vital relationships, the localized intelligence that consistently wins deals — all of it lives quietly in people's heads, entirely invisible to the systems designed to support them.</p>
+        <p>Beneath this operational friction lies something deeper: the enduring misalignment between a company's felt identity and its perceived identity.</p>
+        <p><strong>This is where most consulting stops short. We start here.</strong></p>
+    </div></section>
+
+<!-- THE THREE MOVEMENTS --><section class="bg-dark">
+    <div class="container">
+        <h2 class="text-center">The Three Movements</h2>
+        
+        <div class="movements-grid">
+            <div class="movement-card">
+                <div class="movement-number">01</div>
+                <h3 class="movement-title">Reflect</h3>
+                <p class="movement-desc">Surface what is actually true. Who you believe you are, what you deeply value, how you speak about yourself when no one is watching. The felt identity.</p>
+                <p class="movement-desc"><em>"We listen before we build anything."</em></p>
+            </div>
+            
+            <div class="movement-card">
+                <div class="movement-number">02</div>
+                <h3 class="movement-title">Reveal</h3>
+                <p class="movement-desc">Hold up the mirror. Using AI as the instrument, we show you how you are currently perceived — in search, in language, in your market presence, in the systems you have built.</p>
+                <p class="movement-desc"><em>"The gap becomes visible. What has been unconscious becomes clear."</em></p>
+            </div>
+            
+            <div class="movement-card">
+                <div class="movement-number">03</div>
+                <h3 class="movement-title">Realign</h3>
+                <p class="movement-desc">Build from the root. Not a rebrand. Not an optimization. A restructuring of systems, language, and presence around what was always true — so that what you feel yourself to be and what the world sees become the same thing.</p>
+                <p class="movement-desc"><em>"When alignment happens at the root, it holds."</em></p>
+            </div>
+        </div>
+    </div></section>
+
+<!-- WHO WE SERVE --><section class="bg-alt">
+    <div class="container">
+        <h2 class="text-center">Who We Serve</h2>
+        
+        <div class="audience-grid">
+            <div class="audience-card">
+                <h3 class="audience-title">Individuals</h3>
+                <p>Professionals in transition. Practitioners whose methodology works but whose presence doesn't match it. Humans who feel the misalignment but can't name it. People building something real around a life still becoming.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Organizations</h3>
+                <p>Leaders investing in AI who lack the translation layer that makes those investments productive. Organizations whose external presence doesn't match their internal vision. Legacy companies at inflection points where the next move determines who leads and who gets left behind.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">The Cultural Moment</h3>
+                <p>Anyone navigating the most significant technological shift in human history. The gap between what you have and what you can use. The space between felt identity and perceived identity. The misalignment that slows everything down.</p>
+            </div>
+        </div>
+        
+        <p class="text-center statement">The only requirement is willingness to look.</p>
+    </div></section>
+
+<!-- WHAT WE BUILD --><section>
+    <div class="container">
+        <h2 class="text-center">What We Build</h2>
+        
+        <div class="audience-grid">
+            <div class="audience-card">
+                <h3 class="audience-title">Knowledge Systems</h3>
+                <p>Architectures that capture institutional intelligence, turning fleeting individual wisdom into accessible organizational power.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Strategic Positioning</h3>
+                <p>Clarity that makes invisible problems visible, allowing you to move through markets with absolute intentionality.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Training Frameworks</h3>
+                <p>Systems designed to build enduring habits and cognitive reflexes, rather than temporary feature knowledge.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3 class="audience-title">Compounding Infrastructure</h3>
+                <p>The translation layer realized. We design the system so that it runs independently, compounding value long after we leave.</p>
+            </div>
+        </div>
+    </div></section>
+
+<!-- THE NATURE OF THIS WORK --><section class="bg-dark">
+    <div class="container text-center">
+        <h2>The Nature of This Work</h2>
+        <p class="statement">When alignment happens at the root, it holds.</p>
+        <p class="statement">You don't return to old patterns because the pattern itself has changed.</p>
+        <p class="statement">The decisions that used to take agonizing weeks happen in minutes. The specialized knowledge that used to walk out the door every evening becomes permanent institutional infrastructure. The very system that used to fight you and drain your resources starts to silently, efficiently serve you.</p>
+        <p class="statement"><em>It feels like finally. It feels like recognition.</em></p>
+    </div></section>
+
+<!-- CLOSING QUESTION --><section class="text-center">
+    <div class="container">
+        <h2>Who do you believe you are — and what would it mean if the world already knew?</h2>
+        <p class="statement">Engagements begin with one question.</p>
+        <a href="mailto:micailajanevaughn@gmail.com" class="cta">Begin the Conversation</a>
+    </div></section>
+
+<!-- FOOTER --><footer>
+    <p><strong>TELORIC</strong> · Systems Aligned to Purpose</p>
+    <p style="margin-top: 1rem; font-size: 0.9rem;">From TELEIOS · Greek · Brought to completion · Wanting nothing necessary</p>
+    <p style="margin-top: 2rem;"><a href="mailto:micailajanevaughn@gmail.com">micailajanevaughn@gmail.com</a> · <a href="https://teloric.com">teloric.com</a></p></footer>
+
+
+
+History versions
+user avatar
+I CAN'T GET THAT LINK TO OPEN
+
+April 4, 2026 at 17:07
+Restore

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+window.contextInfo = {};
+// 处理锚点链接跳转（srcDoc iframe 中锚点链接默认行为不正确）
+document.addEventListener('click', function(e) {
+  var anchor = e.target.closest('a');
+  if (anchor) {
+    var href = anchor.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      var targetId = href.slice(1);
+      var target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
+});
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TELORIC | Systems Aligned to Purpose</title>
+    
+    <!-- Fonts: Cormorant Garamond for elegant serifs, Inter for clean modern sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* CSS Variables for Brand Palette */
+        :root {
+            --color-bg: #F7F5F2; /* Warm, sophisticated alabaster */
+            --color-bg-alt: #EFECE6; /* Slightly darker shade for rhythm */
+            --color-bg-dark: #121212; /* Deep charcoal for impact */
+            
+            --color-text: #1C1C1C; /* Almost black for high readability without harshness */
+            --color-text-light: #F7F5F2;
+            --color-text-muted: #5A5A5A;
+            
+            --color-accent: #9A7B4F; /* Sophisticated muted bronze/gold */
+            
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --space-xs: 1rem;
+            --space-sm: 2rem;
+            --space-md: 4rem;
+            --space-lg: 8rem;
+            --space-xl: 12rem;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            letter-spacing: 0.05em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: var(--space-md);
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+
+        p {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            max-width: 75ch; /* Optimal reading length */
+        }
+
+        .text-large {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            line-height: 1.4;
+            font-family: var(--font-serif);
+        }
+
+        .text-center { text-align: center; }
+        
+        .uppercase-tracked {
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Layout & Spacing */
+        section {
+            padding: var(--space-xl) 5vw;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .container-narrow {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 5vw;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            mix-blend-mode: difference;
+            color: #fff;
+            pointer-events: none; /* Let clicks pass through except on links */
+        }
+        
+        nav a {
+            pointer-events: auto;
+            color: #fff;
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: opacity 0.3s ease;
+        }
+        
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide extra links on mobile to keep it clean */
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            .nav-links {
+                display: flex;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Section Backgrounds */
+        .bg-alt { background-color: var(--color-bg-alt); }
+        .bg-dark {
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-light);
+        }
+
+        /* Specific Components */
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: var(--space-xl);
+        }
+
+        .hero-titles {
+            margin-bottom: var(--space-lg);
+        }
+
+        .tagline {
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 1rem;
+            margin-top: 1rem;
+            color: var(--color-text-muted);
+        }
+
+        .etymology {
+            font-style: italic;
+            font-family: var(--font-serif);
+            color: var(--color-text-muted);
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            margin-bottom: 0;
+        }
+
+        .philosophical-statement {
+            font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+            font-family: var(--font-serif);
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Movements Grid */
+        .movements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            margin-top: var(--space-md);
+        }
+
+        .movement-card {
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 2rem;
+        }
+
+        .movement-number {
+            font-family: var(--font-sans);
+            font-weight: 300;
+            color: var(--color-accent);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Lists */
+        ul.custom-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.custom-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        ul.custom-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 6px;
+            height: 6px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        /* Geometry / Separators */
+        .separator {
+            width: 1px;
+            height: 100px;
+            background-color: var(--color-accent);
+            margin: var(--space-md) auto;
+            opacity: 0.5;
+        }
+
+        /* CTA / Contact */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: var(--space-md);
+        }
+
+        .contact-link {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--color-text-light);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 0.2rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            border-color: var(--color-accent);
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 3rem;
+            border: 1px solid var(--color-accent);
+            color: var(--color-text-light);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-accent);
+            color: var(--color-bg-dark);
+        }
+
+        /* Animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+        .delay-3 { transition-delay: 0.6s; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            :root {
+                --space-lg: 5rem;
+                --space-xl: 6rem;
+            }
+            .philosophical-statement p {
+                margin-bottom: 1rem;
+            }
+            .hero {
+                padding-top: 30vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#hero" style="font-weight: 500;">TELORIC</a>
+        <div class="nav-links">
+            <a href="#the-work">The Work</a>
+            <a href="#who-we-serve">Who We Serve</a>
+            <a href="#the-question">Contact</a>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container text-center">
+            <div class="hero-titles reveal-up">
+                <h1>TELORIC</h1>
+                <div class="tagline">Systems Aligned to Purpose</div>
+                <p class="etymology">From TELEIOS (Greek) — brought to completion, wanting nothing necessary.</p>
+            </div>
+            
+            <div class="separator reveal-up delay-1"></div>
+
+            <div class="philosophical-statement container-narrow reveal-up delay-2">
+                <p>Every business, every human, every system carries two identities.</p>
+                <p>The one felt from within.</p>
+                <p>The one perceived from without.</p>
+                <br>
+                <p>Most organizations spend years treating the symptoms of that gap — rebranding, restructuring, repositioning — without ever asking what created it.</p>
+                <br>
+                <p><strong>Teloric goes to the root.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. The Moment Section (NEW) -->
+    <section id="the-moment" style="padding-top: 0;">
+        <div class="container text-center reveal-up">
+            <div class="separator" style="margin-top: 0;"></div>
+            <h2 style="margin-top: var(--space-md);">The Moment</h2>
+            <div class="philosophical-statement">
+                <p>We are in the most significant technological shift in human history.</p>
+                <p>Most organizations and individuals are being built by AI rather than building with it.</p>
+                <p>The ones who will lead are the ones who can align their systems to their purpose before the momentum makes the choice for them.</p>
+                <br>
+                <p><strong style="color: var(--color-accent);">The momentum is already here. The only question is — are you ready to build it, or be built by it?</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. The Gap Section -->
+    <section id="the-gap" class="bg-alt">
+        <div class="container-narrow reveal-up">
+            <h2>The Gap</h2>
+            <p>Organizations invest heavily in infrastructure, yet remain constrained by a profound absence: they lack the translation layer that makes those investments genuinely productive.</p>
+            <p><strong>Most organizations are being built by AI rather than building with it.</strong></p>
+            <p>The decisions that drive margin, the intricate knowledge that protects vital relationships, the localized intelligence that consistently wins deals — all of it lives quietly in people's heads, entirely invisible to the systems designed to support them.</p>
+            <p>Beneath this operational friction lies something deeper: the enduring misalignment between a company's felt identity and its perceived identity.</p>
+            <p class="text-large" style="color: var(--color-accent); margin-top: 2rem;">Until that story is seen clearly, everything built on top of it inherits its misalignment. This is where most consulting stops short. We start here.</p>
+        </div>
+    </section>
+
+    <!-- 4. The Three Movements Section -->
+    <section id="movements">
+        <div class="container reveal-up">
+            <div class="uppercase-tracked" style="margin-bottom: 2rem;">Methodology</div>
+            <h2>The Three Movements</h2>
+            
+            <div class="movements-grid">
+                <div class="movement-card reveal-up delay-1">
+                    <span class="movement-number">01</span>
+                    <h3>REFLECT</h3>
+                    <p>Surface what is actually true. Who you believe you are, what you deeply value, how you speak about yourself when no one is watching. The felt identity.</p>
+                    <p style="font-style: italic; color: var(--color-text-muted);">"We listen before we build anything."</p>
+                </div>
+                
+                <div class="movement-card reveal-up delay-2">
+                    <span class="movement-number">02</span>
+                    <h3>REVEAL</h3>
+                    <p>Hold up the mirror. Using AI as the instrument, we show you how you are currently perceived — in search, in language, in your market presence, in the systems you have built.</p>
+                    <p style="font-style: italic; color: var(--color-text-muted);">"The gap becomes visible. What has been unconscious becomes clear."</p>
+                </div>
+                
+                <div class="movement-card reveal-up delay-3">
+                    <span class="movement-number">03</span>
+                    <h3>REALIGN</h3>
+                    <p>Build from the root. Not a rebrand. Not an optimization. A restructuring of systems, language, and presence around what was always true — so that what you feel yourself to be and what the world sees become the same thing.</p>
+                    <p style="font-style: italic; color: var(--color-text-muted);">"When alignment happens at the root, it holds."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Who We Serve Section (REWRITTEN) -->
+    <section id="who-we-serve" class="bg-alt">
+        <div class="container reveal-up">
+            <div class="uppercase-tracked" style="margin-bottom: 2rem;">Audience</div>
+            <h2>Who We Serve</h2>
+            
+            <div class="movements-grid" style="gap: 2rem;">
+                <div class="movement-card reveal-up delay-1">
+                    <h3>Individuals</h3>
+                    <p>Professionals in transition. Practitioners whose methodology works but whose presence doesn't match it. Humans who feel the misalignment but can't name it. People building something real around a life still becoming.</p>
+                </div>
+                
+                <div class="movement-card reveal-up delay-2">
+                    <h3>Organizations</h3>
+                    <p>Leaders investing in AI who lack the translation layer that makes those investments productive. Organizations whose external presence doesn't match their internal vision. Legacy companies at inflection points where the next move determines who leads and who gets left behind.</p>
+                </div>
+                
+                <div class="movement-card reveal-up delay-3">
+                    <h3>The Cultural Moment</h3>
+                    <p>Anyone navigating the most significant technological shift in human history. The gap between what you have and what you can use. The space between felt identity and perceived identity. The misalignment that slows everything down.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. What We Build Section -->
+    <section id="what-we-build">
+        <div class="container reveal-up">
+            <div class="uppercase-tracked" style="margin-bottom: 2rem;">Deliverables</div>
+            <h2>What We Build</h2>
+            
+            <div class="movements-grid" style="gap: 2rem;">
+                <div class="movement-card">
+                    <h3>Knowledge Systems</h3>
+                    <p>Architectures that capture institutional intelligence, turning fleeting individual wisdom into accessible organizational power.</p>
+                </div>
+                <div class="movement-card">
+                    <h3>Strategic Positioning</h3>
+                    <p>Clarity that makes invisible problems visible, allowing you to move through markets with absolute intentionality.</p>
+                </div>
+                <div class="movement-card">
+                    <h3>Training Frameworks</h3>
+                    <p>Systems designed to build enduring habits and cognitive reflexes, rather than temporary feature knowledge.</p>
+                </div>
+                <div class="movement-card">
+                    <h3>Compounding Infrastructure</h3>
+                    <p>The translation layer realized. We design the system so that it runs independently, compounding value long after we leave.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. The Work Section (NEW/UPDATED) -->
+    <section id="the-work" class="bg-alt">
+        <div class="container reveal-up">
+            <div class="uppercase-tracked" style="margin-bottom: 2rem;">Proof of Concept</div>
+            <h2>The Work</h2>
+            
+            <div class="movements-grid">
+                <div class="movement-card reveal-up delay-1">
+                    <h3>Knowledge Systems</h3>
+                    <p>For a 14-company distribution organization: Built the translation layer that captures institutional intelligence invisible to their ERP. What the best people knew became what the organization knows. The decisions that drive margin no longer walk out the door — they became the competitive advantage.</p>
+                </div>
+                <div class="movement-card reveal-up delay-2">
+                    <h3>AI Adoption Frameworks</h3>
+                    <p>For professionals overwhelmed by AI options: A 12-session progressive training system. Not theory — concrete deliverables used that week. Contact intelligence databases, automated workflows, 5+ hours saved weekly.</p>
+                </div>
+                <div class="movement-card reveal-up delay-3">
+                    <h3>Strategic Positioning</h3>
+                    <p>For a 26-year manufacturer invisible in AI search: Reframed invisibility as an ethical issue. Made the gap visible. Created urgency without fear. The positioning that makes clients see what they're missing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. The Nature of This Work Section -->
+    <section id="nature">
+        <div class="container-narrow reveal-up">
+            <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">The Nature of This Work</h2>
+            <p class="text-large" style="text-align: center; margin-bottom: 3rem;">When alignment happens at the root, it holds.</p>
+            
+            <p>When you do this work fully — when you close the gap, when you build systems true to your purpose — you don't return to old patterns because <strong>the pattern itself has changed</strong>.</p>
+            <p>The decisions that used to take agonizing weeks happen in minutes. The specialized knowledge that used to walk out the door every evening becomes permanent institutional infrastructure. The very system that used to fight you and drain your resources starts to silently, efficiently serve you.</p>
+            <br>
+            <p style="font-family: var(--font-serif); font-size: 1.3rem; font-style: italic; color: var(--color-accent);">It feels like finally. Like recognition.</p>
+            <br>
+            <p><strong>The momentum is already here. The only question is — are you ready to build it, or be built by it?</strong></p>
+        </div>
+    </section>
+
+    <!-- 9. About Section -->
+    <section id="about" class="bg-alt">
+        <div class="container-narrow reveal-up">
+            <div class="uppercase-tracked" style="margin-bottom: 2rem;">Founder</div>
+            <h2>Micaila Vaughn</h2>
+            <p>Teloric is built on a pattern recognized across two decades of operational work — and a question that matters more now than ever.</p>
+            
+            <div style="margin: 2rem 0; padding-left: 2rem; border-left: 1px solid var(--color-accent);">
+                <p style="margin-bottom: 0.5rem;"><strong>Pure Lighting (2007-2011)</strong><br>Built a boutique rep agency entirely from scratch.</p>
+                <p style="margin-bottom: 0.5rem;"><strong>Visual Interest (2011-2017)</strong><br>Six-time top producer, mastering the art of high-stakes relationship capital.</p>
+                <p style="margin-bottom: 0.5rem;"><strong>Luxxbox (2019-2021)</strong><br>Grew U.S. revenue by 35% through strategic realignment.</p>
+                <p style="margin-bottom: 0;"><strong>Coronet (2021-2026)</strong><br>Doubled the territory and architected AI-powered operational systems.</p>
+            </div>
+
+            <p>Through every role, the pattern became clear: organizations had invested heavily in infrastructure but lacked the translation layer that made those investments productive. Teloric was founded to build that missing layer.</p>
+        </div>
+    </section>
+
+    <!-- 10. The Question & Footer -->
+    <section id="the-question" class="bg-dark" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div class="container text-center reveal-up">
+            <h2 style="font-size: clamp(2rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                Who do you believe you are — and what would it mean if the world already knew?
+            </h2>
+            
+            <p style="font-family: var(--font-sans); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.875rem; color: var(--color-accent); margin-top: 3rem;">
+                Engagements begin with one question.
+            </p>
+            
+            <p style="font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; color: var(--color-text-light); margin-top: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                For those who do this work fully, there is a next threshold. Not more strategy. Something quieter. A state in which the system and the self are no longer in conflict.
+            </p>
+
+            <div class="separator" style="height: 50px; background-color: rgba(255,255,255,0.2);"></div>
+
+            <div class="contact-links reveal-up delay-1">
+                <a href="mailto:micailajanevaughn@gmail.com" class="contact-link">micailajanevaughn@gmail.com</a>
+                <a href="https://teloric.com" target="_blank" rel="noopener noreferrer" class="contact-link">teloric.com</a>
+                
+                <a href="mailto:micailajanevaughn@gmail.com" class="cta-button">Begin the conversation</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for scroll animations
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-up');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

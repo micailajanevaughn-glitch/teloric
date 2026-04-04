@@ -1,840 +1,150 @@
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Teloric × Ashe Owen — The Digital Breakthrough</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"><style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --ink:#2C2C2C;
-  --ink2:#4A4A4A;
-  --ink3:#6B6B6B;
-  --gold:#8B6F47;
-  --gold-lt:#B8A68A;
-  --sand:#E8E6E1;
-  --warm:#F5F3EF;
-  --mist:#D9D7D2;
-  --deep:#1A1A1A;
-  --navy:#2C3E50;
-  --t1-color:#4A6B5C;
-  --t2-color:#8B6B3A;
-  --addon:#2A4A6B;
-}
- 
-html{scroll-behavior:smooth;}
- 
-body{
-  background:var(--warm);
-  color:var(--ink);
-  font-family:'Inter',sans-serif;
-  font-weight:300;
-  line-height:1.7;
-  overflow-x:hidden;
-}
- 
-body::after{
-  content:'';
-  position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:999;
-}
- 
-/* ── HERO ── */
-.hero{
-  min-height:100vh;
-  background:var(--deep);
-  display:grid;
-  grid-template-rows:auto 1fr auto;
-  padding:3rem;
-  position:relative;
-  overflow:hidden;
-}
-.hero-top-line{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),#9D8563,var(--gold),transparent);}
- 
-.hero-ambient{
-  position:absolute;
-  width:700px;height:700px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(139,111,71,0.02) 0%,transparent 65%);
-  right:-150px;top:50%;transform:translateY(-50%);
-  pointer-events:none;
-}
- 
-.hero-nav{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;}
- 
-.hero-brand-block{}
-.hero-brand{
-  font-family:'Cormorant Garamond',serif;
-  font-size:0.95rem;color:var(--gold);
-  letter-spacing:0.12em;display:block;
-}
-.hero-brand-sub{
-  font-size:0.58rem;letter-spacing:0.22em;
-  text-transform:uppercase;color:rgba(245,243,239,0.25);
-  display:block;margin-top:0.1rem;
-}
-.hero-date{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,243,239,0.2);}
- 
-.hero-body{
-  display:flex;flex-direction:column;justify-content:center;
-  position:relative;z-index:2;padding:4rem 0 2rem;max-width:880px;
-}
- 
-.hero-to{
-  display:inline-flex;align-items:center;gap:0.8rem;
-  margin-bottom:2.5rem;
-}
-.hero-to-pill{
-  font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;
-  color:rgba(139,111,71,0.7);border:1px solid rgba(139,111,71,0.2);
-  padding:0.3rem 0.9rem;border-radius:999px;
-}
- 
-.hero-addressee{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.1rem,2.5vw,1.6rem);
-  font-weight:400;font-style:italic;
-  color:rgba(245,243,239,0.45);
-  margin-bottom:0.5rem;
-}
- 
-.hero h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(3rem,7.5vw,7rem);
-  font-weight:400;color:var(--sand);
-  line-height:0.95;letter-spacing:-0.025em;
-  margin-bottom:0.3rem;
-}
-.hero h1 em{font-style:italic;color:var(--gold);}
- 
-.hero-tagline{
-  font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;
-  color:rgba(139,111,71,0.5);margin-top:1.5rem;margin-bottom:2rem;
-}
- 
-.hero-opening{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.05rem;font-style:italic;
-  color:rgba(245,243,239,0.5);
-  max-width:620px;line-height:1.8;
-}
-.hero-opening strong{font-style:normal;color:rgba(245,243,239,0.75);font-weight:400;}
- 
-.hero-bottom{
-  position:relative;z-index:2;
-  display:flex;gap:2.5rem;flex-wrap:wrap;
-  padding-top:2.5rem;
-  border-top:1px solid rgba(255,255,255,0.05);
-}
-.h-stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--gold);line-height:1;display:block;}
-.h-stat-label{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,243,239,0.22);display:block;margin-top:0.15rem;}
- 
-/* ── TELORIC ETHOS STRIP ── */
-.ethos{
-  background:var(--navy);
-  padding:3rem;
-  position:relative;overflow:hidden;
-}
-.ethos-inner{
-  max-width:1100px;margin:0 auto;
-  display:grid;grid-template-columns:auto 1fr;gap:4rem;align-items:center;
-}
-.ethos-def{
-  border-left:2px solid rgba(139,111,71,0.3);
-  padding-left:2rem;
-  flex-shrink:0;
-  width:260px;
-}
-.ethos-word{
-  font-family:'Cormorant Garamond',serif;
-  font-size:2rem;font-weight:400;
-  color:var(--gold);line-height:1;margin-bottom:0.2rem;
-}
-.ethos-pos{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,243,239,0.3);margin-bottom:0.8rem;display:block;}
-.ethos-line{width:30px;height:1px;background:rgba(139,111,71,0.3);margin-bottom:0.8rem;}
-.ethos-meaning{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-style:italic;color:rgba(245,243,239,0.6);line-height:1.6;}
-.ethos-greek{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,243,239,0.2);margin-top:0.8rem;display:block;}
- 
-.ethos-movements{display:flex;flex-direction:column;gap:1.5rem;}
-.ethos-move{display:grid;grid-template-columns:90px 1fr;gap:1.5rem;align-items:start;}
-.em-tag{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);opacity:0.7;padding-top:0.15rem;}
-.em-body{}
-.em-title{font-size:0.9rem;font-weight:500;color:rgba(245,243,239,0.8);margin-bottom:0.2rem;}
-.em-desc{font-size:0.8rem;color:rgba(245,243,239,0.4);line-height:1.6;}
- 
-/* ── PREMISE ── */
-.premise{
-  background:var(--gold);
-  padding:4rem 3rem;position:relative;overflow:hidden;
-}
-.premise::before{
-  content:'"';position:absolute;left:1rem;top:-4rem;
-  font-family:'Cormorant Garamond',serif;font-size:20rem;
-  color:rgba(0,0,0,0.04);line-height:1;pointer-events:none;
-}
-.premise-inner{
-  max-width:1000px;margin:0 auto;position:relative;z-index:2;
-  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
-}
-.premise-quote{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.8rem;font-weight:400;font-style:italic;
-  color:var(--deep);line-height:1.4;
-}
-.premise-body{font-size:0.88rem;color:rgba(26,26,26,0.65);line-height:1.9;}
-.premise-body strong{color:var(--deep);font-weight:500;}
-.premise-body p+p{margin-top:1rem;}
- 
-/* ── SECTION SHARED ── */
-section{padding:5rem 3rem;}
-.s-inner{max-width:1100px;margin:0 auto;}
-.s-label{
-  font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:2.5rem;
-}
-.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:400;color:var(--ink);line-height:1.12;margin-bottom:0.8rem;}
-.s-title em{font-style:italic;color:var(--ink3);}
-.s-intro{font-size:0.9rem;color:var(--ink3);max-width:580px;line-height:1.85;margin-bottom:3rem;}
- 
-/* ── AUDIT ── */
-.audit{background:var(--warm);}
-.audit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--mist);border:1px solid var(--mist);}
-.ac{background:var(--warm);padding:2.5rem 2rem;position:relative;transition:background 0.25s;}
-.ac:hover{background:var(--sand);}
-.ac.span2{grid-column:span 2;}
-.ac.span3{grid-column:span 3;background:var(--sand);}
-.ac-tag{display:inline-block;font-size:0.57rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.22rem 0.7rem;border-radius:999px;margin-bottom:1rem;background:rgba(139,111,71,0.1);color:var(--gold);border:1px solid rgba(139,111,71,0.2);}
-.ac-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--ink);margin-bottom:0.7rem;line-height:1.3;}
-.ac-body{font-size:0.83rem;color:var(--ink3);line-height:1.8;}
-.ac-body strong{color:var(--ink);font-weight:500;}
-.ac-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:400;color:var(--mist);position:absolute;top:1.2rem;right:1.2rem;line-height:1;}
- 
-/* ── SESSION MAP VISUAL ── */
-.session-map{background:var(--sand);padding:5rem 3rem;}
-.map-visual{
-  margin-top:2.5rem;
-  display:grid;
-  grid-template-columns:1fr auto 1fr auto 1fr;
-  gap:0;
-  align-items:stretch;
-}
-.map-phase{
-  border:1px solid var(--mist);
-  background:var(--warm);
-  overflow:hidden;
-}
-.mp-header{
-  padding:1.2rem 1.5rem;
-  border-bottom:1px solid var(--mist);
-}
-.mp-phase-tag{font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.3rem;}
-.phase-i .mp-phase-tag{color:var(--t1-color);}
-.phase-ii .mp-phase-tag{color:var(--t2-color);}
-.phase-iii .mp-phase-tag{color:var(--addon);}
-.mp-phase-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--ink);line-height:1.2;}
-.mp-body{padding:1.2rem 1.5rem;}
-.mp-sessions{display:flex;flex-direction:column;gap:0.6rem;}
-.mp-session{
-  border:1px solid var(--mist);
-  border-radius:4px;
-  padding:0.6rem 0.8rem;
-  background:var(--sand);
-}
-.mps-who{font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;}
-.mps-detail{font-size:0.78rem;color:var(--ink);line-height:1.4;}
-.mps-time{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink3);display:block;margin-top:0.2rem;}
- 
-.map-arrow{
-  display:flex;align-items:center;justify-content:center;
-  padding:0 0.8rem;
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.2rem;color:rgba(139,111,71,0.4);
-}
- 
-.map-key{
-  display:flex;gap:2rem;flex-wrap:wrap;
-  margin-top:2rem;
-  padding-top:1.5rem;
-  border-top:1px solid var(--mist);
-}
-.mk-item{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:var(--ink3);}
-.mk-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
- 
-/* ── TIERS ── */
-.tiers-section{background:var(--warm);}
-.tiers-stack{display:flex;flex-direction:column;gap:2px;background:var(--mist);border:1px solid var(--mist);}
- 
-.tier{background:var(--warm);display:grid;grid-template-columns:280px 1fr;}
-.tier-left{
-  padding:3rem 2.5rem;display:flex;flex-direction:column;
-  justify-content:space-between;border-right:1px solid var(--mist);
-  position:relative;overflow:hidden;
-}
-.tier-left::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;}
-.t1 .tier-left::before{background:var(--t1-color);}
-.t2 .tier-left::before{background:var(--t2-color);}
-.t1 .tier-left{background:rgba(74,107,92,0.04);}
-.t2 .tier-left{background:rgba(139,107,58,0.04);}
-.tier-ghost{position:absolute;bottom:-1rem;right:-0.5rem;font-family:'Cormorant Garamond',serif;font-size:7rem;font-weight:400;opacity:0.05;line-height:1;pointer-events:none;}
-.t1 .tier-ghost{color:var(--t1-color);}
-.t2 .tier-ghost{color:var(--t2-color);}
-.tier-option{font-size:0.57rem;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:0.4rem;}
-.t1 .tier-option{color:var(--t1-color);}
-.t2 .tier-option{color:var(--t2-color);}
-.tier-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:0.25rem;position:relative;z-index:1;}
-.tier-subtitle{font-size:0.78rem;color:var(--ink3);font-style:italic;margin-bottom:1.8rem;position:relative;z-index:1;}
-.tier-trade{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;color:var(--ink);line-height:1;display:block;position:relative;z-index:1;}
-.tier-trade-label{font-size:0.57rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(44,44,44,0.35);display:block;margin-top:0.15rem;position:relative;z-index:1;}
-.tier-market{font-size:0.72rem;color:rgba(44,44,44,0.3);font-style:italic;margin-top:0.3rem;display:block;position:relative;z-index:1;}
-.tier-right{padding:3rem;}
-.tier-desc{font-size:0.88rem;color:var(--ink3);line-height:1.85;max-width:560px;margin-bottom:2rem;}
-.td-head{font-size:0.57rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
-.td-items{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0.45rem 1.5rem;margin-bottom:1.8rem;}
-.td-items li{font-size:0.82rem;color:var(--ink);display:flex;align-items:flex-start;gap:0.55rem;line-height:1.5;}
-.td-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.45rem;opacity:0.65;}
-.mirror-note{padding:1rem 1.3rem;border-left:2px solid var(--mist);font-size:0.78rem;color:var(--ink3);font-style:italic;line-height:1.65;background:rgba(0,0,0,0.015);max-width:540px;}
-.t1 .mirror-note{border-color:var(--t1-color);}
-.t2 .mirror-note{border-color:var(--t2-color);}
- 
-/* ── ADD-ONS ── */
-.addons{background:var(--sand);}
-.addon-intro{font-size:0.88rem;color:var(--ink3);line-height:1.85;max-width:600px;margin-bottom:3rem;}
- 
-.addon-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1px;background:var(--mist);border:1px solid var(--mist);
-}
-.addon-card{
-  background:var(--warm);padding:2rem 1.8rem;
-  position:relative;transition:background 0.2s;
-}
-.addon-card:hover{background:var(--sand);}
-.addon-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:400;color:var(--mist);line-height:1;margin-bottom:0.6rem;}
-.addon-tag{font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--addon);margin-bottom:0.5rem;display:block;}
-.addon-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--ink);margin-bottom:0.6rem;line-height:1.3;}
-.addon-desc{font-size:0.8rem;color:var(--ink3);line-height:1.7;margin-bottom:1rem;}
-.addon-price{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.3rem;color:var(--ink3);
-  border-top:1px solid var(--mist);padding-top:0.8rem;
-  display:block;
-}
-.addon-price span{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(44,44,44,0.35);display:block;margin-top:0.1rem;}
- 
-.addon-note{
-  margin-top:2rem;padding:1.5rem 2rem;
-  border-left:2px solid rgba(42,74,107,0.3);
-  background:rgba(42,74,107,0.04);
-  font-size:0.83rem;color:var(--ink3);line-height:1.75;
-}
-.addon-note strong{color:var(--ink);font-weight:500;}
- 
-/* ── EXCHANGE ── */
-.exchange{background:var(--ink);padding:5rem 3rem;position:relative;overflow:hidden;}
-.exchange::before{content:'⇄';position:absolute;right:1rem;top:50%;transform:translateY(-50%);font-size:18rem;color:rgba(255,255,255,0.02);pointer-events:none;font-family:serif;}
-.exchange .s-label{color:rgba(139,111,71,0.6);}
-.exchange .s-title{color:var(--sand);}
-.exchange .s-title em{color:var(--gold);}
-.ex-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;margin-top:3rem;max-width:680px;}
-.ex-from-label{font-size:0.57rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,243,239,0.28);margin-bottom:0.4rem;}
-.ex-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--sand);margin-bottom:0.25rem;line-height:1.3;}
-.ex-amount{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--gold);display:block;line-height:1;}
-.ex-desc{font-size:0.73rem;color:rgba(245,243,239,0.32);line-height:1.55;margin-top:0.35rem;}
-.ex-arrow{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:rgba(139,111,71,0.3);text-align:center;}
-.ex-note{margin-top:2.5rem;padding:1.5rem 2rem;border-left:2px solid rgba(139,111,71,0.2);background:rgba(255,255,255,0.02);max-width:640px;}
-.ex-note p{font-size:0.83rem;color:rgba(245,243,239,0.45);line-height:1.75;}
-.ex-note strong{color:rgba(245,243,239,0.75);font-weight:500;}
- 
-/* ── PROOF ── */
-.proof{background:var(--warm);}
-.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--mist);border:1px solid var(--mist);margin-top:3rem;}
-.proof-card{background:var(--warm);padding:2.5rem 2rem;}
-.pc-num{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:400;color:var(--mist);line-height:1;margin-bottom:0.7rem;}
-.pc-title{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
-.pc-body{font-size:0.83rem;color:var(--ink3);line-height:1.75;}
- 
-/* ── TELORIC VALUES BAR ── */
-.values-bar{
-  background:var(--sand);
-  padding:3rem;
-  border-top:1px solid var(--mist);
-  border-bottom:1px solid var(--mist);
-}
-.values-bar-inner{max-width:1100px;margin:0 auto;}
-.vb-label{font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;opacity:0.7;}
-.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
-.vg-item{}
-.vg-title{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink);font-weight:500;margin-bottom:0.4rem;}
-.vg-body{font-size:0.78rem;color:var(--ink3);line-height:1.65;}
- 
-/* ── CLOSING ── */
-.closing{background:var(--deep);padding:7rem 3rem;text-align:center;position:relative;overflow:hidden;}
-.closing::before,.closing::after{content:'';position:absolute;border-radius:50%;pointer-events:none;}
-.closing::before{width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(139,111,71,0.06);}
-.closing::after{width:400px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(139,111,71,0.04);}
-.closing-inner{position:relative;z-index:2;max-width:660px;margin:0 auto;}
-.closing-rule{width:50px;height:1px;background:var(--gold);opacity:0.35;margin:0 auto 3rem;}
-.closing h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.8rem);font-weight:400;color:var(--sand);margin-bottom:1.5rem;line-height:1.1;}
-.closing h2 em{font-style:italic;color:var(--gold);}
-.closing-body{font-size:0.9rem;color:rgba(245,243,239,0.45);line-height:1.9;margin-bottom:2rem;}
-.closing-promise{
-  display:flex;flex-direction:column;gap:0.5rem;
-  text-align:left;max-width:400px;margin:2rem auto;
-  padding:1.5rem 2rem;border-left:2px solid rgba(139,111,71,0.2);
-}
-.cp-line{font-size:0.8rem;color:rgba(245,243,239,0.5);line-height:1.5;}
-.cp-line strong{color:rgba(245,243,239,0.75);font-weight:500;}
-.closing-question{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.1rem;font-style:italic;
-  color:rgba(245,243,239,0.35);
-  margin-top:2.5rem;line-height:1.6;
-}
- 
-/* ── FOOTER ── */
-footer{background:var(--deep);border-top:1px solid rgba(255,255,255,0.04);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;}
-.f-brand{font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:rgba(245,243,239,0.3);}
-.f-sub{font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,243,239,0.15);}
- 
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
-.hero-to{animation:fadeUp 0.8s ease both;animation-delay:0.05s;}
-.hero-addressee{animation:fadeUp 0.8s ease both;animation-delay:0.15s;}
-.hero h1{animation:fadeUp 0.8s ease both;animation-delay:0.28s;}
-.hero-tagline{animation:fadeUp 0.8s ease both;animation-delay:0.4s;}
-.hero-opening{animation:fadeUp 0.8s ease both;animation-delay:0.52s;}
-.hero-bottom{animation:fadeUp 0.8s ease both;animation-delay:0.64s;}
- 
-/* RESPONSIVE */
-@media(max-width:860px){
-  .hero,.ethos,.premise,.session-map,section,.exchange,.proof,.values-bar,.closing{padding-left:1.5rem;padding-right:1.5rem;}
-  .ethos-inner{grid-template-columns:1fr;}
-  .premise-inner{grid-template-columns:1fr;}
-  .audit-grid{grid-template-columns:1fr;}
-  .ac.span2,.ac.span3{grid-column:span 1;}
-  .tier{grid-template-columns:1fr;}
-  .tier-left{border-right:none;border-bottom:1px solid var(--mist);}
-  .td-items{grid-template-columns:1fr;}
-  .addon-grid{grid-template-columns:1fr 1fr;}
-  .proof-grid{grid-template-columns:1fr;}
-  .values-grid{grid-template-columns:1fr 1fr;}
-  .ex-grid{grid-template-columns:1fr;}
-  .ex-arrow{transform:rotate(90deg);}
-  .map-visual{grid-template-columns:1fr;}
-  .map-arrow{transform:rotate(90deg);padding:0.5rem 0;}
-  footer{flex-direction:column;gap:0.8rem;text-align:center;}
-}
-@media(max-width:560px){
-  .addon-grid{grid-template-columns:1fr;}
-  .values-grid{grid-template-columns:1fr;}
-  .hero-bottom{gap:1.5rem;}
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teloric × Ashe Owen — The Breakthrough</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #2C2C2C;
+            --gold: #8B6F47;
+            --warm: #F5F3EF;
+            --deep: #1A1A1A;
+            --sand: #E8E6E1;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--warm);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        
+        /* Hero */
+        .hero {
+            background: var(--deep);
+            color: var(--warm);
+            padding: 6rem 0;
+            text-align: center;
+        }
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; color: var(--sand); }
+        .hero h1 em { font-style: italic; color: var(--gold); }
+        .hero p { font-size: 1.1rem; opacity: 0.6; font-style: italic; }
 
+        /* Section Styling */
+        section { padding: 5rem 0; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(139, 111, 71, 0.2); padding-bottom: 0.5rem; }
+        
+        .gap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+        .gap-card h3 { color: var(--gold); margin-bottom: 1rem; }
 
- 
-<!-- HERO --><section class="hero"><div class="hero-top-line"></div><div class="hero-ambient"></div>
- 
-  <nav class="hero-nav">
-    <div class="hero-brand-block">
-      <span class="hero-brand">Teloric</span>
-      <span class="hero-brand-sub">Systems aligned to purpose</span>
-    </div>
-    <span class="hero-date">April 2026 · Private Proposal</span></nav>
- 
-  <div class="hero-body">
-    <div class="hero-to">
-      <span class="hero-to-pill">For Ashe Owen</span>
-    </div>
-    <p class="hero-addressee">Ashe.</p>
-    <h1>The Digital<br><em>Breakthrough.</em></h1>
-    <div class="hero-tagline">Systems aligned to purpose</div>
-    <p class="hero-opening">You've spent decades helping people release the patterns that run them from the inside. This proposal is about releasing the patterns running your business from the outside. <strong>Not a website rebuild. A Digital Breakthrough — built from the same root you work from.</strong></p></div>
- 
-  <div class="hero-bottom">
-    <div>
-      <span class="h-stat-num">3</span>
-      <span class="h-stat-label">Exchange options</span>
-    </div>
-    <div>
-      <span class="h-stat-num">5</span>
-      <span class="h-stat-label">Identified gaps</span>
-    </div>
-    <div>
-      <span class="h-stat-num">7</span>
-      <span class="h-stat-label">Add-on opportunities</span>
-    </div>
-    <div>
-      <span class="h-stat-num">1</span>
-      <span class="h-stat-label">Conversation that revealed all of it</span>
-    </div></div></section><!-- TELORIC ETHOS --><div class="ethos"><div class="ethos-inner">
-    <div class="ethos-def">
-      <div class="ethos-word">Teloric</div>
-      <span class="ethos-pos">noun, adjective</span>
-      <div class="ethos-line"></div>
-      <div class="ethos-meaning">The alignment of system and self. Systems aligned to purpose. Humans, free to become.</div>
-      <span class="ethos-greek">from teleios · Greek · brought to completion · wanting nothing necessary</span>
-    </div>
-    <div class="ethos-movements">
-      <div class="ethos-move">
-        <div class="em-tag">Reflect</div>
-        <div class="em-body">
-          <div class="em-title">Surface what is actually true</div>
-          <div class="em-desc">We listen before we build anything. The story underneath the pitch. The felt identity. The unconscious commitment driving the system.</div>
-        </div>
-      </div>
-      <div class="ethos-move">
-        <div class="em-tag">Reveal</div>
-        <div class="em-body">
-          <div class="em-title">Hold up the mirror</div>
-          <div class="em-desc">Using AI as the instrument, we show you how you are currently perceived — in search, in language, in your market presence. The gap becomes visible. What has been unconscious becomes clear.</div>
-        </div>
-      </div>
-      <div class="ethos-move">
-        <div class="em-tag">Realign</div>
-        <div class="em-body">
-          <div class="em-title">Build from the root</div>
-          <div class="em-desc">Not a rebrand. Not an optimization. A restructuring of systems, language, and presence around what was always true. When alignment happens at the root, it holds.</div>
-        </div>
-      </div>
-    </div></div></div><!-- PREMISE --><div class="premise"><div class="premise-inner">
-    <div class="premise-quote">"Who do you believe you are — and what would it mean if the world already knew?"</div>
-    <div class="premise-body">
-      <p>This is the question Teloric begins every engagement with. It's also, in different words, the question you help every client answer in their Breakthrough sessions.</p>
-      <p>The gap between your felt identity — the depth of mastery you carry — and your perceived identity — how you land before someone ever meets you — <strong>is the greater problem.</strong></p>
-      <p>Most consultants treat the symptoms: a new logo, a different headline, a better booking flow. Teloric goes to the root. The same way you do.</p>
-    </div></div></div><!-- AUDIT --><section class="audit"><div class="s-inner">
-    <div class="s-label">Reflect · the pattern search</div>
-    <h2 class="s-title">Five misalignments.<br><em>One greater problem.</em></h2>
-    <p class="s-intro">We don't diagnose what people say is the problem. We look at what the data and workflow patterns reveal. Here is what one conversation surfaced.</p>
- 
-    <div class="audit-grid">
-      <div class="ac">
-        <div class="ac-num">01</div>
-        <div class="ac-tag">Brand Fragmentation</div>
-        <div class="ac-title">Identity Conflict</div>
-        <div class="ac-body">The Life Center mixes physical therapy, frequency healing, and identity-level transformation without a bridge. High-ticket clients need to see <strong>the Master, not the wellness generalist.</strong> The unconscious confusion this creates mirrors what you describe in your own clients — competing internal voices, no clear center of gravity.</div>
-      </div>
-      <div class="ac">
-        <div class="ac-num">02</div>
-        <div class="ac-tag">Price-Value Chasm</div>
-        <div class="ac-title">Threshold Resistance</div>
-        <div class="ac-body">A $5,000 "Book Now" button with zero context creates immediate break state. Meanwhile your family proposal sits at $3,500 — a different number with no explanation of the gap. <strong>This is sticker shock without rapport.</strong> In your model, you never ask for commitment before trust is built. Your funnel doesn't work that way yet.</div>
-      </div>
-      <div class="ac">
-        <div class="ac-num">03</div>
-        <div class="ac-tag">Linguistic Complexity</div>
-        <div class="ac-title">Deep Structure vs. Surface Structure</div>
-        <div class="ac-body">You speak fluently in the language of the unconscious — gestalt, timeline, root cause, imprinting. This is deep structure. Most clients need surface structure first: <strong>a Junior High-level visual of the journey</strong> before they can receive the depth. My mom and Jordan are proof. One document changed everything.</div>
-      </div>
-      <div class="ac">
-        <div class="ac-num">04</div>
-        <div class="ac-tag">Faulty Funnel</div>
-        <div class="ac-title">Commitment Before Alignment</div>
-        <div class="ac-body">Your work begins with a detailed personal history — a pattern search — before any release work happens. <strong>Your funnel should mirror this.</strong> A prospective client should experience a small version of the discovery before they're asked to invest. Right now the funnel skips rapport entirely and goes straight to the ask.</div>
-      </div>
-      <div class="ac">
-        <div class="ac-num">05</div>
-        <div class="ac-tag">Hidden Authority</div>
-        <div class="ac-title">The Locked Gestalt</div>
-        <div class="ac-body">Your MER mastery is encoded in 400 pages, offline sessions, and decades of practice. <strong>AI search engines cannot find it.</strong> When someone searches "family rebuilding after loss" or "emotional release therapy Denver," your name should surface. Right now that knowledge hasn't been structured for the systems that curate authority.</div>
-      </div>
-      <div class="ac span3">
-        <div class="ac-tag">The Root Cause · Teloric Diagnosis</div>
-        <div class="ac-title">The Greater Problem</div>
-        <div class="ac-body">Every misalignment above shares one root: <strong>your digital presence was built for a different version of your practice.</strong> It carries the same kind of accumulated pattern you help clients release — built at one stage of life, still running the show at another. This isn't a symptom to patch. It's the first domino. When it tips, the whole chain changes. The felt identity and the perceived identity become the same thing.</div>
-      </div>
-    </div></div></section><!-- SESSION MAP --><section class="session-map"><div class="s-inner">
-    <div class="s-label">Reveal · the mirror</div>
-    <h2 class="s-title">What I built for my family<br><em>became the proof.</em></h2>
-    <p class="s-intro">My mom and Jordan didn't understand the scope of your program until I made it visual. Below is the same map — your program, made tangible. This is what every client should receive before they say yes.</p>
- 
-    <div class="map-visual">
- 
-      <div class="map-phase phase-i">
-        <div class="mp-header">
-          <div class="mp-phase-tag">Phase I · Foundation</div>
-          <div class="mp-phase-name">Individual Breakthrough</div>
-        </div>
-        <div class="mp-body">
-          <div class="mp-sessions">
-            <div class="mp-session">
-              <div class="mps-who">Each person · independent</div>
-              <div class="mps-detail">Day 1: Detailed personal history — pattern search</div>
-              <span class="mps-time">4 hours</span>
-            </div>
-            <div class="mp-session">
-              <div class="mps-who">Each person · independent</div>
-              <div class="mps-detail">Day 2: MER release — root cause, negative emotions cleared</div>
-              <span class="mps-time">4 hours</span>
-            </div>
-          </div>
-        </div>
-      </div>
- 
-      <div class="map-arrow">→</div>
- 
-      <div class="map-phase phase-ii">
-        <div class="mp-header">
-          <div class="mp-phase-tag">Phase II · Stabilize</div>
-          <div class="mp-phase-name">Individual Coaching</div>
-        </div>
-        <div class="mp-body">
-          <div class="mp-sessions">
-            <div class="mp-session">
-              <div class="mps-who">Each person · 1:1 with Ashe</div>
-              <div class="mps-detail">First sessions: stabilize changes, values excavation, new identity in family</div>
-              <span class="mps-time">Up to 90 min each</span>
-            </div>
-            <div class="mp-session">
-              <div class="mps-who">8 sessions per person</div>
-              <div class="mps-detail">Mix of individual + paired (e.g. Micaila + Ashe, Jordan + Ashe)</div>
-              <span class="mps-time">Flexible pace</span>
-            </div>
-          </div>
-        </div>
-      </div>
- 
-      <div class="map-arrow">→</div>
- 
-      <div class="map-phase phase-iii">
-        <div class="mp-header">
-          <div class="mp-phase-tag">Phase III · Rebuild</div>
-          <div class="mp-phase-name">Family Sessions Together</div>
-        </div>
-        <div class="mp-body">
-          <div class="mp-sessions">
-            <div class="mp-session">
-              <div class="mps-who">All three · together</div>
-              <div class="mps-detail">3–5 of the 8 sessions become family sessions — drawn from each person's pool</div>
-              <span class="mps-time">When each is stabilized</span>
-            </div>
-            <div class="mp-session">
-              <div class="mps-who">Focus</div>
-              <div class="mps-detail">New dynamic by intention — not recreating the old one. Redefining roles.</div>
-              <span class="mps-time">Denver · Taos · Virtual</span>
-            </div>
-          </div>
-        </div>
-      </div>
- 
-    </div>
- 
-    <div class="map-key">
-      <div class="mk-item"><div class="mk-dot" style="background:var(--t1-color)"></div>Phase I: 2 sessions × 4 hrs × 3 people = 24 hrs total</div>
-      <div class="mk-item"><div class="mk-dot" style="background:var(--t2-color)"></div>Phase II: 8 sessions × up to 90 min × 3 people</div>
-      <div class="mk-item"><div class="mk-dot" style="background:var(--addon)"></div>Phase III: 3–5 family sessions drawn from Phase II pool</div>
-      <div class="mk-item"><div class="mk-dot" style="background:var(--gold)"></div>$3,500 per person · flexible payment · location flexible</div>
-    </div></div></section><!-- TIERS --><section class="tiers-section"><div class="s-inner">
-    <div class="s-label">Realign · the exchange options</div>
-    <h2 class="s-title">Two ways in.<br><em>Same root.</em></h2>
-    <p class="s-intro">Mirroring your model: we don't ask for full commitment before trust is established. Each option is a genuine entry point. The work scales to what the practice is ready for.</p>
- 
-    <div class="tiers-stack">
- 
-      <!-- TIER 1: HOURLY -->
-      <div class="tier t1">
-        <div class="tier-left">
-          <div>
-            <div class="tier-option">Option One</div>
-            <div class="tier-name">The Discovery</div>
-            <div class="tier-subtitle">Hourly · on demand · first session complimentary</div>
-          </div>
-          <div>
-            <span class="tier-trade">$150</span>
-            <span class="tier-trade-label">Per hour · trade credit</span>
-            <span class="tier-market">No package required · accrues toward Option Two</span>
-          </div>
-          <div class="tier-ghost">I</div>
-        </div>
-        <div class="tier-right">
-          <p class="tier-desc">No package. No full commitment upfront. We identify one specific gap and close it — a follow-up sequence, a visual that explains your process at a Junior High level, an intake form built with NLP-informed language. Each session is a proof of concept. You experience the value before deciding whether to go deeper. Hours accrue toward Option Two if and when you're ready. This is the low-barrier yes that starts the ball rolling — and as you said yourself, once the commitment is made, the unconscious mind begins preparing.</p>
-          <div class="td-head">What a single session might produce</div>
-          <ul class="td-items">
-            <li><span class="td-dot"></span>Client journey visual — one page</li>
-            <li><span class="td-dot"></span>NLP-informed intake questionnaire</li>
-            <li><span class="td-dot"></span>Follow-up email sequence</li>
-            <li><span class="td-dot"></span>New client proposal template</li>
-            <li><span class="td-dot"></span>Domino Effect explainer visual</li>
-            <li><span class="td-dot"></span>Session summary framework</li>
-          </ul>
-          <div class="mirror-note">
-            The Teloric parallel: we listen before we build. One hour of discovery reveals more than a month of assumptions. We start where you are, not where we think you should be. Every deliverable is concrete — something you use that week.
-          </div>
-        </div>
-      </div>
- 
-      <!-- TIER 2: BREAKTHROUGH -->
-      <div class="tier t2">
-        <div class="tier-left">
-          <div>
-            <div class="tier-option">Option Two</div>
-            <div class="tier-name">The Breakthrough</div>
-            <div class="tier-subtitle">Practice architecture · inside-out build</div>
-          </div>
-          <div>
-            <span class="tier-trade">$3,500</span>
-            <span class="tier-trade-label">Trade credit · matches one full program</span>
-            <span class="tier-market">Market value: $8,500–12,000</span>
-          </div>
-          <div class="tier-ghost">II</div>
-        </div>
-        <div class="tier-right">
-          <p class="tier-desc">This is the inside-out build. I go through your Breakthrough Program as a client — which I'm doing anyway. While I'm inside the process, I'm observing it simultaneously as a systems architect. What comes out is your complete practice methodology built from lived experience: your IP made visual, tangible, and replicable. The family proposal you received is a preview of what this looks like applied to every new client you take on. The pattern itself changes — not just the symptoms.</p>
-          <div class="td-head">What gets built</div>
-          <ul class="td-items">
-            <li><span class="td-dot"></span>Complete practice methodology document</li>
-            <li><span class="td-dot"></span>Visual client journey — all three phases</li>
-            <li><span class="td-dot"></span>AI-powered intake + onboarding system</li>
-            <li><span class="td-dot"></span>Decoupled brand — coaching vs. clinic</li>
-            <li><span class="td-dot"></span>Discovery funnel replacing "Book Now"</li>
-            <li><span class="td-dot"></span>Linguistic pattern analysis — Session 1</li>
-            <li><span class="td-dot"></span>Behavioral calibration framework visual</li>
-            <li><span class="td-dot"></span>Domino + Two Circles + Pearl visuals</li>
-          </ul>
-          <div class="mirror-note">
-            The Teloric parallel: root over symptom. Alignment over addition. We don't impose an external framework — we bring what already exists into alignment with what was always true. When it's done, it doesn't feel imposed. It feels like finally. It feels like recognition.
-          </div>
-        </div>
-      </div>
- 
-    </div></div></section><!-- ADD-ONS --><section class="addons"><div class="s-inner">
-    <div class="s-label">Identified opportunities · add-on menu</div>
-    <h2 class="s-title">Seven holes I already found<br><em>in one conversation.</em></h2>
-    <p class="addon-intro">These aren't hypothetical opportunities. Every one of them surfaced from a single 90-minute conversation and one look at your digital presence. Each is a named, standalone project — scoped, priced, and ready to initiate independently whenever the time is right. No package required.</p>
- 
-    <div class="addon-grid">
- 
-      <div class="addon-card">
-        <div class="addon-num">A</div>
-        <span class="addon-tag">Funnel · Lead Generation</span>
-        <div class="addon-name">The Baggage Check Quiz</div>
-        <div class="addon-desc">An interactive "Is your past running your present?" quiz that replaces the blind "Book Now" button. Five questions drawn from your own framework — the Seven-Year-Old driver, the Three-Week Spiral, the Same Movie pattern. Routes leads to the right offer automatically.</div>
-        <span class="addon-price">$400–600<span>Standalone · interactive HTML</span></span>
-      </div>
- 
-      <div class="addon-card">
-        <div class="addon-num">B</div>
-        <span class="addon-tag">Visual · Client Education</span>
-        <div class="addon-name">The Domino Effect Visual</div>
-        <div class="addon-desc">An animated, interactive visual explaining MER's root cause approach at a Junior High level. The chain of dominoes, the first domino, the intervention, the before/after. Built for your website, your proposals, your client onboarding. Replaces 20 minutes of explanation.</div>
-        <span class="addon-price">$350–500<span>Standalone · animated HTML</span></span>
-      </div>
- 
-      <div class="addon-card">
-        <div class="addon-num">C</div>
-        <span class="addon-tag">Brand · Identity</span>
-        <div class="addon-name">Brand Decoupling</div>
-        <div class="addon-desc">Separating "Ashe Owen — Breakthrough Coaching" from "The Life Center" as distinct identities. Separate landing page, separate messaging architecture, separate client journey. High-ticket transformation clients need to find the Master — not wade through the wellness generalist.</div>
-        <span class="addon-price">$600–900<span>Strategy + copy + page build</span></span>
-      </div>
- 
-      <div class="addon-card">
-        <div class="addon-num">D</div>
-        <span class="addon-tag">Pricing · Conversion</span>
-        <div class="addon-name">Price-Value Architecture</div>
-        <div class="addon-desc">Resolving the $5,000 vs. $3,500 disconnect with a clear explanation framework — what's included, why it's priced as it is, what the effective hourly rate means, and how the payment structure works. Turns sticker shock into confidence. Converts browsers into clients.</div>
-        <span class="addon-price">$250–400<span>Copy + visual framework</span></span>
-      </div>
- 
-      <div class="addon-card">
-        <div class="addon-num">E</div>
-        <span class="addon-tag">Authority · AI Search</span>
-        <div class="addon-name">GEO Strategy — AI Search Authority</div>
-        <div class="addon-desc">Generative Engine Optimization: encoding your methodology so AI models (Perplexity, Claude, Gemini) cite you as the authority on family rebuilding and emotional release. When someone asks an AI how to help their family heal after loss, your name is the answer. Scoped as a phased project.</div>
-        <span class="addon-price">$1,200–2,000<span>Phased · strategy + implementation</span></span>
-      </div>
- 
-      <div class="addon-card">
-        <div class="addon-num">F</div>
-        <span class="addon-tag">Portal · Family Clients</span>
-        <div class="addon-name">Family Renewal Portal</div>
-        <div class="addon-desc">A dedicated digital experience for family program clients — the three-phase journey visualized, session tracking, the process map, shared documents. Turns your family methodology into a product. Scalable beyond 1:1 work. Built from the Vaughn family map as the prototype.</div>
-        <span class="addon-price">$800–1,200<span>Design + build · HTML/web</span></span>
-      </div>
- 
-      <div class="addon-card">
-        <div class="addon-num">G</div>
-        <span class="addon-tag">Content · Knowledge Base</span>
-        <div class="addon-name">MER Knowledge Architecture</div>
-        <div class="addon-desc">Structuring your 400-page book, your methodology, and your case studies into a living knowledge base — organized for AI search citation, client education, and practitioner training. The knowledge that currently walks out the door with every session becomes institutional infrastructure.</div>
-        <span class="addon-price">$900–1,500<span>Phased · content strategy + structure</span></span>
-      </div>
- 
-    </div>
- 
-    <div class="addon-note">
-      <strong>How the add-ons work with the tiers:</strong> Any add-on can be initiated independently at $150/hr (Option One), or bundled into Option Two as part of the full Breakthrough build. Hours from Option One accrue toward Option Two. The Ecosystem — all seven add-ons plus both tiers — is the full-scope vision, scoped collaboratively once we're working together. Total add-on value ranges from $4,500–$7,100, depending on scope.
-    </div></div></section><!-- TELORIC VALUES BAR --><div class="values-bar"><div class="values-bar-inner">
-    <div class="vb-label">How Teloric works · the core values</div>
-    <div class="values-grid">
-      <div class="vg-item">
-        <div class="vg-title">Alignment over addition</div>
-        <div class="vg-body">We don't impose external frameworks. We don't sell tools. We bring what already exists into alignment with what was always true. We start where you are.</div>
-      </div>
-      <div class="vg-item">
-        <div class="vg-title">Root over symptom</div>
-        <div class="vg-body">Not what people say is the problem — what the patterns reveal. Surface the unconscious commitment driving behavior. Identify root causes, not surface friction.</div>
-      </div>
-      <div class="vg-item">
-        <div class="vg-title">Completion over perfection</div>
-        <div class="vg-body">Every session produces a deliverable you use that week. Not theory. Not reports. Real systems. What changes is measurable — that's how you know it's real.</div>
-      </div>
-      <div class="vg-item">
-        <div class="vg-title">Recognition over imposition</div>
-        <div class="vg-body">When alignment happens at the root, the new system doesn't feel imposed — it feels like finally. It feels like recognition. Like the practice exhaled.</div>
-      </div>
-    </div></div></div><!-- EXCHANGE --><section class="exchange"><div class="s-inner">
-    <div class="s-label">The energy exchange</div>
-    <h2 class="s-title">Master to master.<br><em>Value for value.</em></h2>
- 
-    <div class="ex-grid">
-      <div>
-        <div class="ex-from-label">Teloric brings</div>
-        <div class="ex-name">AI Strategy + Practice Architecture</div>
-        <span class="ex-amount">$150/hr – $3,500</span>
-        <div class="ex-desc">Depending on chosen option. Investment of time, strategy, systems thinking, and deliverables — built from inside your own process.</div>
-      </div>
-      <div class="ex-arrow">⇄</div>
-      <div>
-        <div class="ex-from-label">Ashe brings</div>
-        <div class="ex-name">Breakthrough Coaching Program</div>
-        <span class="ex-amount">Trade credit</span>
-        <div class="ex-desc">Credit toward the Vaughn family program at agreed value. Flexible payment structure as discussed. Scales with option chosen.</div>
-      </div>
-    </div>
- 
-    <div class="ex-note">
-      <p>This isn't a discount arrangement. Both sides are valued at parity. <strong>The only requirement Teloric has is the same one you have: willingness to look.</strong> To see the gap clearly. To hold up the mirror without flinching. To build from the root instead of treating symptoms. The methodology is the same. Only the medium is different.</p>
-    </div></div></section><!-- PROOF --><section class="proof"><div class="s-inner">
-    <div class="s-label">What you already experienced</div>
-    <h2 class="s-title">Session one was<br><em>the demonstration.</em></h2>
- 
-    <div class="proof-grid">
-      <div class="proof-card">
-        <div class="pc-num">01</div>
-        <div class="pc-title">The gap closed</div>
-        <div class="pc-body">My mom and Jordan didn't understand the full scope of your program until it was visual. The 8 additional coaching sessions weren't landing in conversation. One document, built from a single transcript in under an hour, changed that. That's not a trick. That's Teloric's baseline output.</div>
-      </div>
-      <div class="proof-card">
-        <div class="pc-num">02</div>
-        <div class="pc-title">The NLP layer already there</div>
-        <div class="pc-body">Your first session contained specific linguistic patterns — the metaphors that built rapport, the reframes that shifted energy, the language that made the unconscious feel safe. That language can be extracted, structured, and embedded into every client touchpoint. Not taught to you. Built into the system for you.</div>
-      </div>
-      <div class="proof-card">
-        <div class="pc-num">03</div>
-        <div class="pc-title">Behavioral proof</div>
-        <div class="pc-body">You calibrate success on outward behavioral change — not what clients report feeling, but how they actually move. This proposal was built the same way. Not a pitch about what I could do. A demonstration of it, using your words, your framework, your methodology, mirrored back in a form your clients can finally receive.</div>
-      </div>
-    </div></div></section><!-- CLOSING --><section class="closing"><div class="closing-inner">
-    <div class="closing-rule"></div>
-    <h2>Alignment begins<br><em>when you commit.</em></h2>
-    <p class="closing-body">Whatever option fits — an hour, the full Breakthrough, or a single add-on — the work begins the moment you say yes. That's true for your clients. It's true for this too.</p>
- 
-    <div class="closing-promise">
-      <div class="cp-line"><strong>We will listen before we build.</strong> Your process matters. The story underneath the practice matters. We start there.</div>
-      <div class="cp-line"><strong>We will show you the gap.</strong> Using AI as the instrument. What has been invisible will become clear.</div>
-      <div class="cp-line"><strong>We will build from the root.</strong> Not symptoms. Not surface fixes. Systems aligned to what was always true.</div>
-      <div class="cp-line"><strong>We will measure what matters.</strong> Behavior change. Conversion. The things that prove alignment has happened.</div>
-    </div>
- 
-    <div class="closing-question">"Who do you believe you are — and what would it mean if the world already knew?"</div></div></section><footer><div>
-    <div class="f-brand">Teloric · Systems Aligned to Purpose</div>
-    <div class="f-sub" style="margin-top:0.2rem;">micailajanevaughn@gmail.com · teloric.com · April 2026</div></div><div class="f-sub">from teleios · Greek · brought to completion · wanting nothing necessary</div></footer>
- 
+        /* Milestones */
+        .milestone { margin-bottom: 2.5rem; padding-left: 2rem; border-left: 2px solid var(--gold); }
+        .milestone h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 
+        /* Tiers */
+        .tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+        .tier { background: #fff; padding: 2.5rem; border: 1px solid var(--sand); border-radius: 4px; }
+        .tier-price { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); display: block; margin: 1rem 0; }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--deep);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 2rem;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .cta-button:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        footer { padding: 4rem 0; text-align: center; font-size: 0.8rem; opacity: 0.5; }
+
+        @media (max-width: 768px) {
+            .gap-grid, .tier-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="container">
+        <h1>The <em>Breakthrough.</em></h1>
+        <p>A Teloric Realignment Proposal for Ashe Owen</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>The Core Gaps</h2>
+        <div class="gap-grid">
+            <div class="gap-card">
+                <h3>01. The Identity Gap</h3>
+                <p>Your digital presence currently reflects a wellness generalist. It hides the <strong>Master Practitioner</strong>. We close the gap between how you feel your work and how the world perceives it.</p>
+            </div>
+            <div class="gap-card">
+                <h3>02. The Operational Gap</h3>
+                <p>Your deep knowledge is "locked" in offline sessions. We build the <strong>translation layer</strong> that makes your methodology visible to the systems (and clients) searching for you.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background: rgba(0,0,0,0.02);">
+    <div class="container">
+        <h2>The Roadmap</h2>
+        
+        <div class="milestone">
+            <h3>Milestone I: Discovery</h3>
+            <p>A deep-dive "pattern search" of your current workflow and brand language. We surface the unconscious commitments driving your current system.</p>
+        </div>
+
+        <div class="milestone">
+            <h3>Milestone II: Architecture</h3>
+            <p>Building the visual and linguistic bridge. We translate your MER mastery into a high-ticket digital experience that builds rapport before you ever speak.</p>
+        </div>
+
+        <div class="milestone">
+            <h3>Milestone III: Integration</h3>
+            <p>Deploying the systems. Training the AI to act as your digital twin, ensuring your authority compounds even when you are offline.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>The Exchange</h2>
+        <div class="tier-grid">
+            <div class="tier">
+                <h3>The Discovery</h3>
+                <span class="tier-price">$1,500</span>
+                <p>A single-milestone engagement. We map the gaps and provide the architectural blueprint. No long-term commitment required.</p>
+            </div>
+            <div class="tier" style="border-color: var(--gold);">
+                <h3>The Full Realignment</h3>
+                <span class="tier-price">$5,000</span>
+                <p>The complete build. We take you from Discovery through full Integration, including a brand-aligned digital presence and automated funnel.</p>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <a href="mailto:micailajanevaughn@gmail.com" class="cta-button">Confirm the Path</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>TELORIC · Systems Aligned to Purpose</p>
+        <p>Private Proposal · April 2026</p>
+    </div>
+</footer>
+
+</body>
+</html>

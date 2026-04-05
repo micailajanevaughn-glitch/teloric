@@ -1,6 +1,6 @@
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TELORIC | Systems Aligned to Purpose</title>
@@ -9,89 +9,161 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --charcoal: #2C2C2C;
+            --alabaster: #F5F3EF;
+            --bronze: #8B6F47;
+            --white: #FFFFFF;
+            --mist: #D9D7D2;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.7;
-            color: #2C2C2C;
-            background: #F5F3EF;
+            color: var(--charcoal);
+            background: var(--alabaster);
+            position: relative;
+            overflow-x: hidden;
         }
+
+        /* Subtle Brand Grain Texture Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
         h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
-        h1 { font-size: 3.5rem; letter-spacing: 0.05em; margin-bottom: 1rem; }
-        h2 { font-size: 2.2rem; margin-bottom: 1.5rem; color: #8B6F47; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: 0.05em; margin-bottom: 1rem; }
+        h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 1.5rem; color: var(--bronze); }
         h3 { font-size: 1.6rem; margin-bottom: 1rem; }
         p { margin-bottom: 1.2rem; font-size: 1.05rem; }
-        strong { font-weight: 500; color: #2C2C2C; }
-        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+        strong { font-weight: 500; color: inherit; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #2C2C2C 0%, #3a3a3a 100%);
-            color: #F5F3EF;
-            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--charcoal) 100%);
+            color: var(--alabaster);
+            padding: 8rem 2rem;
             text-align: center;
+            position: relative;
         }
-        .hero h1 { color: #F5F3EF; }
-        .hero .tagline { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; }
-        .hero .origin { font-size: 0.95rem; font-style: italic; opacity: 0.75; margin-bottom: 2.5rem; }
-        .hero .intro { font-size: 1.1rem; line-height: 1.8; max-width: 700px; margin: 0 auto 2rem; }
+        .hero .tagline { font-size: 1.3rem; margin-bottom: 1rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 0.2em; }
+        .hero .origin { font-size: 0.95rem; font-style: italic; opacity: 0.6; margin-bottom: 3rem; display: block; }
+        .hero .intro { font-size: 1.15rem; line-height: 1.8; max-width: 750px; margin: 0 auto 3rem; }
+        
+        /* Root Symbol (CSS/SVG) */
+        .root-symbol {
+            width: 40px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .root-symbol::before {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: var(--bronze);
+            left: 50%;
+        }
+        .root-symbol .bar {
+            width: 30px;
+            height: 1px;
+            background: var(--bronze);
+            z-index: 1;
+        }
+
         .cta-button {
             display: inline-block;
-            background: #8B6F47;
-            color: #F5F3EF;
-            padding: 1rem 2.5rem;
+            background: var(--bronze);
+            color: var(--alabaster);
+            padding: 1.1rem 2.8rem;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 2px;
             font-weight: 500;
-            font-size: 1.05rem;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border: 1px solid var(--bronze);
         }
-        .cta-button:hover { background: #6d5637; transform: translateY(-2px); }
+        .cta-button:hover { background: transparent; color: var(--bronze); transform: translateY(-3px); }
         
         /* Section Styles */
-        section { padding: 5rem 2rem; }
-        section:nth-child(even) { background: #fff; }
-        .movement-grid { display: grid; gap: 3rem; margin-top: 3rem; }
-        .movement { padding: 2rem; border-left: 3px solid #8B6F47; }
-        .movement-number { font-size: 2.5rem; font-family: 'Cormorant Garamond', serif; color: #8B6F47; opacity: 0.4; margin-bottom: 0.5rem; }
-        .movement em { display: block; margin-top: 1rem; font-style: italic; opacity: 0.7; font-size: 0.95rem; }
+        section { padding: 8rem 2rem; position: relative; }
+        section:nth-child(even) { background: var(--white); }
         
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 2rem; }
-        .card { padding: 1.5rem; }
+        .movement-grid { display: grid; gap: 4rem; margin-top: 4rem; }
+        .movement { padding: 0 0 0 2.5rem; border-left: 1px solid var(--bronze); }
+        .movement-number { font-size: 2rem; font-family: 'Cormorant Garamond', serif; color: var(--bronze); opacity: 0.5; margin-bottom: 0.5rem; }
+        .movement em { display: block; margin-top: 1.5rem; font-style: italic; opacity: 0.6; font-size: 0.95rem; }
         
-        /* Bio Section */
-        .bio-section { background: #2C2C2C; color: #F5F3EF; }
-        .bio-section h2 { color: #8B6F47; }
-        .bio-content { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; align-items: start; margin-top: 2rem; }
-        .bio-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; }
-        .timeline { margin-top: 1.5rem; }
-        .timeline-item { margin-bottom: 1rem; padding-left: 1.5rem; border-left: 2px solid #8B6F47; }
-        .timeline-item strong { color: #8B6F47; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 3rem; }
+        .card { padding: 2rem; background: rgba(0,0,0,0.02); border-radius: 2px; }
+        
+        /* Bio Section - Fixed Visibility & Overlap */
+        section.bio-section { 
+            background: var(--charcoal) !important; 
+            color: var(--alabaster) !important; 
+            padding: 10rem 2rem;
+        }
+        section.bio-section h2 { color: var(--bronze) !important; }
+        .bio-content { 
+            display: grid; 
+            grid-template-columns: 280px 1fr; 
+            gap: 4rem; 
+            align-items: start; 
+        }
+        .bio-photo img { 
+            width: 100%; 
+            aspect-ratio: 1; 
+            object-fit: cover; 
+            border-radius: 2px; 
+            filter: grayscale(20%);
+        }
+        .timeline { margin-top: 2rem; }
+        .timeline-item { margin-bottom: 1.5rem; padding-left: 1.5rem; border-left: 1px solid var(--bronze); }
+        .timeline-item strong { color: var(--bronze); display: block; margin-bottom: 0.2rem; }
         
         /* Closing Section */
-        .closing { background: linear-gradient(135deg, #2C2C2C 0%, #3a3a3a 100%); color: #F5F3EF; text-align: center; padding: 5rem 2rem; }
-        .closing h2 { color: #F5F3EF; font-size: 2rem; margin-bottom: 2rem; }
-        .closing p { opacity: 0.9; }
+        .closing { background: var(--charcoal); color: var(--alabaster); text-align: center; padding: 10rem 2rem; }
+        .closing h2 { color: var(--alabaster); font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 2.5rem; line-height: 1.2; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .closing p { opacity: 0.7; font-size: 1.1rem; }
         
-        footer { background: #2C2C2C; color: #F5F3EF; text-align: center; padding: 3rem 2rem; font-size: 0.9rem; }
-        footer a { color: #8B6F47; text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        footer { background: #1a1a1a; color: var(--alabaster); text-align: center; padding: 5rem 2rem; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
+        footer a { color: var(--bronze); text-decoration: none; transition: opacity 0.3s; }
+        footer a:hover { opacity: 0.8; }
         
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            .bio-content { grid-template-columns: 1fr; gap: 2rem; }
-            .hero { padding: 4rem 1.5rem; }
+        @media (max-width: 850px) {
+            .bio-content { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .bio-photo { max-width: 300px; margin: 0 auto; }
+            .timeline-item { text-align: left; }
+            section { padding: 6rem 1.5rem; }
         }
     </style>
+</head>
+<body>
 
-
-
-<!-- Hero Section --><section class="hero">
+<!-- Hero Section -->
+<section class="hero">
     <div class="container">
+        <div class="root-symbol">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
         <h1>TELORIC</h1>
         <p class="tagline">Systems Aligned to Purpose</p>
-        <p class="origin">From TELEIOS (Greek) — brought to completion, wanting nothing necessary.</p>
+        <span class="origin">From TELEIOS (Greek) — brought to completion, wanting nothing necessary.</span>
         
         <div class="intro">
             <p>Every business, every human, every system carries two identities.</p>
@@ -101,25 +173,31 @@
         </div>
         
         <a href="https://calendly.com/micailajanevaughn/new-meeting-1" class="cta-button">Begin the Conversation</a>
-    </div></section>
+    </div>
+</section>
 
-<!-- The Moment --><section>
+<!-- The Moment -->
+<section>
     <div class="container">
         <h2>The Moment</h2>
         <p>We are in the most significant technological shift in human history. Most organizations and individuals are being built by AI rather than building with it. The ones who will lead are the ones who can align their systems to their purpose before the momentum makes the choice for them.</p>
         <p><strong>The momentum is already here. The only question is — are you ready to build it, or be built by it?</strong></p>
-    </div></section>
+    </div>
+</section>
 
-<!-- The Gap --><section>
+<!-- The Gap -->
+<section>
     <div class="container">
         <h2>The Gap</h2>
         <p>Organizations invest heavily in infrastructure, yet remain constrained by a profound absence: they lack the translation layer that makes those investments genuinely productive.</p>
         <p>The decisions that drive margin, the intricate knowledge that protects vital relationships, the localized intelligence that consistently wins deals — all of it lives quietly in people's heads, entirely invisible to the systems designed to support them.</p>
         <p>Beneath this operational friction lies something deeper: the enduring misalignment between a company's felt identity and its perceived identity.</p>
         <p><strong>This is where most consulting stops short. We start here.</strong></p>
-    </div></section>
+    </div>
+</section>
 
-<!-- The Three Movements --><section>
+<!-- The Three Movements -->
+<section>
     <div class="container">
         <h2>The Three Movements</h2>
         <div class="movement-grid">
@@ -144,9 +222,11 @@
                 <em>"When alignment happens at the root, it holds."</em>
             </div>
         </div>
-    </div></section>
+    </div>
+</section>
 
-<!-- Who We Serve --><section>
+<!-- Who We Serve -->
+<section>
     <div class="container">
         <h2>Who We Serve</h2>
         <div class="grid-2">
@@ -166,9 +246,11 @@
                 <p><strong>The only requirement is willingness to look.</strong></p>
             </div>
         </div>
-    </div></section>
+    </div>
+</section>
 
-<!-- What We Build --><section>
+<!-- What We Build -->
+<section>
     <div class="container">
         <h2>What We Build</h2>
         <div class="grid-2">
@@ -192,18 +274,21 @@
                 <p>The translation layer realized. We design the system so that it runs independently, compounding value long after we leave.</p>
             </div>
         </div>
-    </div></section>
+    </div>
+</section>
 
-<!-- The Nature of This Work --><section>
+<!-- The Nature of This Work -->
+<section>
     <div class="container">
         <h2>The Nature of This Work</h2>
-        <p>When alignment happens at the root, it holds.</p>
-        <p>You don't return to old patterns because the pattern itself has changed.</p>
+        <p>When alignment happens at the root, it holds. You don't return to old patterns because the pattern itself has changed.</p>
         <p>The decisions that used to take agonizing weeks happen in minutes. The specialized knowledge that used to walk out the door every evening becomes permanent institutional infrastructure. The very system that used to fight you and drain your resources starts to silently, efficiently serve you.</p>
         <p><em>It feels like finally. It feels like recognition.</em></p>
-    </div></section>
+    </div>
+</section>
 
-<!-- Founder Bio --><section class="bio-section">
+<!-- Founder Bio -->
+<section class="bio-section">
     <div class="container">
         <h2>Founder</h2>
         <div class="bio-content">
@@ -234,23 +319,29 @@
                 <p><strong>Teloric was founded to build that missing layer.</strong></p>
             </div>
         </div>
-    </div></section>
+    </div>
+</section>
 
-<!-- Closing CTA --><section class="closing">
+<!-- Closing CTA -->
+<section class="closing">
     <div class="container">
         <h2>Who do you believe you are — and what would it mean if the world already knew?</h2>
         <p>Engagements begin with one question.</p>
         <a href="https://calendly.com/micailajanevaughn/new-meeting-1" class="cta-button">Begin the Conversation</a>
-    </div></section>
+    </div>
+</section>
 
-<!-- Footer --><footer>
+<!-- Footer -->
+<footer>
     <div class="container">
         <p><strong>TELORIC</strong> · Systems Aligned to Purpose</p>
-        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">From TELEIOS · Greek · Brought to completion · Wanting nothing necessary</p>
-        <p style="margin-top: 1rem;">
+        <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 0.5rem;">From TELEIOS · Greek · Brought to completion · Wanting nothing necessary</p>
+        <p style="margin-top: 1.5rem;">
             <a href="mailto:micailajanevaughn@gmail.com">micailajanevaughn@gmail.com</a> · 
             <a href="https://teloric.com">teloric.com</a>
         </p>
-    </div></footer>
+    </div>
+</footer>
 
-
+</body>
+</html>

@@ -1,274 +1,527 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teloric × Ashe Owen — The Breakthrough</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Teloric × Ashe Owen - A Trade Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #2C2C2C;
-            --gold: #8B6F47;
-            --warm: #F5F3EF;
-            --deep: #1A1A1A;
+            --charcoal: #2C2C2C;
+            --alabaster: #F5F3EF;
+            --bronze: #8B6F47;
+            --white: #FFFFFF;
             --sand: #E8E6E1;
-            --mist: #D9D7D2;
+            --slate: #2C3E50;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: var(--warm);
-            color: var(--ink);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
-        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
         
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            background-color: var(--alabaster);
+            line-height: 1.6;
+            font-size: 1.05rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #4a4a4a;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 7rem 0;
+        }
+
+        /* Colors & Backgrounds */
+        .bg-charcoal { background-color: var(--charcoal); color: var(--alabaster); }
+        .bg-charcoal h1, .bg-charcoal h2, .bg-charcoal p { color: var(--alabaster); }
+        .bg-alabaster { background-color: var(--alabaster); }
+        .bg-white { background-color: var(--white); }
+        .bg-sand { background-color: var(--sand); }
+        .bg-slate { background-color: var(--slate); color: var(--white); }
+        .bg-slate h2, .bg-slate p { color: var(--white); }
+        .text-bronze { color: var(--bronze); }
+
         /* Hero */
         .hero {
-            background: var(--deep);
-            color: var(--warm);
-            padding: 8rem 0;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 2rem;
+            position: relative;
         }
-        .hero h1 { font-size: clamp(3.5rem, 8vw, 5.5rem); margin-bottom: 1rem; color: var(--sand); }
-        .hero h1 em { font-style: italic; color: var(--gold); }
-        .hero p { font-size: 1.2rem; opacity: 0.6; font-style: italic; letter-spacing: 0.05em; }
 
-        /* Sections */
-        section { padding: 6rem 0; }
-        h2 { font-size: 2.8rem; margin-bottom: 3rem; position: relative; }
-        h2::after { content: ''; display: block; width: 40px; height: 2px; background: var(--gold); margin-top: 1rem; }
+        .hero h2 {
+            color: var(--bronze);
+            font-style: italic;
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            margin-top: 2rem;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #a0a0a0;
+            max-width: 600px;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background-color: rgba(0,0,0,0.1);
+            width: 80px;
+            margin: 2rem 0;
+        }
         
-        /* Opening Text */
-        .opening-text { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--gold); font-style: italic; margin-bottom: 1rem; }
-        .opening-body { font-size: 1.1rem; color: rgba(44,44,44,0.9); max-width: 750px; }
-
-        /* Visual Map Component */
-        .visual-map { 
-            display: grid; 
-            grid-template-columns: 1fr auto 1fr auto 1fr; 
-            align-items: start; 
-            margin: 4rem 0;
-            gap: 1rem;
+        .divider-center {
+            margin: 2rem auto;
         }
-        .map-node { 
-            background: #fff; 
-            padding: 2rem; 
-            border: 1px solid var(--mist); 
+
+        .bg-charcoal .divider {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* Cards Layout */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.04);
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-top: 2px solid var(--bronze);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+        }
+
+        .card-small {
+            grid-column: 1 / -1;
             text-align: center;
-            border-radius: 4px;
+            background: var(--alabaster);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 2rem;
         }
-        .map-node h4 { font-size: 1.4rem; color: var(--gold); margin-bottom: 0.5rem; }
-        .map-node p { font-size: 0.8rem; opacity: 0.7; }
-        .map-arrow { padding-top: 2.5rem; color: var(--gold); font-size: 1.5rem; opacity: 0.4; }
 
-        /* Gaps Grid */
-        .gap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .gap-card { padding: 2.5rem; background: #fff; border: 1px solid var(--mist); }
-        .gap-card span { font-size: 0.65rem; text-transform: uppercase; color: var(--gold); letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem; }
-        .gap-card h3 { font-size: 1.6rem; margin-bottom: 0.8rem; }
-        .gap-card strong { color: var(--gold); font-weight: 500; }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0 0;
+            flex-grow: 1;
+        }
 
-        /* Tiers */
-        .tier { 
-            background: #fff; 
-            display: grid; 
-            grid-template-columns: 250px 1fr; 
-            border: 1px solid var(--mist);
+        .card li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .card li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--bronze);
+        }
+
+        /* Exchange Table */
+        .exchange-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 3rem;
+        }
+        
+        .exchange-col h3 {
+            color: var(--bronze);
+            font-size: 1.8rem;
             margin-bottom: 1.5rem;
         }
-        .tier-left { padding: 2.5rem; background: rgba(0,0,0,0.02); border-right: 1px solid var(--mist); }
-        .tier-right { padding: 2.5rem; }
-        .tier-price { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); display: block; margin-top: 1rem; }
-        .tier-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5; }
 
-        /* Bio Section */
-        .bio-box { background: var(--deep); color: var(--warm); padding: 4rem; display: grid; grid-template-columns: 150px 1fr; gap: 3rem; align-items: center; }
-        .bio-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
-        .bio-text h3 { color: var(--gold); margin-bottom: 1rem; }
-        .bio-text p { font-size: 0.95rem; opacity: 0.8; }
-
-        /* CTA Area */
-        .cta-area { text-align: center; background: var(--deep); color: var(--warm); padding: 8rem 0; }
-        .cta-group { display: flex; gap: 1.5rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap; }
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 2.5rem;
-            text-decoration: none;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            border-radius: 4px;
-            transition: 0.3s;
-            font-size: 0.9rem;
+        .exchange-col p {
+            color: #b0c0d0;
+            font-size: 1.1rem;
         }
-        .cta-primary { background: var(--gold); color: var(--deep); }
-        .cta-secondary { border: 2px solid var(--gold); color: var(--gold); }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-        footer { padding: 4rem 0; text-align: center; font-size: 0.8rem; opacity: 0.4; }
+        /* Diagram Placeholder */
+        .diagram {
+            display: flex;
+            gap: 0;
+            margin: 4rem 0;
+            justify-content: center;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .phase {
+            flex: 1;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--charcoal);
+            position: relative;
+            border-right: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .phase:last-child {
+            border-right: none;
+        }
+
+        .phase:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--white);
+            color: var(--bronze);
+            font-family: 'Inter', sans-serif;
+            z-index: 10;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            text-align: center;
+            margin: 4rem auto 2rem;
+            max-width: 700px;
+            color: var(--bronze);
+            line-height: 1.4;
+        }
+
+        /* Next Steps */
+        .contact-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--bronze);
+            padding-bottom: 0.3rem;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--bronze);
+            border-bottom-color: var(--charcoal);
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         @media (max-width: 768px) {
-            .visual-map { grid-template-columns: 1fr; }
-            .map-arrow { transform: rotate(90deg); padding: 1rem 0; text-align: center; }
-            .gap-grid, .tier, .bio-box { grid-template-columns: 1fr; }
-            .bio-box { padding: 2rem; text-align: center; }
-            .bio-img { margin: 0 auto; }
-            .tier-left { border-right: none; border-bottom: 1px solid var(--mist); }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .exchange-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .exchange-grid { border-top: none; padding-top: 0; }
+            .exchange-col:first-child { padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .diagram { flex-direction: column; }
+            .phase { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
+            .phase:not(:last-child)::after {
+                content: "↓";
+                right: 50%;
+                bottom: -12px;
+                top: auto;
+                transform: translateX(50%);
+            }
         }
     </style>
 </head>
 <body>
 
-<section class="hero">
-    <div class="container">
-        <h1>The <em>Breakthrough.</em></h1>
-        <p>A Pattern-Matched Proposal for Ashe Owen</p>
-    </div>
-</section>
-
-<section style="background: #fff;">
-    <div class="container">
-        <p class="opening-text">Ashe,</p>
-        <div class="opening-body">
-            <p style="margin-bottom: 1.5rem;">This proposal is built using the same <strong>NLP recognition and MER patterning</strong> you use with your clients. I listened for the "deep structure" of your practice during our 90-minute conversation, and what I found was a classic misalignment: your digital presence is still running a pattern from a previous stage of your life.</p>
-            <p style="margin-bottom: 1.5rem;">From that single session, I identified five major "holes" that are draining your authority. As we saw with the <strong>Vaughn Family Map</strong>, complexity only becomes manageable when it is visualized. Without that map, the gaps remain invisible. With it, we can block them.</p>
-            <p><strong>Here is the visual map of our engagement:</strong></p>
+    <!-- Hero Section -->
+    <section class="hero bg-charcoal">
+        <div class="fade-in">
+            <h1>TELORIC × ASHE OWEN</h1>
+            <h2>A Trade Proposal</h2>
+            <div class="divider divider-center"></div>
+            <p>Taking what's in your head and making it visible for clients</p>
         </div>
+    </section>
 
-        <!-- VISUAL MAP -->
-        <div class="visual-map">
-            <div class="map-node">
-                <h4>I. Reflect</h4>
-                <p>Pattern Search & Gap Identification</p>
+    <!-- What This Is -->
+    <section class="bg-alabaster section-padding">
+        <div class="container fade-in">
+            <h2>What This Is</h2>
+            <div class="divider"></div>
+            <p><strong>Micaila Vaughn of Teloric</strong> can help translate your methodology into visual, client-facing systems — <strong>offered as a trade toward Micaila's portion of the Breakthrough Coaching Program</strong>.</p>
+            <p>What you get: AI strategy, systems thinking, and visual architecture that turns complex methodology into tangible tools. (This work is hard for anyone to do for themselves — outside perspective helps.)</p>
+            <p><strong>Three flexible options.</strong> You choose what fits. Everything accrues as trade credit.</p>
+        </div>
+    </section>
+
+    <!-- The Gap -->
+    <section class="bg-white section-padding">
+        <div class="container fade-in">
+            <h2 class="text-bronze">The Gap</h2>
+            <p style="font-size: 1.4rem; font-family: 'Cormorant Garamond', serif; color: var(--charcoal); margin: 2rem 0; line-height: 1.5;">
+                The work you do creates real, measurable change. People's behavior shifts. What you've built works.
+            </p>
+            <div class="divider" style="width: 50px;"></div>
+            <p>Your outward digital presence hasn't caught up yet. The gap between what happens in your sessions and how it lands before someone meets you — that's creating friction.</p>
+            <p>You don't treat the presenting symptom. You find the root cause. Same approach here.</p>
+        </div>
+    </section>
+
+    <!-- What I Already Built -->
+    <section class="bg-sand section-padding">
+        <div class="container fade-in">
+            <h2>What I Already Built (From One 90-Minute Call)</h2>
+            <div class="divider"></div>
+            <p><strong>The visual map of your three-phase program.</strong></p>
+            
+            <div class="diagram">
+                <div class="phase">
+                    <strong>Phase 1</strong><br>
+                    <span style="font-size: 0.9rem; font-family: 'Inter', sans-serif; color: #666; margin-top: 0.5rem; display: block;">Foundation</span>
+                </div>
+                <div class="phase">
+                    <strong>Phase 2</strong><br>
+                    <span style="font-size: 0.9rem; font-family: 'Inter', sans-serif; color: #666; margin-top: 0.5rem; display: block;">Stabilize</span>
+                </div>
+                <div class="phase">
+                    <strong>Phase 3</strong><br>
+                    <span style="font-size: 0.9rem; font-family: 'Inter', sans-serif; color: #666; margin-top: 0.5rem; display: block;">Rebuild</span>
+                </div>
             </div>
-            <div class="map-arrow">→</div>
-            <div class="map-node" style="border-color: var(--gold);">
-                <h4>II. Reveal</h4>
-                <p>The Visual Translation Layer</p>
-            </div>
-            <div class="map-arrow">→</div>
-            <div class="map-node">
-                <h4>III. Realign</h4>
-                <p>Systemic Practice Integration</p>
+
+            <blockquote>
+                "My mom and Jordan didn't understand the scope until I made it visual. That document changed the conversation. They booked sessions."
+            </blockquote>
+            
+            <p style="text-align: center; margin-top: 2rem;">Built from a single transcript in under an hour. That's baseline output.</p>
+        </div>
+    </section>
+
+    <!-- The Three Options -->
+    <section class="bg-white section-padding">
+        <div class="container fade-in">
+            <h2>The Three Options</h2>
+            <div class="divider"></div>
+            
+            <div class="options-grid">
+                
+                <!-- First Session Free -->
+                <div class="card-small">
+                    <h3 style="margin-bottom: 0.5rem;">First Session: Free (30 min)</h3>
+                    <p style="margin: 0; color: #666;">Discovery call • Identify one gap • No commitment required</p>
+                </div>
+
+                <!-- Option 1: Hourly -->
+                <div class="card">
+                    <h3 style="color: var(--bronze); margin-bottom: 0.5rem;">Option 1: Hourly Work</h3>
+                    <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem;">$150/hour · Trade Credit</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 1.5rem;">On Demand</p>
+                    <p style="font-size: 0.95rem;">Work on specific needs as they surface. Flexible, focused, immediate return.</p>
+                    <ul>
+                        <li>Visual proposal template for new clients</li>
+                        <li>AI-informed intake questionnaire (NLP-based)</li>
+                        <li>Client onboarding kit or welcome sequence</li>
+                        <li>Condensing/improving large docs (like your 400-page MER book)</li>
+                        <li>Booking clarity + calendar integration</li>
+                        <li>Any specific gap that needs closing</li>
+                    </ul>
+                    <p style="font-style: italic; font-size: 0.85rem; color: #888; margin-top: auto; padding-top: 1rem;">Best for: Quick wins, targeted enhancements</p>
+                </div>
+
+                <!-- Option 2: Practice Architecture -->
+                <div class="card">
+                    <h3 style="color: var(--bronze); margin-bottom: 0.5rem;">Option 2: Practice Architecture Build</h3>
+                    <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 1.5rem;">$1,500 · Trade Credit</p>
+                    <p style="font-size: 0.95rem;">The focused package. I go through your Breakthrough Program as a client (which I'm doing anyway). While inside, I observe as a systems architect.</p>
+                    <ul>
+                        <li>Complete visual client journey (all three phases)</li>
+                        <li>AI-powered intake + onboarding system</li>
+                        <li>Discovery funnel (replacing "Book Now")</li>
+                        <li>Brand decoupling or clarity (coaching vs. clinic)</li>
+                        <li>SEO/GEO search optimization</li>
+                        <li>Client-facing process maps</li>
+                        <li>NLP-informed messaging across touchpoints</li>
+                    </ul>
+                    <p style="font-style: italic; font-size: 0.85rem; color: #888; margin-top: auto; padding-top: 1rem;">Best for: Full system realignment</p>
+                </div>
+
+                <!-- Option 3: À La Carte -->
+                <div class="card">
+                    <h3 style="color: var(--bronze); margin-bottom: 0.5rem;">Option 3: À La Carte / Breakthrough</h3>
+                    <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 1.5rem;">Custom Scope · Trade Credit</p>
+                    <p style="font-size: 0.95rem;">Pick specific areas or projects. Build what you need, when you need it.</p>
+                    <ul>
+                        <li>Brand positioning + messaging</li>
+                        <li>Knowledge architecture (400-page book → searchable content)</li>
+                        <li>AI search authority (GEO strategy)</li>
+                        <li>Pricing clarity + value communication</li>
+                        <li>Family program portal (scalable beyond 1:1)</li>
+                        <li>Workshop materials + visuals</li>
+                        <li>Custom scope based on your priorities</li>
+                    </ul>
+                    <p style="font-style: italic; font-size: 0.85rem; color: #888; margin-top: auto; padding-top: 1rem;">Best for: Targeted, high-impact projects</p>
+                </div>
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section>
-    <div class="container">
-        <h2>Identified Gaps (The Pattern Search)</h2>
-        <div class="gap-grid">
-            <div class="gap-card">
-                <span>Identity</span>
-                <h3>Hidden Authority</h3>
-                <p>Your current presence reflects a wellness generalist. We shift the pattern to <strong>The Master Practitioner</strong>.</p>
+    <!-- The Exchange -->
+    <section class="bg-slate section-padding">
+        <div class="container fade-in">
+            <h2>The Exchange</h2>
+            <div class="divider"></div>
+            <p style="font-size: 1.1rem; margin-bottom: 3rem;">A straightforward trade.</p>
+            
+            <div class="exchange-grid">
+                <div class="exchange-col">
+                    <h3>Teloric brings</h3>
+                    <p>AI Strategy + Visual Systems</p>
+                    <p>$150/hr – $1,500+ (depending on option)</p>
+                    <p>Time, strategy, deliverables</p>
+                </div>
+                <div class="exchange-col">
+                    <h3>Ashe brings</h3>
+                    <p>Breakthrough Coaching Program</p>
+                    <p>Trade credit toward Micaila's portion</p>
+                    <p>Flexible payment structure</p>
+                </div>
             </div>
-            <div class="gap-card">
-                <span>Friction</span>
-                <h3>Threshold Resistance</h3>
-                <p>Replacing the $5k "Book Now" break-state with a <strong>rapport-based funnel</strong> that mirrors your actual work.</p>
-            </div>
-            <div class="gap-card">
-                <span>Operational</span>
-                <h3>The Locked Gestalt</h3>
-                <p>Structuring your decades of IP so <strong>AI search engines</strong> can cite you as the authority on emotional release.</p>
-            </div>
-            <div class="gap-card">
-                <span>Linguistic</span>
-                <h3>Deep vs Surface</h3>
-                <p>Building the <strong>"Junior High" bridge</strong> so clients can understand the journey before they dive into the depth.</p>
-            </div>
-            <div class="gap-card" style="grid-column: span 2;">
-                <span>The Root Cause</span>
-                <h3>Faulty Funnel: Commitment Before Alignment</h3>
-                <p>Your work begins with a pattern search before any release happens. <strong>Your funnel should mirror this.</strong> Right now, your digital presence skips rapport entirely and goes straight to the ask. We build the layer that establishes trust first.</p>
-            </div>
+            
+            <p style="margin-top: 3rem; font-size: 1.05rem;">Straightforward trade. Both sides valued at parity. <strong>The only requirement: willingness to look.</strong> Same methodology. Different medium.</p>
         </div>
-    </div>
-</section>
+    </section>
 
-<section style="background: #fff;">
-    <div class="container">
-        <h2>The Exchange</h2>
-        <div class="tier">
-            <div class="tier-left">
-                <div class="tier-label">Option One</div>
-                <h3>On-Demand</h3>
-                <span class="tier-price">$150</span>
-                <span class="tier-label">Per Hour · 30-Min Discovery Complimentary</span>
-            </div>
-            <div class="tier-right">
-                <p>Closing specific holes one by one. Every hour is a proof of concept. No full commitment required. <strong>Your first 30-minute discovery session is on the house.</strong></p>
-            </div>
+    <!-- What You Calibrate On -->
+    <section class="bg-alabaster section-padding">
+        <div class="container fade-in">
+            <h2>What You Calibrate On</h2>
+            <div class="divider"></div>
+            <p style="font-size: 1.2rem; font-family: 'Cormorant Garamond', serif;">Behavioral change. Not what clients report feeling — how they actually move.</p>
+            <p>This proposal was built the same way. Not a pitch. <strong>A demonstration.</strong></p>
+            <p>The family map wasn't hypothetical. It was real, functional, and it worked. Built from one conversation. Changed how my family understood your program. Got them to commit.</p>
+            <p>Your first session with me contained linguistic patterns — metaphors, reframes, language that built rapport. That can be extracted and embedded into every client touchpoint. Not taught to you. <strong>Built into the system for you.</strong></p>
         </div>
+    </section>
 
-        <div class="tier" style="border: 2px solid var(--gold);">
-            <div class="tier-left">
-                <div class="tier-label">Option Two</div>
-                <h3>The Discovery</h3>
-                <span class="tier-price">$1,500</span>
-                <span class="tier-label">Architectural Build</span>
-            </div>
-            <div class="tier-right">
-                <p>The "Vaughn Family" treatment. We map your entire client journey and build the core translation layer for your practice. This is the "First Domino."</p>
-            </div>
+    <!-- Next Steps -->
+    <section class="bg-white section-padding">
+        <div class="container fade-in" style="text-align: center;">
+            <h2 class="text-bronze">Next Steps</h2>
+            <div class="divider divider-center"></div>
+            <p style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif; font-style: italic; margin: 2rem auto;">This is just a starting point.</p>
+            <p style="max-width: 600px; margin: 0 auto;">I'm looking forward to hearing your thoughts — what resonates, what doesn't, what might work for your practice.</p>
+            <p style="max-width: 600px; margin: 1.5rem auto 0;">First session is free (30 min). We identify one gap together. You decide if it's worth continuing from there.</p>
+            <p style="font-size: 1.1rem; margin-top: 2rem;"><strong>I'm excited to get started on this journey with you and my family.</strong></p>
+            <a href="mailto:micailajanevaughn@gmail.com" class="contact-link">micailajanevaughn@gmail.com</a>
         </div>
+    </section>
 
-        <div class="tier">
-            <div class="tier-left">
-                <div class="tier-label">Option Three</div>
-                <h3>Full Realignment</h3>
-                <span class="tier-price">$3,500+</span>
-                <span class="tier-label">The Inside-Out Build</span>
-            </div>
-            <div class="tier-right">
-                <p>Complete systemic transformation. I go through your program as a client while rebuilding your practice from the root up.</p>
-            </div>
+    <!-- Footer -->
+    <section class="bg-charcoal" style="padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; letter-spacing: 0.1em; margin-bottom: 0.5rem;">TELORIC</p>
+            <p style="font-size: 0.9rem; opacity: 0.6; margin: 0;">Systems Aligned to Purpose</p>
+            <p style="font-size: 0.75rem; opacity: 0.4; margin-top: 0.5rem; font-style: italic;">From TELEIOS · Greek · Brought to completion · Wanting nothing necessary</p>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- FOUNDER BIO -->
-<section>
-    <div class="container">
-        <div class="bio-box">
-            <img src="https://cdn.gooo.ai/user-files/caf933b227a88d3ffded85c925c737a7862408d32cc026c9443be422e3de19b6@chat" class="bio-img" alt="Micaila Vaughn">
-            <div class="bio-text">
-                <h3>Micaila Vaughn</h3>
-                <p>Teloric is built on a pattern recognized across two decades of operational work. From building a boutique agency from scratch to doubling territory revenue, I’ve spent my career building AI-powered systems that surface the knowledge gaps traditional systems can't see. <strong>I build the translation layer that makes mastery productive.</strong></p>
-            </div>
-        </div>
-    </div>
-</section>
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-<section style="background: #fff;">
-    <div class="container">
-        <h2 style="font-size: 2rem;">The Nature of This Work</h2>
-        <p style="font-style: italic; font-size: 1.2rem; color: var(--gold); margin-bottom: 1.5rem;">When alignment happens at the root, it holds.</p>
-        <p>You don't return to old patterns because the pattern itself has changed. The decisions that used to take weeks happen in minutes. The specialized knowledge that used to walk out the door every evening becomes permanent institutional infrastructure. <strong>It feels like recognition.</strong></p>
-    </div>
-</section>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-<div class="cta-area">
-    <div class="container">
-        <h2>Who do you believe you are — and what would it mean if the world already knew?</h2>
-        <div class="cta-group">
-            <a href="https://calendly.com/micailajanevaughn/new-meeting-1" class="cta-button cta-primary">Book Your 30-Min Discovery</a>
-            <a href="mailto:micailajanevaughn@gmail.com" class="cta-button cta-secondary">Confirm the Breakthrough</a>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <div class="container">
-        <p>TELORIC · Systems Aligned to Purpose</p>
-        <p>Private Proposal · April 2026</p>
-    </div>
-</footer>
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 
 </body>
 </html>

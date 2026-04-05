@@ -148,6 +148,7 @@
             .bio-photo { max-width: 300px; margin: 0 auto; }
             .timeline-item { text-align: left; }
             section { padding: 6rem 1.5rem; }
+            .applied-card { grid-template-columns: 1fr !important; gap: 2rem !important; }
         }
 
         /* SVG Graphic Styles */
@@ -182,7 +183,6 @@
 <!-- The Moment -->
 <section>
     <div class="container">
-        <!-- The Moment Graphic (The Threshold) -->
         <div class="section-graphic">
             <svg width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line x1="20" y1="10" x2="20" y2="30" stroke="#8B6F47" stroke-width="1"/>
@@ -199,7 +199,6 @@
 <!-- The Gap -->
 <section>
     <div class="container">
-        <!-- The Gap Graphic (The Bridge) -->
         <div class="section-graphic">
             <svg width="80" height="20" viewBox="0 0 80 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line x1="0" y1="10" x2="30" y2="10" stroke="#8B6F47" stroke-width="2"/>
@@ -218,7 +217,6 @@
 <!-- The Three Movements -->
 <section>
     <div class="container">
-        <!-- The Three Movements Graphic (The Progression) -->
         <div class="section-graphic">
             <svg width="100" height="30" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line x1="20" y1="15" x2="80" y2="15" stroke="#8B6F47" stroke-width="1"/>
@@ -305,10 +303,45 @@
     </div>
 </section>
 
+<!-- Applied Systems (The Proof) -->
+<section>
+    <div class="container">
+        <div class="section-graphic">
+            <svg width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="5" width="40" height="30" stroke="#8B6F47" stroke-width="1"/>
+                <line x1="10" y1="15" x2="50" y2="15" stroke="#8B6F47" stroke-width="0.5" stroke-dasharray="2 2"/>
+                <line x1="10" y1="25" x2="50" y2="25" stroke="#8B6F47" stroke-width="0.5" stroke-dasharray="2 2"/>
+                <line x1="23" y1="5" x2="23" y2="35" stroke="#8B6F47" stroke-width="0.5" stroke-dasharray="2 2"/>
+                <line x1="36" y1="5" x2="36" y2="35" stroke="#8B6F47" stroke-width="0.5" stroke-dasharray="2 2"/>
+                <circle cx="36" cy="15" r="3" fill="#8B6F47"/>
+            </svg>
+        </div>
+        
+        <h2>Applied Systems</h2>
+        <p style="margin-bottom: 3rem;">We don't just deliver strategy; we deliver the infrastructure to run it. Here is a preview of the systems we build for our clients.</p>
+        
+        <div class="applied-card" style="background: var(--white); border: 1px solid var(--mist); padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div>
+                <span style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; color: var(--bronze); display: block; margin-bottom: 1rem;">Featured Deliverable</span>
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Client AI Training Kit</h3>
+                <p>A comprehensive hub designed to transition teams from AI-curious to AI-integrated. This isn't a manual; it's a living workspace.</p>
+                <ul style="list-style: none; margin-top: 1.5rem;">
+                    <li style="margin-bottom: 0.8rem; font-size: 0.95rem;"><strong>• Module Track:</strong> A course-style progression for self-directed learning.</li>
+                    <li style="margin-bottom: 0.8rem; font-size: 0.95rem;"><strong>• Implementation QA:</strong> Staged checklists to ensure system integrity.</li>
+                    <li style="margin-bottom: 0.8rem; font-size: 0.95rem;"><strong>• Prompt Library:</strong> A centralized repository for high-performance outputs.</li>
+                </ul>
+                <a href="https://www.notion.so/Client-AI-Training-Kit-3e0ecd26a3d84f378a443dffe00f7c0f" target="_blank" style="display: inline-block; margin-top: 2rem; color: var(--bronze); text-decoration: none; border-bottom: 1px solid var(--bronze); font-weight: 500;">View the System Architecture →</a>
+            </div>
+            <div style="background: var(--alabaster); padding: 2rem; border-radius: 2px; text-align: center;">
+                <p style="font-style: italic; opacity: 0.5; font-size: 0.9rem;">"The translation layer realized. A staging ground for institutional intelligence."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- The Nature of This Work -->
 <section>
     <div class="container">
-        <!-- The Nature of This Work Graphic (The Foundation) -->
         <div class="section-graphic">
             <svg width="60" height="50" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line x1="10" y1="10" x2="50" y2="10" stroke="#8B6F47" stroke-width="2"/>

@@ -30,30 +30,29 @@
         }
 
         h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; margin-top: 0; }
-        h1 { font-size: 3.5rem; letter-spacing: 0.15em; margin-bottom: 0.5rem; text-transform: uppercase; }
+        h1 { font-size: 3.5rem; letter-spacing: 0.2em; margin-bottom: 0.5rem; text-transform: uppercase; }
         h2 { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--charcoal); }
         h3 { font-size: 1.5rem; margin-bottom: 1rem; }
         
         .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
         .section-padding { padding: 7rem 0; }
         
-        /* Branding Header */
+        /* Branding Header - Dark Background */
         .brand-header {
             text-align: center;
-            padding: 4rem 0 2rem;
-            background-color: var(--alabaster);
+            padding: 5rem 0 3rem;
+            background-color: var(--charcoal);
+            color: var(--alabaster);
         }
         .tagline {
             font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--bronze);
-            margin-top: -0.5rem;
+            margin-top: 0.5rem;
         }
 
-        .bg-charcoal { background-color: var(--charcoal); color: var(--alabaster); }
-        .bg-charcoal h1, .bg-charcoal h2, .bg-charcoal p { color: var(--alabaster); }
         .bg-white { background-color: var(--white); }
         .bg-sand { background-color: var(--sand); }
         .bg-slate { background-color: var(--slate); color: var(--white); }
@@ -61,13 +60,39 @@
 
         /* Hero / Greeting */
         .hero {
-            padding: 4rem 0;
+            padding: 5rem 0;
             text-align: left;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .hero h2 { font-style: italic; font-size: 2rem; line-height: 1.3; }
 
         .divider { height: 1px; background-color: rgba(0,0,0,0.1); width: 80px; margin: 2rem 0; }
+
+        /* Process Timeline */
+        .timeline {
+            margin: 4rem 0;
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.08);
+            padding: 3rem;
+        }
+        .timeline-phase {
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+            border-left: 3px solid var(--bronze);
+        }
+        .timeline-phase:last-child { margin-bottom: 0; }
+        .timeline-phase h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--bronze);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-phase .duration {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            margin-bottom: 1rem;
+        }
 
         /* Options Grid */
         .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
@@ -78,24 +103,42 @@
             display: flex; flex-direction: column;
             box-shadow: 0 10px 40px rgba(0,0,0,0.03);
         }
-        .card h3 { color: var(--bronze); }
-        .card ul { list-style: none; padding: 0; margin: 1.5rem 0 0 0; flex-grow: 1; }
-        .card li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; color: #555; font-size: 0.95rem; }
+        .card h3 { color: var(--bronze); margin-bottom: 1rem; }
+        .card .price { font-size: 1.2rem; font-weight: 500; margin-bottom: 1.5rem; }
+        .card ul { list-style: none; padding: 0; margin: 1.5rem 0 0 0; }
+        .card li { 
+            margin-bottom: 1rem; 
+            padding-left: 1.5rem; 
+            position: relative; 
+            color: #555; 
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
         .card li::before { content: "—"; position: absolute; left: 0; color: var(--bronze); }
+        .card li strong { color: var(--charcoal); }
 
-        /* Timeline / Map */
-        .diagram { display: flex; margin: 4rem 0; background: var(--white); border: 1px solid rgba(0,0,0,0.08); }
-        .phase { flex: 1; padding: 2.5rem 1.5rem; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; border-right: 1px solid rgba(0,0,0,0.08); }
-        .phase:last-child { border-right: none; }
-        .phase span { font-size: 0.85rem; font-family: 'Inter'; color: #888; display: block; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .highlight-card {
+            background: linear-gradient(135deg, #f8f6f3 0%, #f0ede8 100%);
+            border-top: 3px solid var(--bronze);
+        }
 
-        blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; text-align: center; margin: 4rem auto; color: var(--bronze); line-height: 1.4; }
-        .contact-link { display: inline-block; margin-top: 2rem; color: var(--charcoal); text-decoration: none; border-bottom: 1px solid var(--bronze); padding-bottom: 0.3rem; }
+        .cta-button {
+            display: inline-block;
+            background: var(--bronze);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 500;
+            margin-top: 2rem;
+            transition: background 0.3s ease;
+            font-size: 1rem;
+        }
+        .cta-button:hover { background: #6d5637; }
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
-            .diagram { flex-direction: column; }
-            .phase { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
+            .options-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -104,7 +147,7 @@
     <!-- Branding Header -->
     <header class="brand-header">
         <div class="container">
-            <h1>TELORIC</h1>
+            <h1 style="color: white;">TELORIC</h1>
             <p class="tagline">Systems Aligned to Purpose</p>
         </div>
     </header>
@@ -112,11 +155,11 @@
     <!-- Personal Greeting -->
     <section class="hero">
         <div class="container">
-            <h2 style="font-style: normal; font-family: 'Inter', sans-serif; font-weight: 300; margin-bottom: 2rem;">Hi Ashe,</h2>
-            <h2 class="text-bronze">I’m really looking forward to getting started with you and my family.</h2>
-            <p style="max-width: 700px; font-size: 1.15rem; color: #555;">
-                I’ve been building my company, <strong>Teloric</strong>, and I wanted to share this specific angle with you—it matches your ethos and what you do perfectly. I'm excited to hear your thoughts.
+            <h2 style="font-style: normal; font-family: 'Inter', sans-serif; font-weight: 300; margin-bottom: 1.5rem;">Hi Ashe,</h2>
+            <p style="max-width: 750px; font-size: 1.2rem; color: #444; line-height: 1.6; margin-bottom: 1.5rem;">
+                I'm really looking forward to getting started with you and my family. I've been building my company, <a href="http://teloric.com" style="color: var(--bronze); text-decoration: none; border-bottom: 1px solid var(--bronze);">Teloric</a>, and I wanted to share this specific angle with you—it matches your ethos and what you do perfectly.
             </p>
+            <p style="max-width: 750px; font-size: 1.1rem; color: #666;">I'm excited to hear your thoughts.</p>
         </div>
     </section>
 
@@ -125,40 +168,60 @@
         <div class="container">
             <h2>The "Translation Layer"</h2>
             <p style="font-size: 1.4rem; font-family: 'Cormorant Garamond', serif; color: var(--charcoal); line-height: 1.5; margin-bottom: 2rem;">
-                I’ve built Teloric around a single core belief: that most people have incredible expertise, but they’re missing the <strong>'Translation Layer'</strong> that makes that expertise visible to the world. 
+                I've built Teloric around a single core belief: that most people have incredible expertise, but they're missing the <strong>'Translation Layer'</strong> that makes that expertise visible to the world. 
             </p>
             <div class="divider"></div>
-            <p>In our world right now, if your systems don't accurately reflect your methodology, you're essentially invisible to the AI-driven search landscape where clients are looking for answers. I build the systems that bridge that gap—taking the deep, unconscious work you do and turning it into something a client can see, understand, and commit to.</p>
+            <p>In our world right now, if your systems don't accurately reflect your methodology, you're essentially invisible to the AI-driven search landscape where clients are looking for answers.</p>
+            <p>I build the systems that bridge that gap—taking the deep, unconscious work you do and turning it into something a client can see, understand, and commit to.</p>
         </div>
     </section>
 
-    <!-- Making the Invisible Visible (The Proof) -->
+    <!-- The Strategic Exercise -->
     <section class="bg-sand section-padding">
         <div class="container">
+            <h2>The Strategic Start: Ideal Client Exercise</h2>
+            <p style="font-size: 1.2rem; font-family: 'Cormorant Garamond', serif; margin-bottom: 2rem;">
+                Before we build a single system, we define the <strong>'Who'</strong> with total precision.
+            </p>
+            <div class="divider"></div>
+            <p>We identify the specific language, the specific pain, and the specific 'Yes' that your ideal client needs to hear to trust the process. This ensures the systems we build land with the people you were meant to serve.</p>
+        </div>
+    </section>
+
+    <!-- The Detailed Map -->
+    <section class="bg-white section-padding">
+        <div class="container">
             <h2>Making the Invisible Visible</h2>
-            <p><strong>This is the visual map of your 8-week program.</strong></p>
-            <div class="diagram">
-                <div class="phase">
-                    <strong>Phase 1</strong>
-                    <span>Day 1: Personal History (4hr)</span>
+            <p style="margin-bottom: 2rem;"><strong>A detailed breakdown of the 8-week Breakthrough journey:</strong></p>
+            
+            <div class="timeline">
+                <div class="timeline-phase">
+                    <h4>Phase 1: The Personal History</h4>
+                    <div class="duration">Day 1 • 4-Hour Deep Dive</div>
+                    <p>Not a psychiatric intake—a pattern search. We're looking for the greater problem, the one that informs all the unconscious behavior underneath the surface.</p>
                 </div>
-                <div class="phase">
-                    <strong>Phase 2</strong>
-                    <span>Day 2: MER Release (4hr)</span>
+
+                <div class="timeline-phase">
+                    <h4>Phase 2: The Release</h4>
+                    <div class="duration">Day 2 • 4-Hour MER Timeline Process</div>
+                    <p>Using Mental and Emotional Release (MER), we go back to the root events and release the negative charge held there. Anger, grief, fear, guilt. We clear it.</p>
                 </div>
-                <div class="phase">
-                    <strong>Phase 3</strong>
-                    <span>8 Weeks: Rebuild & Integration</span>
+
+                <div class="timeline-phase">
+                    <h4>Phase 3: Building the New</h4>
+                    <div class="duration">8 Weeks • Integration & Rebuild</div>
+                    <p><strong>8 Coaching Sessions (up to 90 minutes each):</strong> Identity within the family. The aim—what does a good relationship with each other actually look like? We work through situations in real time as they arise.</p>
                 </div>
             </div>
-            <blockquote>
-                "This is the exact map that turned my family's 90-minute transcript into a clear commitment. It bridges the gap between a client feeling 'anxious' and a client saying 'yes'."
-            </blockquote>
+
+            <p style="text-align: center; color: #666; font-size: 0.95rem; max-width: 700px; margin: 3rem auto 0;">
+                This map was created to help my family visualize the process. It bridges the gap between understanding the theory and committing to the 8-week journey. <strong>Investment: $3,500 per person.</strong>
+            </p>
         </div>
     </section>
 
     <!-- Strategic Trade Tiers -->
-    <section class="bg-white section-padding">
+    <section class="bg-sand section-padding">
         <div class="container">
             <h2>Strategic Trade Tiers</h2>
             <div class="divider"></div>
@@ -167,35 +230,37 @@
                 <!-- Tier 1 -->
                 <div class="card">
                     <h3>Tier 1: Hourly Advisory</h3>
-                    <p style="font-size: 1.2rem; font-weight: 500;">$150/hour · Trade Credit</p>
+                    <p class="price">$150/hour · Trade Credit</p>
                     <ul>
-                        <li><strong>Gap Analysis:</strong> Finding the specific friction points in your current workflow.</li>
-                        <li><strong>NLP-informed Templates:</strong> Visual proposal and communication assets.</li>
+                        <li><strong>Gap Analysis:</strong> Identifying specific friction points in your current workflow and client experience.</li>
+                        <li><strong>NLP-Informed Templates:</strong> Visual proposal and communication assets that match your linguistic patterns.</li>
                         <li><strong>Targeted Gap Closures:</strong> Immediate fixes for specific operational needs.</li>
                     </ul>
                 </div>
 
-                <!-- Tier 2 -->
-                <div class="card" style="background-color: var(--alabaster);">
+                <!-- Tier 2 - Highlighted -->
+                <div class="card highlight-card">
                     <h3>Tier 2: Practice Architecture</h3>
-                    <p style="font-size: 1.2rem; font-weight: 500;">$3,500 · Trade Credit</p>
-                    <p style="font-size: 0.9rem; color: #8B6F47; font-weight: 600; text-transform: uppercase; margin-top: 0.5rem;">The "Inside-Out" Audit</p>
-                    <p style="font-size: 0.95rem; margin-top: 1rem; font-style: italic;">"I go through your program as a client. While inside, I observe as an architect to document and build your visual journey."</p>
+                    <p class="price">$3,500 · Trade Credit</p>
+                    <p style="font-size: 0.85rem; color: #8B6F47; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem;">The "Inside-Out" Systems Build</p>
+                    <p style="font-size: 0.95rem; font-style: italic; margin-bottom: 1.5rem;">Includes everything in Tier 1, plus:</p>
                     <ul>
-                        <li><strong>Context Engineering:</strong> Structuring your 400-page MER book for AI systems.</li>
-                        <li><strong>Visual Journey Mapping:</strong> Professional diagrams of your 3-phase methodology.</li>
-                        <li><strong>Intelligent Intake:</strong> AI-powered, rapport-building onboarding system.</li>
+                        <li><strong>The Experience Audit:</strong> I go through your program as a client while documenting every friction point, linguistic pattern, and breakthrough moment to identify opportunities to solidify, replicate, and scale your methodology.</li>
+                        <li><strong>Context Engineering:</strong> Transforming your 400-page MER book into a searchable, "living" AI knowledge base—so you can find any technique or script in seconds while coaching.</li>
+                        <li><strong>Visual Asset Library:</strong> Multiple journey maps (Master 2+8 Timeline, Family Dynamic Map, Individual Breakthrough Map) that you can use for all future clients.</li>
+                        <li><strong>Linguistic Bridge:</strong> Extracting the specific metaphors and patterns from your sessions to build your Intelligent Intake System—so your business speaks the same language as your coaching.</li>
+                        <li><strong>Process Optimization:</strong> Streamlining the "liminal space" between sessions—improving emails, scheduling, and follow-up so the transformation stays "glued" together throughout the 8 weeks.</li>
                     </ul>
                 </div>
 
                 <!-- Tier 3 -->
                 <div class="card">
                     <h3>Tier 3: À La Carte Add-ons</h3>
-                    <p style="font-size: 1.2rem; font-weight: 500;">Custom Scope · Trade Credit</p>
+                    <p class="price">Custom Scope · Trade Credit</p>
                     <ul>
-                        <li><strong>GEO Strategy:</strong> AI Search Authority positioning (Perplexity/ChatGPT).</li>
-                        <li><strong>Agentic Workflows:</strong> Automating repetitive practice operations.</li>
-                        <li><strong>Knowledge Architecture:</strong> Scalable digital program portals.</li>
+                        <li><strong>GEO Strategy:</strong> AI Search Authority positioning (Perplexity/ChatGPT) so you're the first answer when someone asks "Who can help my family?"</li>
+                        <li><strong>Agentic Workflows:</strong> Automating repetitive practice operations to free up your time for high-value coaching.</li>
+                        <li><strong>Knowledge Architecture:</strong> Scalable digital program portals for group work or online offerings.</li>
                     </ul>
                 </div>
 
@@ -206,25 +271,26 @@
     <!-- The Trade Agreement -->
     <section class="bg-slate section-padding">
         <div class="container">
-            <h2>The Trade</h2>
-            <p style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif; margin-bottom: 2rem;">
-                I’d like to value this exchange at a straight trade: my <strong>Practice Architecture package ($3,500)</strong> for the <strong>Breakthrough Coaching Program ($3,500)</strong>. 
+            <h2 style="color: white;">The Trade</h2>
+            <p style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif; margin-bottom: 2rem; color: white;">
+                I'd like to proceed with the <strong>Practice Architecture package ($3,500)</strong> as a straight trade for the <strong>Breakthrough Coaching Program ($3,500)</strong>.
             </p>
-            <p style="opacity: 0.8;">
-                It’s a clean, professional swap that honors the work on both sides. Anything beyond that we can handle as an hourly or à la carte add-on.
+            <p style="opacity: 0.8; color: white;">
+                It's a clean, professional swap that honors the work on both sides. I'm open to working with what makes the most sense for you, and I encourage you to jump on a 30-minute call to discuss this further for free.
             </p>
-            <p style="margin-top: 3rem; font-style: italic;">
-                I'm excited to see what we can build together. Let me know what you think!
+            <p style="margin-top: 2rem; font-style: italic; color: white; opacity: 0.9;">
+                I'm excited to see what we can build together.
             </p>
+            <a href="https://calendly.com/micailajanevaughn/new-meeting-1" class="cta-button">Book a Discovery Call</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-charcoal" style="padding: 4rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+    <footer class="bg-white" style="padding: 4rem 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.05);">
         <div class="container">
-            <p style="font-family: 'Cormorant Garamond'; font-size: 1.5rem; letter-spacing: 0.15em; margin-bottom: 0.5rem;">TELORIC</p>
-            <p style="font-size: 0.9rem; opacity: 0.5; margin-bottom: 2rem;">Systems Aligned to Purpose</p>
-            <a href="mailto:micailajanevaughn@gmail.com" class="contact-link" style="color: white; font-size: 0.9rem;">micailajanevaughn@gmail.com</a>
+            <p style="font-family: 'Cormorant Garamond'; font-size: 1.5rem; letter-spacing: 0.15em; margin-bottom: 0.5rem; color: var(--charcoal);">TELORIC</p>
+            <p style="font-size: 0.9rem; color: #888; margin-bottom: 2rem;">Systems Aligned to Purpose</p>
+            <a href="mailto:micailajanevaughn@gmail.com" style="color: var(--charcoal); font-size: 0.9rem; text-decoration: none; border-bottom: 1px solid var(--bronze);">micailajanevaughn@gmail.com</a>
         </div>
     </footer>
 

@@ -30,12 +30,28 @@
         }
 
         h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; margin-top: 0; }
-        h1 { font-size: 3.5rem; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        h1 { font-size: 3.5rem; letter-spacing: 0.15em; margin-bottom: 0.5rem; text-transform: uppercase; }
         h2 { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--charcoal); }
         h3 { font-size: 1.5rem; margin-bottom: 1rem; }
         
         .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
         .section-padding { padding: 7rem 0; }
+        
+        /* Branding Header */
+        .brand-header {
+            text-align: center;
+            padding: 4rem 0 2rem;
+            background-color: var(--alabaster);
+        }
+        .tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--bronze);
+            margin-top: -0.5rem;
+        }
+
         .bg-charcoal { background-color: var(--charcoal); color: var(--alabaster); }
         .bg-charcoal h1, .bg-charcoal h2, .bg-charcoal p { color: var(--alabaster); }
         .bg-white { background-color: var(--white); }
@@ -43,19 +59,17 @@
         .bg-slate { background-color: var(--slate); color: var(--white); }
         .text-bronze { color: var(--bronze); }
 
+        /* Hero / Greeting */
         .hero {
-            height: 80vh; min-height: 500px;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            text-align: center; padding: 2rem;
+            padding: 4rem 0;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-
-        .hero h2 { color: var(--bronze); font-style: italic; font-size: 2.5rem; }
-        .hero p { font-size: 1.1rem; letter-spacing: 0.05em; margin-top: 2rem; text-transform: uppercase; color: #a0a0a0; }
+        .hero h2 { font-style: italic; font-size: 2rem; line-height: 1.3; }
 
         .divider { height: 1px; background-color: rgba(0,0,0,0.1); width: 80px; margin: 2rem 0; }
-        .divider-center { margin: 2rem auto; }
 
+        /* Options Grid */
         .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
         .card {
             background: var(--white);
@@ -64,25 +78,22 @@
             display: flex; flex-direction: column;
             box-shadow: 0 10px 40px rgba(0,0,0,0.03);
         }
-
-        .card-small { grid-column: 1 / -1; text-align: center; background: var(--alabaster); padding: 2rem; border: 1px solid rgba(0,0,0,0.05); }
+        .card h3 { color: var(--bronze); }
         .card ul { list-style: none; padding: 0; margin: 1.5rem 0 0 0; flex-grow: 1; }
         .card li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; color: #555; font-size: 0.95rem; }
         .card li::before { content: "—"; position: absolute; left: 0; color: var(--bronze); }
 
-        .exchange-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem; }
-        .exchange-col h3 { color: var(--bronze); font-size: 1.8rem; }
-        
+        /* Timeline / Map */
         .diagram { display: flex; margin: 4rem 0; background: var(--white); border: 1px solid rgba(0,0,0,0.08); }
         .phase { flex: 1; padding: 2.5rem 1.5rem; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; border-right: 1px solid rgba(0,0,0,0.08); }
         .phase:last-child { border-right: none; }
+        .phase span { font-size: 0.85rem; font-family: 'Inter'; color: #888; display: block; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
 
-        blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; text-align: center; margin: 4rem auto; color: var(--bronze); }
+        blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; text-align: center; margin: 4rem auto; color: var(--bronze); line-height: 1.4; }
         .contact-link { display: inline-block; margin-top: 2rem; color: var(--charcoal); text-decoration: none; border-bottom: 1px solid var(--bronze); padding-bottom: 0.3rem; }
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
-            .exchange-grid { grid-template-columns: 1fr; gap: 2rem; }
             .diagram { flex-direction: column; }
             .phase { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
         }
@@ -90,93 +101,101 @@
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <section class="hero bg-charcoal">
+    <!-- Branding Header -->
+    <header class="brand-header">
         <div class="container">
-            <h1>Hi Ashe,</h1>
-            <h2 style="color: var(--bronze); font-style: normal; font-size: 1.8rem; margin-top: 1rem;">I'm really looking forward to getting started on this journey with you and my family.</h2>
-            <div class="divider divider-center"></div>
-            <p style="text-transform: none; color: #ccc; font-style: italic;">I put together some ideas for how we might structure our trade. Let me know what resonates.</p>
+            <h1>TELORIC</h1>
+            <p class="tagline">Systems Aligned to Purpose</p>
+        </div>
+    </header>
+
+    <!-- Personal Greeting -->
+    <section class="hero">
+        <div class="container">
+            <h2 style="font-style: normal; font-family: 'Inter', sans-serif; font-weight: 300; margin-bottom: 2rem;">Hi Ashe,</h2>
+            <h2 class="text-bronze">I’m really looking forward to getting started with you and my family.</h2>
+            <p style="max-width: 700px; font-size: 1.15rem; color: #555;">
+                I’ve been building my company, <strong>Teloric</strong>, and I wanted to share this specific angle with you—it matches your ethos and what you do perfectly. I'm excited to hear your thoughts.
+            </p>
         </div>
     </section>
 
-    <!-- The Personal Note -->
-    <section class="bg-alabaster section-padding">
+    <!-- The Translation Layer -->
+    <section class="bg-white section-padding">
         <div class="container">
-            <h2 class="text-bronze">The "Translation" Layer</h2>
-            <p style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif; color: var(--charcoal); line-height: 1.5; margin-bottom: 2rem;">
-                After our talk, I kept thinking about how most organizations don't actually have a technology problem—they have a <strong>translation problem</strong>. 
+            <h2>The "Translation Layer"</h2>
+            <p style="font-size: 1.4rem; font-family: 'Cormorant Garamond', serif; color: var(--charcoal); line-height: 1.5; margin-bottom: 2rem;">
+                I’ve built Teloric around a single core belief: that most people have incredible expertise, but they’re missing the <strong>'Translation Layer'</strong> that makes that expertise visible to the world. 
             </p>
             <div class="divider"></div>
-            <p>You have incredible expertise and the right tools, but there's often a "layer" missing that helps clients see the full scope of what you do before they even step into the room. </p>
-            <p>I'd love to help you build that layer. Here’s a breakdown of three tiers we could use for our trade, ranging from quick wins to a full practice architecture build.</p>
+            <p>In our world right now, if your systems don't accurately reflect your methodology, you're essentially invisible to the AI-driven search landscape where clients are looking for answers. I build the systems that bridge that gap—taking the deep, unconscious work you do and turning it into something a client can see, understand, and commit to.</p>
         </div>
     </section>
 
-    <!-- Proof of Concept -->
+    <!-- Making the Invisible Visible (The Proof) -->
     <section class="bg-sand section-padding">
         <div class="container">
-            <h2>A Quick Demonstration</h2>
-            <p><strong>This is the visual map I built from our first 90-minute call.</strong></p>
+            <h2>Making the Invisible Visible</h2>
+            <p><strong>This is the visual map of your 8-week program.</strong></p>
             <div class="diagram">
-                <div class="phase"><strong>Phase 1</strong><br><span style="font-size: 0.9rem; font-family: 'Inter'; color: #666;">Foundation</span></div>
-                <div class="phase"><strong>Phase 2</strong><br><span style="font-size: 0.9rem; font-family: 'Inter'; color: #666;">Stabilize</span></div>
-                <div class="phase"><strong>Phase 3</strong><br><span style="font-size: 0.9rem; font-family: 'Inter'; color: #666;">Rebuild</span></div>
+                <div class="phase">
+                    <strong>Phase 1</strong>
+                    <span>Day 1: Personal History (4hr)</span>
+                </div>
+                <div class="phase">
+                    <strong>Phase 2</strong>
+                    <span>Day 2: MER Release (4hr)</span>
+                </div>
+                <div class="phase">
+                    <strong>Phase 3</strong>
+                    <span>8 Weeks: Rebuild & Integration</span>
+                </div>
             </div>
             <blockquote>
-                "My family didn't understand the scope of the breakthrough process until I made it visual. This document changed the conversation for us."
+                "This is the exact map that turned my family's 90-minute transcript into a clear commitment. It bridges the gap between a client feeling 'anxious' and a client saying 'yes'."
             </blockquote>
         </div>
     </section>
 
-    <!-- The Three Options -->
+    <!-- Strategic Trade Tiers -->
     <section class="bg-white section-padding">
         <div class="container">
-            <h2>The Three Tiers</h2>
+            <h2>Strategic Trade Tiers</h2>
             <div class="divider"></div>
             <div class="options-grid">
                 
-                <div class="card-small">
-                    <h3>First Session: Free (30 min)</h3>
-                    <p>Discovery call • Identify one gap • No commitment required</p>
-                </div>
-
-                <!-- Option 1 -->
+                <!-- Tier 1 -->
                 <div class="card">
-                    <h3 class="text-bronze">Option 1: Hourly Work</h3>
+                    <h3>Tier 1: Hourly Advisory</h3>
                     <p style="font-size: 1.2rem; font-weight: 500;">$150/hour · Trade Credit</p>
-                    <p style="font-size: 0.9rem; color: #666;">On-Demand Support</p>
                     <ul>
-                        <li>Visual proposal templates</li>
-                        <li>AI-informed intake forms</li>
-                        <li>Client onboarding kits</li>
-                        <li>Condensing large MER docs</li>
+                        <li><strong>Gap Analysis:</strong> Finding the specific friction points in your current workflow.</li>
+                        <li><strong>NLP-informed Templates:</strong> Visual proposal and communication assets.</li>
+                        <li><strong>Targeted Gap Closures:</strong> Immediate fixes for specific operational needs.</li>
                     </ul>
                 </div>
 
-                <!-- Option 2 (UPDATED) -->
-                <div class="card">
-                    <h3 class="text-bronze">Option 2: Practice Architecture</h3>
+                <!-- Tier 2 -->
+                <div class="card" style="background-color: var(--alabaster);">
+                    <h3>Tier 2: Practice Architecture</h3>
                     <p style="font-size: 1.2rem; font-weight: 500;">$3,500 · Trade Credit</p>
-                    <p style="font-size: 0.9rem; color: #666;">The Foundation Package</p>
+                    <p style="font-size: 0.9rem; color: #8B6F47; font-weight: 600; text-transform: uppercase; margin-top: 0.5rem;">The "Inside-Out" Audit</p>
+                    <p style="font-size: 0.95rem; margin-top: 1rem; font-style: italic;">"I go through your program as a client. While inside, I observe as an architect to document and build your visual journey."</p>
                     <ul>
-                        <li>Complete visual client journey</li>
-                        <li>AI-powered intake + NLP onboarding</li>
-                        <li>Discovery funnel (Rapport-building)</li>
-                        <li>SEO/GEO search authority positioning</li>
+                        <li><strong>Context Engineering:</strong> Structuring your 400-page MER book for AI systems.</li>
+                        <li><strong>Visual Journey Mapping:</strong> Professional diagrams of your 3-phase methodology.</li>
+                        <li><strong>Intelligent Intake:</strong> AI-powered, rapport-building onboarding system.</li>
                     </ul>
                 </div>
 
-                <!-- Option 3 -->
+                <!-- Tier 3 -->
                 <div class="card">
-                    <h3 class="text-bronze">Option 3: À La Carte</h3>
+                    <h3>Tier 3: À La Carte Add-ons</h3>
                     <p style="font-size: 1.2rem; font-weight: 500;">Custom Scope · Trade Credit</p>
-                    <p style="font-size: 0.9rem; color: #666;">High-Impact Projects</p>
                     <ul>
-                        <li>Full Knowledge Architecture</li>
-                        <li>Family program portals</li>
-                        <li>Workshop visual systems</li>
-                        <li>Brand positioning strategy</li>
+                        <li><strong>GEO Strategy:</strong> AI Search Authority positioning (Perplexity/ChatGPT).</li>
+                        <li><strong>Agentic Workflows:</strong> Automating repetitive practice operations.</li>
+                        <li><strong>Knowledge Architecture:</strong> Scalable digital program portals.</li>
                     </ul>
                 </div>
 
@@ -184,32 +203,28 @@
         </div>
     </section>
 
-    <!-- The Exchange -->
+    <!-- The Trade Agreement -->
     <section class="bg-slate section-padding">
         <div class="container">
             <h2>The Trade</h2>
-            <div class="exchange-grid">
-                <div class="exchange-col">
-                    <h3>Teloric brings</h3>
-                    <p>AI Strategy + Visual Systems</p>
-                    <p><strong>Value: $150/hr – $3,500+</strong></p>
-                </div>
-                <div class="exchange-col">
-                    <h3>Ashe brings</h3>
-                    <p>Breakthrough Coaching Program</p>
-                    <p><strong>Trade credit at parity</strong></p>
-                </div>
-            </div>
-            <p style="margin-top: 3rem; opacity: 0.8;">I'm excited to see what we can build together. Let me know what you think!</p>
+            <p style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif; margin-bottom: 2rem;">
+                I’d like to value this exchange at a straight trade: my <strong>Practice Architecture package ($3,500)</strong> for the <strong>Breakthrough Coaching Program ($3,500)</strong>. 
+            </p>
+            <p style="opacity: 0.8;">
+                It’s a clean, professional swap that honors the work on both sides. Anything beyond that we can handle as an hourly or à la carte add-on.
+            </p>
+            <p style="margin-top: 3rem; font-style: italic;">
+                I'm excited to see what we can build together. Let me know what you think!
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-charcoal" style="padding: 4rem 0; text-align: center;">
+    <footer class="bg-charcoal" style="padding: 4rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
-            <p style="font-family: 'Cormorant Garamond'; font-size: 1.5rem; letter-spacing: 0.1em;">TELORIC</p>
-            <p style="opacity: 0.6;">Systems Aligned to Purpose</p>
-            <a href="mailto:micailajanevaughn@gmail.com" class="contact-link" style="color: white;">micailajanevaughn@gmail.com</a>
+            <p style="font-family: 'Cormorant Garamond'; font-size: 1.5rem; letter-spacing: 0.15em; margin-bottom: 0.5rem;">TELORIC</p>
+            <p style="font-size: 0.9rem; opacity: 0.5; margin-bottom: 2rem;">Systems Aligned to Purpose</p>
+            <a href="mailto:micailajanevaughn@gmail.com" class="contact-link" style="color: white; font-size: 0.9rem;">micailajanevaughn@gmail.com</a>
         </div>
     </footer>
 

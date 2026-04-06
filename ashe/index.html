@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teloric × Ashe Owen - A Trade Proposal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -80,24 +80,6 @@
         .bg-slate { background-color: var(--slate); color: var(--white); }
         .bg-slate h2, .bg-slate p { color: var(--white); }
         .text-bronze { color: var(--bronze); }
-
-        /* Teloric Symbol */
-        .teloric-symbol {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            margin: 0 auto 2.5rem auto;
-        }
-
-        .teloric-symbol .line {
-            background-color: var(--bronze);
-            height: 2px;
-        }
-
-        .teloric-symbol .line-1 { width: 44px; }
-        .teloric-symbol .line-2 { width: 14px; }
-        .teloric-symbol .line-3 { width: 14px; }
 
         /* Hero */
         .hero {
@@ -246,153 +228,298 @@
             border-right: none;
         }
 
-        .phase-number {
-            display: block;
-            font-size: 0.9rem;
+        .phase:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--white);
             color: var(--bronze);
-            margin-bottom: 0.5rem;
             font-family: 'Inter', sans-serif;
-            font-weight: 500;
+            z-index: 10;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* Responsive */
+        blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            text-align: center;
+            margin: 4rem auto 2rem;
+            max-width: 700px;
+            color: var(--bronze);
+            line-height: 1.4;
+        }
+
+        /* Next Steps */
+        .contact-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--bronze);
+            padding-bottom: 0.3rem;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--bronze);
+            border-bottom-color: var(--charcoal);
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             h2 { font-size: 1.8rem; }
-            .section-padding { padding: 4rem 0; }
             .exchange-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .exchange-grid { border-top: none; padding-top: 0; }
+            .exchange-col:first-child { padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
             .diagram { flex-direction: column; }
             .phase { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
-            .phase:last-child { border-bottom: none; }
+            .phase:not(:last-child)::after {
+                content: "↓";
+                right: 50%;
+                bottom: -12px;
+                top: auto;
+                transform: translateX(50%);
+            }
         }
     </style>
-</head>
-<body>
+
+
 
     <!-- Hero Section -->
     <section class="hero bg-charcoal">
-        <div class="teloric-symbol">
-            <div class="line line-1"></div>
-            <div class="line line-2"></div>
-            <div class="line line-3"></div>
-        </div>
-        <h1>TELORIC × ASHE OWEN</h1>
-        <h2>A Trade Proposal</h2>
-        <p>Systems aligned to purpose</p>
-    </section>
-
-    <!-- Context Section -->
-    <section class="section-padding bg-alabaster">
-        <div class="container">
-            <h2>The Context</h2>
-            <div class="divider"></div>
-            <p>After one call, I built a <strong>Visual Map</strong> of your family's dynamics—clear enough that your wife committed to the program on the spot.</p>
-            <p>That map wasn't just a diagram. It was a <strong>translation layer</strong> between what you see in your head and what your clients can act on.</p>
-            <p>You do this work brilliantly. But right now, your outward-facing systems don't match the depth of what you deliver. That's the gap I close.</p>
+        <div class="fade-in">
+            <h1>TELORIC × ASHE OWEN</h1>
+            <h2>A Trade Proposal</h2>
+            <div class="divider divider-center"></div>
+            <p>Taking what's in your head and making it visible for clients</p>
         </div>
     </section>
 
-    <!-- The Trade Section -->
-    <section class="section-padding bg-white">
-        <div class="container">
-            <h2>The Trade</h2>
+    <!-- What This Is -->
+    <section class="bg-alabaster section-padding">
+        <div class="container fade-in">
+            <h2>What This Is</h2>
             <div class="divider"></div>
-            <p>I'm enrolled in your 12-week family program at $3,500 for my portion. Instead of paying cash, I'd like to trade my systems work for that credit.</p>
-            <p>Here's what that could look like:</p>
+            <p><strong>Micaila Vaughn of Teloric</strong> can help translate your methodology into visual, client-facing systems — <strong>offered as a trade toward Micaila's portion of the Breakthrough Coaching Program</strong>.</p>
+            <p>What you get: AI strategy, systems thinking, and visual architecture that turns complex methodology into tangible tools. (This work is hard for anyone to do for themselves — outside perspective helps.)</p>
+            <p><strong>Three flexible options.</strong> You choose what fits. Everything accrues as trade credit.</p>
+        </div>
+    </section>
 
+    <!-- The Gap -->
+    <section class="bg-white section-padding">
+        <div class="container fade-in">
+            <h2 class="text-bronze">The Gap</h2>
+            <p style="font-size: 1.4rem; font-family: 'Cormorant Garamond', serif; color: var(--charcoal); margin: 2rem 0; line-height: 1.5;">
+                The work you do creates real, measurable change. People's behavior shifts. What you've built works.
+            </p>
+            <div class="divider" style="width: 50px;"></div>
+            <p>Your outward digital presence hasn't caught up yet. The gap between what happens in your sessions and how it lands before someone meets you — that's creating friction.</p>
+            <p>You don't treat the presenting symptom. You find the root cause. Same approach here.</p>
+        </div>
+    </section>
+
+    <!-- What I Already Built -->
+    <section class="bg-sand section-padding">
+        <div class="container fade-in">
+            <h2>What I Already Built (From One 90-Minute Call)</h2>
+            <div class="divider"></div>
+            <p><strong>The visual map of your three-phase program.</strong></p>
+            
+            <div class="diagram">
+                <div class="phase">
+                    <strong>Phase 1</strong><br>
+                    <span style="font-size: 0.9rem; font-family: 'Inter', sans-serif; color: #666; margin-top: 0.5rem; display: block;">Foundation</span>
+                </div>
+                <div class="phase">
+                    <strong>Phase 2</strong><br>
+                    <span style="font-size: 0.9rem; font-family: 'Inter', sans-serif; color: #666; margin-top: 0.5rem; display: block;">Stabilize</span>
+                </div>
+                <div class="phase">
+                    <strong>Phase 3</strong><br>
+                    <span style="font-size: 0.9rem; font-family: 'Inter', sans-serif; color: #666; margin-top: 0.5rem; display: block;">Rebuild</span>
+                </div>
+            </div>
+
+            <blockquote>
+                "My mom and Jordan didn't understand the scope until I made it visual. That document changed the conversation. They booked sessions."
+            </blockquote>
+            
+            <p style="text-align: center; margin-top: 2rem;">Built from a single transcript in under an hour. That's baseline output.</p>
+        </div>
+    </section>
+
+    <!-- The Three Options -->
+    <section class="bg-white section-padding">
+        <div class="container fade-in">
+            <h2>The Three Options</h2>
+            <div class="divider"></div>
+            
             <div class="options-grid">
-                <!-- Free Discovery -->
-                <div class="card card-small">
-                    <h3 class="text-bronze">Start Here: Free 30-Minute Discovery</h3>
-                    <p>We'll map one piece of your practice—no commitment, just clarity.</p>
+                
+                <!-- First Session Free -->
+                <div class="card-small">
+                    <h3 style="margin-bottom: 0.5rem;">First Session: Free (30 min)</h3>
+                    <p style="margin: 0; color: #666;">Discovery call • Identify one gap • No commitment required</p>
                 </div>
 
                 <!-- Option 1: Hourly -->
                 <div class="card">
-                    <h3 class="text-bronze">Option 1: Hourly</h3>
-                    <p><strong>$150/hour</strong> · Trade credit applied</p>
+                    <h3 style="color: var(--bronze); margin-bottom: 0.5rem;">Option 1: Hourly Work</h3>
+                    <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem;">$150/hour · Trade Credit</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 1.5rem;">On Demand</p>
+                    <p style="font-size: 0.95rem;">Work on specific needs as they surface. Flexible, focused, immediate return.</p>
                     <ul>
-                        <li>GEO strategy (get AI to cite you as the authority)</li>
-                        <li>Lead magnet design (quiz, guide, or assessment)</li>
-                        <li>Email sequence architecture</li>
-                        <li>Website clarity audit</li>
-                        <li>Offer structure refinement</li>
+                        <li>Visual proposal template for new clients</li>
+                        <li>AI-informed intake questionnaire (NLP-based)</li>
+                        <li>Client onboarding kit or welcome sequence</li>
+                        <li>Condensing/improving large docs (like your 400-page MER book)</li>
+                        <li>Booking clarity + calendar integration</li>
+                        <li>Any specific gap that needs closing</li>
                     </ul>
+                    <p style="font-style: italic; font-size: 0.85rem; color: #888; margin-top: auto; padding-top: 1rem;">Best for: Quick wins, targeted enhancements</p>
                 </div>
 
                 <!-- Option 2: Practice Architecture -->
                 <div class="card">
-                    <h3 class="text-bronze">Option 2: Practice Architecture</h3>
-                    <p><strong>$1,500 package</strong> · Fully covered by trade</p>
+                    <h3 style="color: var(--bronze); margin-bottom: 0.5rem;">Option 2: Practice Architecture Build</h3>
+                    <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 1.5rem;">$1,500 · Trade Credit</p>
+                    <p style="font-size: 0.95rem;">The focused package. I go through your Breakthrough Program as a client (which I'm doing anyway). While inside, I observe as a systems architect.</p>
                     <ul>
-                        <li>Deep-dive session on your methodology</li>
-                        <li>Visual map of your process (like I did for your family)</li>
-                        <li>Client-facing language system</li>
-                        <li>Positioning strategy</li>
-                        <li>Implementation roadmap</li>
+                        <li>Complete visual client journey (all three phases)</li>
+                        <li>AI-powered intake + onboarding system</li>
+                        <li>Discovery funnel (replacing "Book Now")</li>
+                        <li>Brand decoupling or clarity (coaching vs. clinic)</li>
+                        <li>SEO/GEO search optimization</li>
+                        <li>Client-facing process maps</li>
+                        <li>NLP-informed messaging across touchpoints</li>
                     </ul>
+                    <p style="font-style: italic; font-size: 0.85rem; color: #888; margin-top: auto; padding-top: 1rem;">Best for: Full system realignment</p>
                 </div>
 
                 <!-- Option 3: À La Carte -->
                 <div class="card">
-                    <h3 class="text-bronze">Option 3: À La Carte</h3>
-                    <p><strong>Mix and match</strong> · Use credit as needed</p>
+                    <h3 style="color: var(--bronze); margin-bottom: 0.5rem;">Option 3: À La Carte / Breakthrough</h3>
+                    <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 1.5rem;">Custom Scope · Trade Credit</p>
+                    <p style="font-size: 0.95rem;">Pick specific areas or projects. Build what you need, when you need it.</p>
                     <ul>
-                        <li>One-off projects</li>
-                        <li>Breakthrough sessions</li>
-                        <li>Rapid prototyping</li>
-                        <li>Strategic consulting</li>
+                        <li>Brand positioning + messaging</li>
+                        <li>Knowledge architecture (400-page book → searchable content)</li>
+                        <li>AI search authority (GEO strategy)</li>
+                        <li>Pricing clarity + value communication</li>
+                        <li>Family program portal (scalable beyond 1:1)</li>
+                        <li>Workshop materials + visuals</li>
+                        <li>Custom scope based on your priorities</li>
                     </ul>
+                    <p style="font-style: italic; font-size: 0.85rem; color: #888; margin-top: auto; padding-top: 1rem;">Best for: Targeted, high-impact projects</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- How This Works Section -->
-    <section class="section-padding bg-slate">
-        <div class="container">
-            <h2>How This Works</h2>
+    <!-- The Exchange -->
+    <section class="bg-slate section-padding">
+        <div class="container fade-in">
+            <h2>The Exchange</h2>
             <div class="divider"></div>
+            <p style="font-size: 1.1rem; margin-bottom: 3rem;">A straightforward trade.</p>
             
             <div class="exchange-grid">
                 <div class="exchange-col">
-                    <h3>You Provide</h3>
-                    <p>12 weeks of family coaching, MER sessions, and the behavioral frameworks that create lasting change.</p>
+                    <h3>Teloric brings</h3>
+                    <p>AI Strategy + Visual Systems</p>
+                    <p>$150/hr – $1,500+ (depending on option)</p>
+                    <p>Time, strategy, deliverables</p>
                 </div>
                 <div class="exchange-col">
-                    <h3>I Provide</h3>
-                    <p>Systems work worth $3,500—whether that's hourly, a full architecture package, or a custom combination.</p>
+                    <h3>Ashe brings</h3>
+                    <p>Breakthrough Coaching Program</p>
+                    <p>Trade credit toward Micaila's portion</p>
+                    <p>Flexible payment structure</p>
                 </div>
             </div>
-
-            <div class="diagram">
-                <div class="phase">
-                    <span class="phase-number">Phase 1</span>
-                    Discovery
-                </div>
-                <div class="phase">
-                    <span class="phase-number">Phase 2</span>
-                    Architecture
-                </div>
-                <div class="phase">
-                    <span class="phase-number">Phase 3</span>
-                    Implementation
-                </div>
-            </div>
+            
+            <p style="margin-top: 3rem; font-size: 1.05rem;">Straightforward trade. Both sides valued at parity. <strong>The only requirement: willingness to look.</strong> Same methodology. Different medium.</p>
         </div>
     </section>
 
-    <!-- Closing Section -->
-    <section class="section-padding bg-alabaster">
-        <div class="container" style="max-width: 700px; text-align: center;">
-            <h2>Let's Build This Together</h2>
+    <!-- What You Calibrate On -->
+    <section class="bg-alabaster section-padding">
+        <div class="container fade-in">
+            <h2>What You Calibrate On</h2>
+            <div class="divider"></div>
+            <p style="font-size: 1.2rem; font-family: 'Cormorant Garamond', serif;">Behavioral change. Not what clients report feeling — how they actually move.</p>
+            <p>This proposal was built the same way. Not a pitch. <strong>A demonstration.</strong></p>
+            <p>The family map wasn't hypothetical. It was real, functional, and it worked. Built from one conversation. Changed how my family understood your program. Got them to commit.</p>
+            <p>Your first session with me contained linguistic patterns — metaphors, reframes, language that built rapport. That can be extracted and embedded into every client touchpoint. Not taught to you. <strong>Built into the system for you.</strong></p>
+        </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="bg-white section-padding">
+        <div class="container fade-in" style="text-align: center;">
+            <h2 class="text-bronze">Next Steps</h2>
             <div class="divider divider-center"></div>
-            <p>You've already helped my family see what we couldn't see on our own. Now I'd like to do the same for your practice.</p>
-            <p>This isn't about fixing what's broken—it's about building the translation layer between your mastery and the people who need it.</p>
-            <p style="margin-top: 3rem; font-style: italic; color: var(--bronze);">Looking forward to the journey ahead.</p>
-            <p style="margin-top: 1rem;"><strong>— Micaila Jane</strong><br>Teloric</p>
+            <p style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif; font-style: italic; margin: 2rem auto;">This is just a starting point.</p>
+            <p style="max-width: 600px; margin: 0 auto;">I'm looking forward to hearing your thoughts — what resonates, what doesn't, what might work for your practice.</p>
+            <p style="max-width: 600px; margin: 1.5rem auto 0;">First session is free (30 min). We identify one gap together. You decide if it's worth continuing from there.</p>
+            <p style="font-size: 1.1rem; margin-top: 2rem;"><strong>I'm excited to get started on this journey with you and my family.</strong></p>
+            <a href="mailto:micailajanevaughn@gmail.com" class="contact-link">micailajanevaughn@gmail.com</a>
         </div>
     </section>
 
-</body>
-</html>
+    <!-- Footer -->
+    <section class="bg-charcoal" style="padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; letter-spacing: 0.1em; margin-bottom: 0.5rem;">TELORIC</p>
+            <p style="font-size: 0.9rem; opacity: 0.6; margin: 0;">Systems Aligned to Purpose</p>
+            <p style="font-size: 0.75rem; opacity: 0.4; margin-top: 0.5rem; font-style: italic;">From TELEIOS · Greek · Brought to completion · Wanting nothing necessary</p>
+        </div>
+    </section>
+
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+

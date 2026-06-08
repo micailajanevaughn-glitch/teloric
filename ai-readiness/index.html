@@ -144,13 +144,6 @@
 </head>
 <body>
 
-<!-- Netlify form registration (detected at build; hidden from users). Swap to Formspree by changing the fetch target in submitToTeloric(). -->
-<form name="ai-readiness" data-netlify="true" netlify-honeypot="bot-field" hidden>
-  <input type="text" name="company"><input type="text" name="completed_by"><input type="email" name="email"><input type="text" name="role">
-  <input type="text" name="completion_pct"><input type="text" name="in_place"><input type="text" name="needs_work"><input type="text" name="not_applicable">
-  <textarea name="results"></textarea><input name="bot-field">
-</form>
-
 <div class="wrap">
 
   <header>
@@ -418,12 +411,13 @@ function val(id){return document.getElementById(id).value.trim()||"(not given)";
 function submitToTeloric(){
   const note=document.getElementById('sendNote'); const g=gather();
   const pct=Math.round(g.assessed/g.total*100);
-  const payload={"form-name":"ai-readiness",
+  const payload={
+    _subject:"AI Readiness Checklist — "+val('f_company'),
     company:val('f_company'), completed_by:val('f_by'), email:val('f_email'), role:val('f_role'),
     completion_pct:pct+"%", in_place:String(g.in_place), needs_work:String(g.needs_work),
     not_applicable:String(g.not_applicable), results:g.results};
   note.textContent="Sending\u2026";
-  fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:encode(payload)})
+  fetch("https://formspree.io/f/xdapznaj",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded","Accept":"application/json"},body:encode(payload)})
     .then(r=>{ if(!r.ok) throw new Error(); document.getElementById('sendForm').style.display="none"; document.getElementById('sentMsg').classList.add('show'); window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}); })
     .catch(()=>{ note.textContent="We couldn't reach Teloric just now — please use \u201cDownload a copy\u201d and email it to micaila@teloric.com."; });
 }

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teloric AI Readiness — Copilot Guardrails Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --alabaster:#F7F5F2; --warm-cream:#EFECE6; --charcoal:#1C1C1C; --deep:#121212;
+    --bronze:#9A7B4F; --bronze-dim:rgba(154,123,79,.12); --bronze-line:rgba(154,123,79,.28);
+    --slate:#5A5A5A; --slate-dim:rgba(90,90,90,.14);
+    --green:#3F6B4C; --green-bg:rgba(63,107,76,.10);
+    --amber:#A6692A; --amber-bg:rgba(166,105,42,.10);
+    --grey:#7C7C7C; --grey-bg:rgba(124,124,124,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--alabaster);color:var(--charcoal);font-family:'Inter',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+  .wrap{max-width:980px;margin:0 auto;padding:0 28px 120px}
+
+  /* HEADER */
+  header{padding:56px 0 36px;border-bottom:1px solid var(--bronze-line)}
+  .eyebrow{font-size:9px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze);margin-bottom:18px}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,5vw,56px);line-height:1.05;letter-spacing:.01em;margin-bottom:20px}
+  h1 em{font-style:italic;color:var(--bronze)}
+  .intro{font-size:15px;color:var(--slate);max-width:680px;line-height:1.85}
+  .intro strong{color:var(--charcoal);font-weight:500}
+
+  /* PROGRESS DOCK */
+  .dock{position:sticky;top:0;z-index:50;background:rgba(247,245,242,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--bronze-line);margin:0 -28px 0;padding:14px 28px}
+  .dock-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+  .bar-shell{flex:1;min-width:200px;height:6px;background:var(--slate-dim);border-radius:99px;overflow:hidden}
+  .bar-fill{height:100%;width:0;background:var(--bronze);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+  .bar-meta{font-size:11px;letter-spacing:.06em;color:var(--slate);white-space:nowrap}
+  .bar-meta b{color:var(--charcoal);font-weight:600}
+
+  /* LEGEND + FILTERS */
+  .controls{padding:28px 0 8px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+  .filter-group{display:flex;flex-direction:column;gap:8px}
+  .filter-label{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);font-weight:500}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{font-size:11px;letter-spacing:.04em;padding:6px 14px;border:1px solid var(--bronze-line);background:transparent;color:var(--slate);cursor:pointer;border-radius:99px;font-family:'Inter',sans-serif;transition:all .2s ease}
+  .chip:hover{border-color:var(--bronze)}
+  .chip.on{background:var(--charcoal);color:var(--alabaster);border-color:var(--charcoal)}
+
+  .actions{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
+  .btn{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:11px 18px;border:1px solid var(--charcoal);background:transparent;color:var(--charcoal);cursor:pointer;font-family:'Inter',sans-serif;transition:all .25s ease}
+  .btn:hover{background:var(--charcoal);color:var(--alabaster)}
+  .btn.solid{background:var(--charcoal);color:var(--alabaster)}
+  .btn.solid:hover{background:var(--bronze);border-color:var(--bronze)}
+
+  /* SESSION CALLOUT */
+  .callout{margin:24px 0 8px;border-left:2px solid var(--bronze);background:var(--warm-cream);padding:22px 28px}
+  .callout p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,22px);color:var(--charcoal);line-height:1.4}
+
+  /* HOW TO USE */
+  details.howto{margin:18px 0 8px;border:1px solid var(--bronze-line);background:#faf9f6}
+  details.howto summary{cursor:pointer;list-style:none;padding:18px 24px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);font-weight:500;display:flex;justify-content:space-between;align-items:center}
+  details.howto summary::-webkit-details-marker{display:none}
+  details.howto summary::after{content:'+';font-size:18px;color:var(--bronze)}
+  details.howto[open] summary::after{content:'–'}
+  .howto-body{padding:0 24px 24px}
+  .howto-body ul{list-style:none}
+  .howto-body li{font-size:13px;color:var(--slate);line-height:1.75;padding:8px 0 8px 20px;position:relative;border-top:1px solid var(--slate-dim)}
+  .howto-body li:first-child{border-top:none}
+  .howto-body li::before{content:'—';position:absolute;left:0;color:var(--bronze)}
+  .howto-body li b{color:var(--charcoal);font-weight:500}
+
+  /* SECTIONS */
+  .section{margin-top:52px}
+  .section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+  .section-num{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--bronze);opacity:.4;line-height:1}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,32px);font-weight:400}
+  .section-purpose{font-size:13px;color:var(--slate);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:17px;margin-bottom:24px;padding-left:50px}
+  .section-count{margin-left:auto;font-size:10px;letter-spacing:.08em;color:var(--slate);align-self:center}
+
+  /* ITEMS */
+  .item{border:1px solid var(--slate-dim);background:#fff;margin-bottom:10px;padding:20px 24px;transition:border-color .25s ease,opacity .25s ease}
+  .item:hover{border-color:var(--bronze-line)}
+  .item.done{border-left:2px solid var(--green)}
+  .item.needs{border-left:2px solid var(--amber)}
+  .item.na{opacity:.5}
+  .item-top{display:flex;gap:16px;align-items:flex-start}
+  .item-text{flex:1;font-size:14px;color:var(--charcoal);line-height:1.6}
+  .item-text .reflink{display:inline-block;font-size:11px;letter-spacing:.04em;color:var(--bronze);margin-top:7px;text-decoration:none;border-bottom:1px solid var(--bronze-line);padding-bottom:1px;transition:border-color .2s ease}
+  .item-text .reflink:hover{border-color:var(--bronze)}
+  .owner{flex-shrink:0;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:4px 9px;border-radius:3px;white-space:nowrap}
+  .owner.it{background:var(--bronze-dim);color:var(--bronze)}
+  .owner.business{background:var(--slate-dim);color:var(--slate)}
+  .owner.shared{background:rgba(28,28,28,.07);color:var(--charcoal)}
+
+  .states{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap}
+  .state{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;padding:7px 13px;border:1px solid var(--slate-dim);background:transparent;color:var(--slate);cursor:pointer;font-family:'Inter',sans-serif;transition:all .18s ease}
+  .state:hover{border-color:var(--slate)}
+  .state.sel-done{background:var(--green-bg);border-color:var(--green);color:var(--green)}
+  .state.sel-needs{background:var(--amber-bg);border-color:var(--amber);color:var(--amber)}
+  .state.sel-na{background:var(--grey-bg);border-color:var(--grey);color:var(--grey)}
+  .note-btn{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--bronze);background:none;border:none;cursor:pointer;padding:7px 4px;font-family:'Inter',sans-serif;margin-left:auto}
+  .note-area{width:100%;margin-top:12px;border:1px solid var(--slate-dim);background:var(--alabaster);padding:10px 12px;font-family:'Inter',sans-serif;font-size:13px;color:var(--charcoal);resize:vertical;min-height:60px;display:none}
+  .note-area.open{display:block}
+
+  /* SEND PANEL */
+  .send{margin-top:56px;border:1px solid var(--bronze-line);background:var(--warm-cream);padding:36px 32px}
+  .send h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;margin-bottom:6px}
+  .send p.sub{font-size:13px;color:var(--slate);margin-bottom:24px;max-width:580px;line-height:1.7}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+  .field label{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);font-weight:500;margin-bottom:6px}
+  .field input{width:100%;border:1px solid var(--slate-dim);background:#fff;padding:11px 13px;font-family:'Inter',sans-serif;font-size:14px;color:var(--charcoal)}
+  .field input:focus{outline:none;border-color:var(--bronze)}
+  .send .btn{margin-right:8px}
+  .send-note{font-size:11px;color:var(--slate);margin-top:16px;line-height:1.6;max-width:560px}
+  .sent{display:none;text-align:center;padding:24px 0}
+  .sent.show{display:block}
+  .sent .mark{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--bronze);font-style:italic;line-height:1}
+  .sent p{font-size:14px;color:var(--charcoal);margin-top:10px}
+  @media(max-width:640px){.fields{grid-template-columns:1fr}}
+
+  footer{margin-top:64px;padding-top:28px;border-top:1px solid var(--bronze-line);font-size:11px;letter-spacing:.06em;color:var(--slate);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  footer a{color:var(--bronze);text-decoration:none}
+
+  .hidden{display:none!important}
+
+  /* PRINT */
+  @media print{
+    .dock,.controls,.note-btn,.send,details.howto summary::after{display:none!important}
+    body{background:#fff}
+    .item{break-inside:avoid;border:1px solid #ccc}
+    .states{gap:4px}
+    .state{display:none}
+    .state.sel-done,.state.sel-needs,.state.sel-na{display:inline-block}
+    .note-area{display:block!important;border:none;background:none;padding:0;min-height:0}
+    .note-area:empty{display:none!important}
+    details.howto{border:none}
+    details.howto[open] .howto-body{padding-left:0}
+    .wrap{padding-bottom:20px}
+  }
+  @media(max-width:640px){
+    .controls{flex-direction:column}
+    .item-top{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<!-- Netlify form registration (detected at build; hidden from users). Swap to Formspree by changing the fetch target in submitToTeloric(). -->
+<form name="ai-readiness" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="company"><input type="text" name="completed_by"><input type="email" name="email"><input type="text" name="role">
+  <input type="text" name="completion_pct"><input type="text" name="in_place"><input type="text" name="needs_work"><input type="text" name="not_applicable">
+  <textarea name="results"></textarea><input name="bot-field">
+</form>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Microsoft 365 Copilot · Pre-Pilot Diagnostic</div>
+    <h1>Teloric AI Readiness<br><em>Copilot Guardrails Checklist.</em></h1>
+    <p class="intro">A pre-pilot governance checklist for Microsoft 365 Copilot, designed for <strong>IT and business leaders to complete together</strong> — about ten minutes in one sitting. When you submit your results, they go to Teloric so we can benchmark your readiness and recommend clear next steps.</p>
+  </header>
+
+  <div class="dock">
+    <div class="dock-inner">
+      <div class="bar-shell"><div class="bar-fill" id="bar"></div></div>
+      <div class="bar-meta"><b id="pct">0%</b> assessed · <b id="ip">0</b> in place · <b id="nw">0</b> need work</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p>Have IT and a business lead complete this together and mark anything that needs work before you expand your Copilot pilot.</p>
+  </div>
+
+  <details class="howto">
+    <summary>How to use this checklist</summary>
+    <div class="howto-body">
+      <ul>
+        <li><b>Complete it jointly.</b> Designed for both IT and business leadership. Items are tagged Owner: IT, Business, or Shared so everyone knows who is responsible.</li>
+        <li><b>Start before your pilot.</b> Use this as a pre-pilot readiness check before assigning Copilot licenses beyond a small group. That keeps risk low while you prove value.</li>
+        <li><b>Begin with where data lives.</b> Confirm source-of-truth business data (client lists, line cards, team directory, key policies) lives in SharePoint, not individual OneDrive accounts, so it survives turnover and can be governed centrally.</li>
+        <li><b>Review permissions, then turn on Copilot.</b> Make sure SharePoint/Teams permissions follow a simple Owners / Members / Visitors pattern mapped to real roles. Only then enable Copilot for pilot users.</li>
+        <li><b>Use this as a working document.</b> Mark each item In Place / Needs Work / N/A, capture notes inline, and store the completed checklist in a central governance workspace as an auditable record. Revisit at least quarterly.</li>
+        <li><b>Tie it into your pilot plan.</b> Identify a small set of pilot users and 2–3 workflows each (client follow-up emails, meeting prep, account research), and confirm the data, permissions, and policies behind them are ready before training or rollout.</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="controls">
+    <div style="display:flex;gap:28px;flex-wrap:wrap">
+      <div class="filter-group">
+        <span class="filter-label">Owner</span>
+        <div class="chips" id="ownerChips">
+          <button class="chip on" data-owner="all">All</button>
+          <button class="chip" data-owner="it">IT</button>
+          <button class="chip" data-owner="business">Business</button>
+          <button class="chip" data-owner="shared">Shared</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Status</span>
+        <div class="chips" id="statusChips">
+          <button class="chip on" data-status="all">All</button>
+          <button class="chip" data-status="open">Unassessed</button>
+          <button class="chip" data-status="needs">Needs work</button>
+          <button class="chip" data-status="done">In place</button>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn" onclick="exportState()">Save / Export</button>
+      <button class="btn" onclick="document.getElementById('imp').click()">Import</button>
+      <input type="file" id="imp" accept=".json" class="hidden" onchange="importState(event)">
+      <button class="btn solid" onclick="window.print()">Print / PDF</button>
+    </div>
+  </div>
+
+  <div id="sections"></div>
+
+  <section class="send">
+    <div id="sendForm">
+      <h3>Send results to Teloric</h3>
+      <p class="sub">Complete the checklist, then send the results to Teloric. We'll review your responses and follow up with a short summary and suggested next steps for your Copilot readiness.</p>
+      <div class="fields">
+        <div class="field"><label>Company</label><input id="f_company" type="text" placeholder="Company name"></div>
+        <div class="field"><label>Completed by</label><input id="f_by" type="text" placeholder="Name"></div>
+        <div class="field"><label>Email</label><input id="f_email" type="email" placeholder="you@company.com"></div>
+        <div class="field"><label>Role</label><input id="f_role" type="text" placeholder="IT / Business lead"></div>
+      </div>
+      <button class="btn solid" onclick="submitToTeloric()">Send to Teloric</button>
+      <button class="btn" onclick="exportState()">Download a copy</button>
+      <p class="send-note" id="sendNote">When you click Send, your responses are securely submitted to Teloric, and you'll see a confirmation on this page.</p>
+    </div>
+    <div class="sent" id="sentMsg">
+      <div class="mark">Received.</div>
+      <p>Your readiness assessment is on its way to Teloric. We'll prep the session around it.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Teloric · Systems Aligned to Purpose</span>
+    <span><a href="mailto:micaila@teloric.com">micaila@teloric.com</a> · <a href="https://teloric.com">teloric.com</a></span>
+  </footer>
+</div>
+
+<script>
+const DATA = [
+  {n:"01", title:"Governance & Policy", purpose:"Set the rules and name a human owner before anyone turns Copilot on.", items:[
+    {id:"g1", t:"Write a short AI Use Policy defining acceptable use, prohibited use, and an escalation path.", o:"business"},
+    {id:"g2", t:"Name a specific person accountable for Copilot configuration, oversight, and periodic review.", o:"shared"},
+    {id:"g3", t:"Define what employees may and may not enter into Copilot (e.g., no client financials or regulated data in prompts).", o:"business"},
+    {id:"g4", t:"Document high-risk use cases (HR, legal, financial predictions, customer-facing messaging) and require extra approval.", o:"business"},
+    {id:"g5", t:"Agree on a simple change-management plan for new Copilot features and new-user onboarding.", o:"shared"},
+    {id:"g6", t:"Decide together which workflows are allowed and which are off-limits for the pilot.", o:"shared"},
+  ]},
+  {n:"02", title:"Identity, Permissions & Data Access", purpose:"Copilot inherits each user's existing access — so tightening access is the most important guardrail.", items:[
+    {id:"i1", t:"Enforce MFA and Conditional Access for every identity that will have Copilot.", o:"it"},
+    {id:"i2", t:"Apply least-privilege access across Teams, SharePoint, OneDrive, and internal repositories.", o:"it", link:{label:"Microsoft Learn: prepare SharePoint access for Copilot", url:"https://learn.microsoft.com/en-us/sharepoint/get-ready-copilot-sharepoint-advanced-management"}},
+    {id:"i3", t:"Disable legacy authentication and require device compliance.", o:"it"},
+    {id:"i4", t:"Audit access control lists on sensitive locations (financial folders, HR records, incident reports).", o:"it"},
+    {id:"i5", t:"Separate administrative accounts from everyday end-user accounts.", o:"it"},
+    {id:"i6", t:"Find and remediate over-permissive sharing — company-wide groups, \u201cAnyone\u201d links, oversized site audiences Copilot could read.", o:"it", link:{label:"Microsoft Learn: reduce SharePoint oversharing", url:"https://learn.microsoft.com/en-us/sharepoint/sharepoint-copilot-best-practices"}},
+    {id:"i7", t:"Confirm source-of-truth data sits in governed SharePoint sites with an Owners / Members / Visitors pattern mapped to real roles.", o:"shared"},
+  ]},
+  {n:"03", title:"Data Protection, Safety & Monitoring", purpose:"Protect sensitive data, keep outputs trustworthy, and watch for misuse.", items:[
+    {id:"d1", t:"Classify and label data with Microsoft Purview sensitivity labels so Copilot respects them.", o:"it", link:{label:"Microsoft Learn: sensitivity labels", url:"https://learn.microsoft.com/en-us/purview/sensitivity-labels"}},
+    {id:"d2", t:"Enable DLP for Copilot so protected data is excluded from grounding and not surfaced in outputs.", o:"it", link:{label:"Microsoft Learn: DLP for Copilot", url:"https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about"}},
+    {id:"d3", t:"Restrict or block Copilot from highly regulated data (PHI, PII, financial statements; HIPAA, PCI, legal-hold content).", o:"shared"},
+    {id:"d4", t:"Review retention and lifecycle policies so Copilot-assisted content meets regulatory requirements.", o:"it"},
+    {id:"d5", t:"Require human review before any Copilot-drafted external, customer, legal, or financial communication is sent.", o:"business"},
+    {id:"d6", t:"Turn on Copilot usage logging and audit; feed activity into monitoring/SOC and watch for unusual prompt behavior.", o:"it"},
+    {id:"d7", t:"Create a short AI incident response plan covering data exposure, harmful output, and misuse.", o:"shared"},
+  ]},
+  {n:"04", title:"Continuous Improvement & Training", purpose:"Keep guardrails current and make sure people use Copilot safely.", items:[
+    {id:"c1", t:"Train staff on safe prompting — what not to share, why outputs must be verified, how to spot hallucinations.", o:"business"},
+    {id:"c2", t:"Add Copilot responsible-use guidance to onboarding for all new hires, technical and non-technical.", o:"business"},
+    {id:"c3", t:"Evaluate any third-party plugin or connector for data handling and security before enabling it.", o:"it"},
+    {id:"c4", t:"Confirm vendors and tools follow a recognized framework (NIST CSF / AI RMF) and data stays in approved storage boundaries.", o:"shared"},
+    {id:"c5", t:"Schedule a quarterly review of usage, access rights, and output accuracy; update policy when Copilot adds capabilities.", o:"shared"},
+    {id:"c6", t:"Track any guardrail exceptions with a named owner and an expiration date.", o:"shared"},
+    {id:"c7", t:"Benchmark productivity gains against risk exposure over time to decide where to expand.", o:"business"},
+  ]},
+];
+
+const OWNER_LABEL = {it:"Owner · IT", business:"Owner · Business", shared:"Owner · Shared"};
+const STORE_KEY = "teloric_guardrails_v1";
+
+// Safe storage: try localStorage, fall back to in-memory (artifact preview blocks storage)
+const mem = {};
+const store = {
+  get(){ try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch(e){ return mem.data || {}; } },
+  set(v){ try { localStorage.setItem(STORE_KEY, JSON.stringify(v)); } catch(e){ mem.data = v; } }
+};
+
+let state = store.get();           // { itemId: {status:'done'|'needs'|'na', note:''} }
+let filterOwner = "all", filterStatus = "all";
+
+function render(){
+  const root = document.getElementById('sections');
+  root.innerHTML = "";
+  DATA.forEach(sec=>{
+    const visibleItems = sec.items.filter(passFilter);
+    const secEl = document.createElement('div');
+    secEl.className = "section";
+    if(visibleItems.length===0) secEl.classList.add('hidden');
+    secEl.innerHTML = `
+      <div class="section-head">
+        <span class="section-num">${sec.n}</span>
+        <span class="section-title">${sec.title}</span>
+        <span class="section-count">${visibleItems.length} of ${sec.items.length} shown</span>
+      </div>
+      <div class="section-purpose">${sec.purpose}</div>`;
+    visibleItems.forEach(it=>{
+      const st = (state[it.id]&&state[it.id].status) || "";
+      const note = (state[it.id]&&state[it.id].note) || "";
+      const item = document.createElement('div');
+      item.className = "item" + (st==="done"?" done":st==="needs"?" needs":st==="na"?" na":"");
+      item.innerHTML = `
+        <div class="item-top">
+          <div class="item-text">${it.t}${it.link?`<a class="reflink" href="${it.link.url}" target="_blank" rel="noopener">${it.link.label} \u2197</a>`:""}</div>
+          <span class="owner ${it.o}">${OWNER_LABEL[it.o].replace('Owner · ','')}</span>
+        </div>
+        <div class="states">
+          <button class="state ${st==='done'?'sel-done':''}" data-s="done">In place</button>
+          <button class="state ${st==='needs'?'sel-needs':''}" data-s="needs">Needs work</button>
+          <button class="state ${st==='na'?'sel-na':''}" data-s="na">N/A</button>
+          <button class="note-btn">${note?"Edit note":"+ Note"}</button>
+        </div>
+        <textarea class="note-area ${note?'open':''}" placeholder="Notes, decisions, owner name, target date\u2026">${note}</textarea>`;
+      item.querySelectorAll('.state').forEach(b=>{
+        b.onclick=()=>{ setStatus(it.id, b.dataset.s); };
+      });
+      const ta = item.querySelector('.note-area');
+      item.querySelector('.note-btn').onclick=()=>{ ta.classList.toggle('open'); if(ta.classList.contains('open')) ta.focus(); };
+      ta.oninput=()=>{ setNote(it.id, ta.value); };
+      secEl.appendChild(item);
+    });
+    root.appendChild(secEl);
+  });
+  updateProgress();
+}
+
+function passFilter(it){
+  if(filterOwner!=="all" && it.o!==filterOwner) return false;
+  const st = (state[it.id]&&state[it.id].status)||"";
+  if(filterStatus==="all") return true;
+  if(filterStatus==="open") return st==="";
+  if(filterStatus==="needs") return st==="needs";
+  if(filterStatus==="done") return st==="done";
+  return true;
+}
+
+function setStatus(id, s){
+  if(!state[id]) state[id]={status:"",note:""};
+  state[id].status = state[id].status===s ? "" : s; // toggle off if re-clicked
+  store.set(state); render();
+}
+function setNote(id, v){
+  if(!state[id]) state[id]={status:"",note:""};
+  state[id].note=v; store.set(state); updateProgress();
+}
+
+function updateProgress(){
+  const all = DATA.flatMap(s=>s.items);
+  const assessed = all.filter(i=>state[i.id]&&state[i.id].status&&state[i.id].status!=="").length;
+  const ip = all.filter(i=>state[i.id]&&state[i.id].status==="done").length;
+  const nw = all.filter(i=>state[i.id]&&state[i.id].status==="needs").length;
+  const pct = Math.round(assessed/all.length*100);
+  document.getElementById('bar').style.width = pct+"%";
+  document.getElementById('pct').textContent = pct+"%";
+  document.getElementById('ip').textContent = ip;
+  document.getElementById('nw').textContent = nw;
+}
+
+// filters
+document.getElementById('ownerChips').onclick=e=>{
+  if(!e.target.dataset.owner) return;
+  filterOwner=e.target.dataset.owner;
+  [...e.currentTarget.children].forEach(c=>c.classList.toggle('on', c===e.target));
+  render();
+};
+document.getElementById('statusChips').onclick=e=>{
+  if(!e.target.dataset.status) return;
+  filterStatus=e.target.dataset.status;
+  [...e.currentTarget.children].forEach(c=>c.classList.toggle('on', c===e.target));
+  render();
+};
+
+// export / import
+function exportState(){
+  const blob=new Blob([JSON.stringify({saved:new Date().toISOString(),state},null,2)],{type:"application/json"});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download="copilot-guardrails-progress.json";
+  a.click();
+}
+function importState(ev){
+  const f=ev.target.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=()=>{ try{ const d=JSON.parse(r.result); state=d.state||d; store.set(state); render(); }catch(e){ alert("Couldn't read that file."); } };
+  r.readAsText(f);
+}
+
+function gather(){
+  const all=DATA.flatMap(s=>s.items);
+  const c=s=>all.filter(i=>state[i.id]&&state[i.id].status===s).length;
+  const lines=[];
+  DATA.forEach(sec=>{
+    lines.push(`\n${sec.n}. ${sec.title.toUpperCase()}`);
+    sec.items.forEach(it=>{
+      const e=state[it.id]||{}; const st=e.status?e.status.toUpperCase():"—";
+      lines.push(`  [${st}] (${it.o}) ${it.t}${e.note?`\n      note: ${e.note}`:""}`);
+    });
+  });
+  return {in_place:c("done"), needs_work:c("needs"), not_applicable:c("na"),
+    assessed:all.filter(i=>state[i.id]&&state[i.id].status).length, total:all.length, results:lines.join("\n")};
+}
+function encode(d){return Object.keys(d).map(k=>encodeURIComponent(k)+"="+encodeURIComponent(d[k])).join("&");}
+function val(id){return document.getElementById(id).value.trim()||"(not given)";}
+function submitToTeloric(){
+  const note=document.getElementById('sendNote'); const g=gather();
+  const pct=Math.round(g.assessed/g.total*100);
+  const payload={"form-name":"ai-readiness",
+    company:val('f_company'), completed_by:val('f_by'), email:val('f_email'), role:val('f_role'),
+    completion_pct:pct+"%", in_place:String(g.in_place), needs_work:String(g.needs_work),
+    not_applicable:String(g.not_applicable), results:g.results};
+  note.textContent="Sending\u2026";
+  fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:encode(payload)})
+    .then(r=>{ if(!r.ok) throw new Error(); document.getElementById('sendForm').style.display="none"; document.getElementById('sentMsg').classList.add('show'); window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}); })
+    .catch(()=>{ note.textContent="We couldn't reach Teloric just now — please use \u201cDownload a copy\u201d and email it to micaila@teloric.com."; });
+}
+
+render();
+</script>
+</body>
+</html>

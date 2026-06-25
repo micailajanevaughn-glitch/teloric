@@ -1,29 +1,29 @@
-# Teloric
+# The Build Board
 
-A live prototype exploring how organizations can preserve context, structure knowledge, and turn scattered work into clearer systems.
+A visual learning system that turns dense assignments into clear, modular action steps.
+
+The Build Board started with one student: a visual thinker who could plan complex builds, but got blocked when schoolwork arrived as dense text, hidden steps, and implied sequencing.
+
+The system translates assignments into visual pieces the student can see, own, and move through one step at a time.
 
 ## Live Site
 
-https://teloric.com/
+[live link — coming soon]
 
 ## What This Demonstrates
 
-- Product thinking
-- Knowledge architecture
-- Systems design
-- Brand and interface direction
-- AI-assisted development workflow
-- GitHub Pages deployment
+- Learning system design
+- Visual information structure
+- Interface thinking
+- Prompt system design
+- AI-assisted building
+- Student-centered product thinking
 
 ## Built By
 
-Micaila Vaughn  
+Micaila Vaughn
 Builder. Systems Thinker. Translator between people and technology.
 
 ## Status
 
 Live prototype. Actively evolving.
-
-## Notes
-
-Teloric is part of a broader body of work focused on finding hidden friction between people, systems, and technology — then building practical tools that make the work easier to understand and use.
